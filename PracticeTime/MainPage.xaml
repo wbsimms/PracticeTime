@@ -23,8 +23,8 @@
             <ColumnDefinition Width=".2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Song Name (or Page)" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"></TextBlock>
-        <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="30" />
-        <Slider x:Name="EntrySlider" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="30" VerticalAlignment="Center" Height="30" TickPlacement="Outside" TickFrequency="5" >
+        <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding Entry,Mode=TwoWay}" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="30" />
+        <Slider x:Name="EntrySlider" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Value="{Binding EntrySlider,Mode=TwoWay}" Margin="30" VerticalAlignment="Center" Height="30" TickPlacement="Outside" TickFrequency="5" StepFrequency="5" >
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" ScaleY="-1"/>
@@ -35,6 +35,6 @@
             </Slider.RenderTransform>
         </Slider>
         <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=EntrySlider,Path=Value,Mode=OneWay }" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"></TextBlock>
-        <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35"></Button>
+        <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Command="{Binding SaveEntryCommand}"></Button>
     </Grid>
 </Page>

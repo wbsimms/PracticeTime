@@ -1,4 +1,8 @@
+using System;
+using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace PracticeTime.ViewModel
 {
@@ -36,6 +40,26 @@ namespace PracticeTime.ViewModel
             }
         }
 
+        public const string EntrySliderPropertyName = "EntrySilder";
+        private string entrySlider;
+
+        public string EntrySlider
+        {
+            get { return entrySlider; }
+
+            set
+            {
+                if (entrySlider == value)
+                {
+                    return;
+                }
+
+                entrySlider = value;
+                RaisePropertyChanged(EntrySliderPropertyName);
+            }
+
+        }
+
 
 
         /// <summary>
@@ -46,7 +70,17 @@ namespace PracticeTime.ViewModel
         public MainViewModel()
         {
 
-            
+        }
+
+        public RelayCommand SaveEntryCommand {
+            get { return new RelayCommand(SaveEntryCommandExecute, () => true); }
+        }
+
+        private void SaveEntryCommandExecute()
+        {
+            string entryToave = this.entry;
+            string entrySliderToSave = this.entrySlider;
+
         }
     }
 }
