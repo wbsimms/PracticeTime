@@ -120,6 +120,12 @@
     <Compile Include="View\AddEntry.xaml.cs">
       <DependentUpon>AddEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeleteEntry.xaml.cs">
+      <DependentUpon>DeleteEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateEntry.xaml.cs">
+      <DependentUpon>UpdateEntry.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -151,6 +157,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AddEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeleteEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
