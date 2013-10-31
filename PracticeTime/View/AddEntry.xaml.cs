@@ -1,4 +1,5 @@
-﻿using PracticeTime.Common;
+﻿using Microsoft.Practices.ServiceLocation;
+using PracticeTime.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,8 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
+using PracticeTime.ViewModel;
 
 namespace PracticeTime.View
 {
@@ -69,6 +70,11 @@ namespace PracticeTime.View
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            if (!ServiceLocator.Current.GetInstance<MainViewModel>().IsSaved)
+            {
+                Popup p = new Popup();
+                p.IsOpen = true;
+            }
         }
 
         #region NavigationHelper registration

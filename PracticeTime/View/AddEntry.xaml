@@ -30,6 +30,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
@@ -39,6 +40,8 @@
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+            <TextBlock x:Name="pageTitleSpecific" Text="Add Entry" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="2" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="30">
@@ -56,7 +59,7 @@
                 <ColumnDefinition Width=".2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" Text="Song Name (or Page)" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"></TextBlock>
-            <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding Entry,Mode=TwoWay}" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="30" />
+            <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding Entry,Mode=TwoWay}" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="26,31,34,29" />
             <Slider x:Name="EntrySlider" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Value="{Binding EntrySlider,Mode=TwoWay}" Margin="30" VerticalAlignment="Center" Height="30" TickPlacement="Outside" TickFrequency="5" StepFrequency="5" >
                 <Slider.RenderTransform>
                     <TransformGroup>

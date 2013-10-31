@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace PracticeTime.ViewModel
 {
@@ -37,12 +38,13 @@ namespace PracticeTime.ViewModel
 
                 entry = value;
                 RaisePropertyChanged(EntryPropertyName);
+                SaveEntryCommand.RaiseCanExecuteChanged();
+                IsSaved = false;
             }
         }
 
         public const string EntrySliderPropertyName = "EntrySilder";
         private string entrySlider;
-
         public string EntrySlider
         {
             get { return entrySlider; }
@@ -57,9 +59,25 @@ namespace PracticeTime.ViewModel
                 entrySlider = value;
                 RaisePropertyChanged(EntrySliderPropertyName);
             }
-
         }
 
+        public const string IsSavedPropertyName = "IsSavedProperty";
+        private bool isSaved = true;
+        public bool IsSaved
+        {
+            get { return isSaved; }
+
+            set
+            {
+                if (isSaved == value)
+                {
+                    return;
+                }
+
+                isSaved = value;
+                RaisePropertyChanged(IsSavedPropertyName);
+            }
+        }
 
 
         /// <summary>
@@ -69,17 +87,31 @@ namespace PracticeTime.ViewModel
         /// 
         public MainViewModel()
         {
-
         }
 
+        private RelayCommand _saveEntryRelayCommand;
         public RelayCommand SaveEntryCommand {
-            get { return new RelayCommand(SaveEntryCommandExecute, () => true); }
+            get
+            {
+                if (_saveEntryRelayCommand == null)
+                {
+                    this._saveEntryRelayCommand = new RelayCommand(SaveEntryCommandExecute,
+                        SaveEntryCommandCanExecute);
+                }
+                return this._saveEntryRelayCommand;
+            }
+        }
+
+        private bool SaveEntryCommandCanExecute()
+        {
+            return !string.IsNullOrEmpty(Entry) && !IsSaved;
         }
 
         private void SaveEntryCommandExecute()
         {
             string entryToave = this.entry;
             string entrySliderToSave = this.entrySlider;
+            IsSaved = true;
 
         }
     }
