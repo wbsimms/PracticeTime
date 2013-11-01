@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PracticeTime.DataAccessLayer.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository">
+            <summary>Shim type of PracticeTime.DataAccessLayer.EventRecordRepository</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.#ctor(PracticeTime.DataAccessLayer.EventRecordRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.Bind(PracticeTime.Common.IDataAccessLayer.IEventRecordRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.Constructor">
+            <summary>Sets the shim of EventRecordRepository.EventRecordRepository()</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.GetAllEventRecords">
+            <summary>Sets the shim of EventRecordRepository.GetAllEventRecords()</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.GetEventRecordInt32">
+            <summary>Sets the shim of EventRecordRepository.GetEventRecord(Int32 id)</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.SaveEventRecordEventRecord">
+            <summary>Sets the shim of EventRecordRepository.SaveEventRecord(EventRecord eventRecord)</summary>
+        </member>
+        <member name="T:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.GetAllEventRecords">
+            <summary>Sets the shim of EventRecordRepository.GetAllEventRecords()</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.GetEventRecordInt32">
+            <summary>Sets the shim of EventRecordRepository.GetEventRecord(Int32 id)</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.SaveEventRecordEventRecord">
+            <summary>Sets the shim of EventRecordRepository.SaveEventRecord(EventRecord eventRecord)</summary>
+        </member>
+        <member name="T:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository">
+            <summary>Stub type of PracticeTime.DataAccessLayer.EventRecordRepository</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubEventRecordRepository</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.DataAccessLayer.Fakes.StubEventRecordRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
