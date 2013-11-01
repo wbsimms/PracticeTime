@@ -24,6 +24,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
@@ -71,9 +72,9 @@
                 </Slider.RenderTransform>
             </Slider>
             <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=EntrySlider,Path=Value,Mode=OneWay }" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"></TextBlock>
-            <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Command="{Binding SaveEntryCommand}"></Button>
+            <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Command="{Binding SaveEntryCommand}" Style="{StaticResource RoundedTextButton}"/>
         </Grid>
-
+        <Rectangle x:Name="rectBackgroundHide" Grid.Row="0" Grid.RowSpan="3" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Left" Height="117" Margin="0,319,0,0" Stroke="Black" VerticalAlignment="Top" Width="117" Visibility="Collapsed" Opacity="0.7"/>
     </Grid>
 
 </Page>

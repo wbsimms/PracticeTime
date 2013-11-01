@@ -120,6 +120,9 @@
     <Compile Include="View\AddEntry.xaml.cs">
       <DependentUpon>AddEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AreYouSurePopup.xaml.cs">
+      <DependentUpon>AreYouSurePopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteEntry.xaml.cs">
       <DependentUpon>DeleteEntry.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AddEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AreYouSurePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

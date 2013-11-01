@@ -46,9 +46,9 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Margin="20,0" x:Name="AddEntry" Content="Add Entry" Click="EntryButtonClick"></Button>
-                    <Button Margin="20,0" x:Name="UpdateEntry" Content="Update" Click="EntryButtonClick"></Button>
-                    <Button Margin="20,0" x:Name="DeleteEntry" Content="Delete Entry" Click="EntryButtonClick"></Button>
+                    <Button Margin="20,0" x:Name="AddEntry" Content="Add Entry" Click="EntryButtonClick" Style="{StaticResource RoundedTextButton}"></Button>
+                    <Button Margin="20,0" x:Name="UpdateEntry" Content="Update" Click="EntryButtonClick" Style="{StaticResource RoundedTextButton}"></Button>
+                    <Button Margin="20,0" x:Name="DeleteEntry" Content="Delete Entry" Click="EntryButtonClick" Style="{StaticResource RoundedTextButton}"></Button>
                 </StackPanel>
             </Grid>
         </Grid>

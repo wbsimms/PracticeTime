@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.ServiceLocation;
+﻿using System.Diagnostics;
+using Windows.UI.Popups;
+using Microsoft.Practices.ServiceLocation;
 using PracticeTime.Common;
 using System;
 using System.Collections.Generic;
@@ -24,7 +26,7 @@ namespace PracticeTime.View
     /// </summary>
     public sealed partial class AddEntry : Page
     {
-
+        private bool OkToGoBack = false;
         private NavigationHelper navigationHelper;
 
         /// <summary>
@@ -43,6 +45,55 @@ namespace PracticeTime.View
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+        }
+
+
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            rectBackgroundHide.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            if (!this.OkToGoBack && !ServiceLocator.Current.GetInstance<MainViewModel>().IsSaved)
+            {
+                OkToGoBack = false;
+                e.Cancel = true;
+                AreYouSurePopup areYouSure = new AreYouSurePopup() {Message = "Continue with out saving?"};
+                Popup p = new Popup();
+                p.Child = areYouSure;
+                areYouSure.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
+
+                double windowWidth = Window.Current.CoreWindow.Bounds.Width;
+                double windowHeight = Window.Current.CoreWindow.Bounds.Height;
+                double popupWidth = areYouSure.DesiredSize.Width;
+                double popupHeight = areYouSure.DesiredSize.Height;
+
+                p.HorizontalOffset = (windowWidth)/2 - popupWidth/2;
+                p.VerticalOffset = windowHeight / 2 - popupHeight / 2;
+                p.HorizontalAlignment = HorizontalAlignment.Center;
+                p.VerticalAlignment = VerticalAlignment.Stretch;
+
+                p.Closed += p_Closed;
+
+                rectBackgroundHide.Height = windowHeight;
+                rectBackgroundHide.Width = windowWidth;
+                rectBackgroundHide.Margin = new Thickness(0, 0, 0, 0);
+
+                //Make sure the background is visible
+                rectBackgroundHide.Visibility = Windows.UI.Xaml.Visibility.Visible;
+
+                p.IsOpen = true;
+
+            }
+        }
+
+        void p_Closed(object sender, object e)
+        {
+            Popup p = sender as Popup;
+            if ((p.Child as AreYouSurePopup).IsOk && navigationHelper.CanGoBack())
+            {
+                OkToGoBack = true;
+                navigationHelper.GoBack();
+            }
+            rectBackgroundHide.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
         /// <summary>
@@ -70,11 +121,6 @@ namespace PracticeTime.View
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            if (!ServiceLocator.Current.GetInstance<MainViewModel>().IsSaved)
-            {
-                Popup p = new Popup();
-                p.IsOpen = true;
-            }
         }
 
         #region NavigationHelper registration
