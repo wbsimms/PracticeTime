@@ -189,6 +189,11 @@
       <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\netcore45\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Syncfusion controls for WinRT XAML, Version=11.3.0.30">
+      <Name>Syncfusion controls for WinRT XAML</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
