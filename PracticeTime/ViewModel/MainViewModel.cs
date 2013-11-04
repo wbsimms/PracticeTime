@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.VisualBasic.CompilerServices;
+using PracticeTime.Common.Models;
 
 namespace PracticeTime.ViewModel
 {
@@ -134,5 +137,30 @@ namespace PracticeTime.ViewModel
             IsSaved = true;
 
         }
+
+        public const string AllEventRecordsPropertyName = "AllEventRecords";
+        private IList<EventRecord> allEntryRecords = new List<EventRecord>()
+        {
+            new EventRecord() { EventName = "Blah1", Id = 1, Time = 100 },
+            new EventRecord() { EventName = "Blah2", Id = 2, Time = 200 } ,
+            new EventRecord() { EventName = "Blah3", Id=3, Time=300}
+        };
+
+        public IList<EventRecord> AllEntryRecords
+        {
+            get { return allEntryRecords; }
+
+            set
+            {
+                if (allEntryRecords.Equals(value))
+                {
+                    return;
+                }
+
+                allEntryRecords = value;
+                RaisePropertyChanged(AllEventRecordsPropertyName);
+            }
+        }
+
     }
 }
