@@ -35,15 +35,15 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-				Style="{StaticResource NavigationBackButtonNormalStyle}"
+            <Button x:Name="backButton" Margin="39,59,35,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+				Style="{StaticResource BackButtonStyle}"
 				VerticalAlignment="Top"
 				AutomationProperties.Name="Back"
 				AutomationProperties.AutomationId="BackButton"
 				AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextStyle}" Grid.Column="1" 
 				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-            <TextBlock x:Name="pageTitleSpecific" Text="Add Entry" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="2" 
+            <TextBlock x:Name="pageTitleSpecific" Text="Add Entry" Style="{StaticResource HeaderTextStyle}" Grid.Column="2" 
 				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="30">
@@ -72,8 +72,14 @@
                     </TransformGroup>
                 </Slider.RenderTransform>
             </Slider>
-            <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Value, ElementName=EntrySlider, Mode=OneWay}" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
-            <Input:SfDatePicker HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Value, ElementName=EntrySlider, Mode=OneWay}" TextAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="0,0,20,0">Date:</TextBlock>
+                <Input:SfDatePicker VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="80,0,20,0">Minutes :</TextBlock>
+                <Input:SfNumericUpDown SpinButtonsAlignment="Both" FormatString="0" Width="200" FontSize="50">
+                </Input:SfNumericUpDown>
+            </StackPanel>
             <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Command="{Binding SaveEntryCommand}" Style="{StaticResource RoundedTextButton}"/>
         </Grid>
         <Rectangle x:Name="rectBackgroundHide" Grid.Row="0" Grid.RowSpan="3" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Left" Height="117" Margin="0,319,0,0" Stroke="Black" VerticalAlignment="Top" Width="117" Visibility="Collapsed" Opacity="0.7"/>
