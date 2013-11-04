@@ -16,9 +16,6 @@
         <member name="F:PracticeTime.Common.IDataAccessLayer.Fakes.StubIEventRecordRepository.GetEventRecordInt32">
             <summary>Sets the stub of IEventRecordRepository.GetEventRecord(Int32 id)</summary>
         </member>
-        <member name="F:PracticeTime.Common.IDataAccessLayer.Fakes.StubIEventRecordRepository.GetOneEventRecordGet">
-            <summary>Sets the stub of IEventRecordRepository.get_GetOneEventRecord()</summary>
-        </member>
         <member name="M:PracticeTime.Common.IDataAccessLayer.Fakes.StubIEventRecordRepository.ptc::PracticeTime#Common#IDataAccessLayer#IEventRecordRepository#GetAllEventRecords">
             <summary>Sets the stub of IEventRecordRepository.GetAllEventRecords()</summary>
         </member>
@@ -30,9 +27,6 @@
         </member>
         <member name="F:PracticeTime.Common.IDataAccessLayer.Fakes.StubIEventRecordRepository.SaveEventRecordEventRecord">
             <summary>Sets the stub of IEventRecordRepository.SaveEventRecord(EventRecord eventRecord)</summary>
-        </member>
-        <member name="P:PracticeTime.Common.IDataAccessLayer.Fakes.StubIEventRecordRepository.ptc::PracticeTime#Common#IDataAccessLayer#IEventRecordRepository#GetOneEventRecord">
-            <summary>Sets the stub of IEventRecordRepository.get_GetOneEventRecord()</summary>
         </member>
         <member name="T:PracticeTime.Common.Models.Fakes.ShimEventRecord">
             <summary>Shim type of PracticeTime.Common.Models.EventRecord</summary>

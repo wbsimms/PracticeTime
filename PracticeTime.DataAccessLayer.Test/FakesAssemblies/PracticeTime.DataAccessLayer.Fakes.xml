@@ -34,9 +34,6 @@
         <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.GetEventRecordInt32">
             <summary>Sets the shim of EventRecordRepository.GetEventRecord(Int32 id)</summary>
         </member>
-        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.GetOneEventRecordGet">
-            <summary>Sets the shim of EventRecordRepository.get_GetOneEventRecord()</summary>
-        </member>
         <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.SaveEventRecordEventRecord">
             <summary>Sets the shim of EventRecordRepository.SaveEventRecord(EventRecord eventRecord)</summary>
         </member>
@@ -48,9 +45,6 @@
         </member>
         <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.GetEventRecordInt32">
             <summary>Sets the shim of EventRecordRepository.GetEventRecord(Int32 id)</summary>
-        </member>
-        <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.GetOneEventRecordGet">
-            <summary>Sets the shim of EventRecordRepository.get_GetOneEventRecord()</summary>
         </member>
         <member name="P:PracticeTime.DataAccessLayer.Fakes.ShimEventRecordRepository.AllInstances.SaveEventRecordEventRecord">
             <summary>Sets the shim of EventRecordRepository.SaveEventRecord(EventRecord eventRecord)</summary>
