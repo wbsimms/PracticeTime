@@ -22,44 +22,64 @@ namespace PracticeTime.ViewModel
     public class MainViewModel : ViewModelBase
     {
 
-        public const string EntryPropertyName = "Entry";
-        private string entry;
+        public const string EntryPropertyName = "EntryTitle";
+        private string entryTitle;
 
-        public string Entry
+        public string EntryTitle
         {
-            get { return entry; }
+            get { return entryTitle; }
 
             set
             {
-                if (entry == value)
+                if (entryTitle == value)
                 {
                     return;
                 }
 
-                entry = value;
+                entryTitle = value;
                 RaisePropertyChanged(EntryPropertyName);
                 SaveEntryCommand.RaiseCanExecuteChanged();
                 IsSaved = false;
             }
         }
 
-        public const string EntrySliderPropertyName = "EntrySilder";
-        private string entrySlider;
+        public const string EntrySliderPropertyName = "EntryDate";
+        private string entryDate;
         public string EntrySlider
         {
-            get { return entrySlider; }
+            get { return entryDate; }
 
             set
             {
-                if (entrySlider == value)
+                if (entryDate == value)
                 {
                     return;
                 }
 
-                entrySlider = value;
+                entryDate = value;
                 RaisePropertyChanged(EntrySliderPropertyName);
             }
         }
+
+        public const string EntryTimePropertyName = "EntryTime";
+        private int entryTime;
+
+        public int EntryTime
+        {
+            get { return entryTime; }
+
+            set
+            {
+                if (entryTime == value)
+                {
+                    return;
+                }
+
+                entryTime = value;
+                RaisePropertyChanged(EntryTimePropertyName);
+            }
+        }
+
 
         public const string IsSavedPropertyName = "IsSavedProperty";
         private bool isSaved = true;
@@ -104,13 +124,13 @@ namespace PracticeTime.ViewModel
 
         private bool SaveEntryCommandCanExecute()
         {
-            return !string.IsNullOrEmpty(Entry) && !IsSaved;
+            return !string.IsNullOrEmpty(EntryTitle) && !IsSaved;
         }
 
         private void SaveEntryCommandExecute()
         {
-            string entryToave = this.entry;
-            string entrySliderToSave = this.entrySlider;
+            string entryToave = this.entryTitle;
+            string entrySliderToSave = this.entryDate;
             IsSaved = true;
 
         }

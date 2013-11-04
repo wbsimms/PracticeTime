@@ -6,10 +6,58 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Input="using:Syncfusion.UI.Xaml.Controls.Input"
+    xmlns:Controls="using:Syncfusion.UI.Xaml.Controls"
     x:Name="pageRoot"
     x:Class="PracticeTime.View.AddEntry"
     mc:Ignorable="d"
-    DataContext="{Binding Main, Source={StaticResource Locator}}">
+    >
+
+    <Page.Resources>
+
+        <Style x:Key="SfNumericUpDownPT" TargetType="Input:SfNumericUpDown">
+            <Setter Property="MinWidth" Value="{StaticResource TextControlThemeMinWidth}"/>
+            <Setter Property="MinHeight" Value="{StaticResource TextControlThemeMinHeight}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBoxForegroundThemeBrush}"/>
+            <Setter Property="Background" Value="{StaticResource TextBoxBackgroundThemeBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderThemeBrush}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource TextControlBorderThemeThickness}"/>
+            <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+            <Setter Property="Padding" Value="{StaticResource TextControlThemePadding}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Input:SfNumericUpDown">
+                        <Grid x:Name="PART_OuterGrid">
+                            <Controls:SfUpDown x:Name="PART_UpDown"  IsTabStop="False"    
+								Style="{Binding UpDownStyle, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+								VerticalContentAlignment="Center" AccentBrush="{Binding AccentBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}" DownCommand="{Binding SpinDownCommand, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" SpinButtonsAlignment="{Binding SpinButtonsAlignment, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" UpCommand="{Binding SpinUpCommand, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                                <Controls:SfUpDown.UpDownContent>
+                                    <Grid>
+                                        <Input:SfNumericTextBox x:Name="PART_Content" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" AllowNull="{Binding AllowNull, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											Culture="{Binding Culture, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+											FormatString="{Binding FormatString, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											MaximumNumberDecimalDigits="{Binding MaximumNumberDecimalDigits, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											ParsingMode="{Binding ParsingMode, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											BlockCharactersOnTextInput="{Binding BlockCharactersOnTextInput, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											TextAlignment="{Binding TextAlignment, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"                                                             
+											Value="{Binding Value, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+											WatermarkTemplate="{Binding WatermarkTemplate, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+											WatermarkTemplateSelector="{Binding WatermarkTemplateSelector, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" FontSize="25"
+											Watermark="{Binding Watermark, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Right" Width="122"/>
+                                    </Grid>
+                                </Controls:SfUpDown.UpDownContent>
+                            </Controls:SfUpDown>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Path="Main" Source="{StaticResource Locator}"/>
+    </Page.DataContext>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -43,7 +91,7 @@
 				AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextStyle}" Grid.Column="1" 
 				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-            <TextBlock x:Name="pageTitleSpecific" Text="Add Entry" Style="{StaticResource HeaderTextStyle}" Grid.Column="2" 
+            <TextBlock x:Name="pageTitleSpecific" Text="Add New Entry" Style="{StaticResource HeaderTextStyle}" Grid.Column="2" 
 				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="30">
@@ -61,23 +109,16 @@
                 <ColumnDefinition Width=".2*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" Text="Song Name (or Page)" TextAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
-            <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding Entry, Mode=TwoWay}" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="26,31,34,29" />
-            <Slider x:Name="EntrySlider" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Value="{Binding EntrySlider, Mode=TwoWay}" Margin="30" VerticalAlignment="Center" Height="30" TickPlacement="Outside" TickFrequency="5" StepFrequency="5" >
-                <Slider.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1" ScaleY="-1"/>
-                        <SkewTransform AngleX="0" AngleY="0"/>
-                        <RotateTransform Angle="179.863"/>
-                        <TranslateTransform X="-0.954" Y="-9.028"/>
-                    </TransformGroup>
-                </Slider.RenderTransform>
-            </Slider>
-            <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Value, ElementName=EntrySlider, Mode=OneWay}" TextAlignment="Center" VerticalAlignment="Center"/>
-            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="0,0,20,0">Date:</TextBlock>
-                <Input:SfDatePicker VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
-                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="80,0,20,0">Minutes :</TextBlock>
-                <Input:SfNumericUpDown SpinButtonsAlignment="Both" FormatString="0" Width="200" FontSize="50">
+            <TextBox x:Name="Entry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding EntryTitle, Mode=TwoWay}" TextAlignment="Center" VerticalAlignment="Center" Height="40" Margin="26,31,34,29" />
+            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="0,0,20,0">
+					<Run Text="Date:"/>
+                </TextBlock>
+                <Input:SfDatePicker VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Value="{Binding EntryDate,Mode=TwoWay}"/>
+                <TextBlock Style="{StaticResource HeaderTextStyle}" Padding="80,0,20,0">
+					<Run Text="Minutes :"/>
+                </TextBlock>
+                <Input:SfNumericUpDown SpinButtonsAlignment="Both" FormatString="0" Width="200" Style="{StaticResource SfNumericUpDownPT}" Value="{Binding EntryTime,Mode=TwoWay}">
                 </Input:SfNumericUpDown>
             </StackPanel>
             <Button x:Name="Submit" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Content="Save" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Command="{Binding SaveEntryCommand}" Style="{StaticResource RoundedTextButton}"/>
