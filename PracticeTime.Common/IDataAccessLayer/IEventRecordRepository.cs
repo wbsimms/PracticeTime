@@ -13,8 +13,5 @@ namespace PracticeTime.Common.IDataAccessLayer
         void SaveEventRecord(EventRecord eventRecord);
         List<EventRecord> GetAllEventRecords();
         EventRecord GetEventRecord(int id);
-
-        EventRecord GetOneEventRecord { get;}
-
     }
 }

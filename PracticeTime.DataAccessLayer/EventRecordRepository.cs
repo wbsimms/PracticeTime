@@ -23,9 +23,5 @@ namespace PracticeTime.DataAccessLayer
         {
             return null;
         }
-
-        public EventRecord GetOneEventRecord {
-            get { return null; }
-        }
     }
 }
