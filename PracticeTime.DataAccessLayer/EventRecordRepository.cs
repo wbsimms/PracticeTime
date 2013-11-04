@@ -12,17 +12,20 @@ namespace PracticeTime.DataAccessLayer
     {
         public void SaveEventRecord(EventRecord eventRecord)
         {
-            throw new NotImplementedException();
         }
 
         public List<EventRecord> GetAllEventRecords()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public EventRecord GetEventRecord(int id)
         {
-            throw new NotImplementedException();
+            return null;
+        }
+
+        public EventRecord GetOneEventRecord {
+            get { return null; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,5 +13,8 @@ namespace PracticeTime.Common.IDataAccessLayer
         void SaveEventRecord(EventRecord eventRecord);
         List<EventRecord> GetAllEventRecords();
         EventRecord GetEventRecord(int id);
+
+        EventRecord GetOneEventRecord { get;}
+
     }
 }
