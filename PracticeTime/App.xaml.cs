@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,8 +17,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
+using Microsoft.Practices.ServiceLocation;
+using PracticeTime.Common.Models;
+using PracticeTime.ViewModel;
 
 namespace PracticeTime
 {
@@ -23,6 +29,7 @@ namespace PracticeTime
     /// </summary>
     sealed partial class App : Application
     {
+        private static string OUTPUTFILE = "PracticeTimeData.xml";
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -53,6 +60,7 @@ namespace PracticeTime
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
+                    LoadData();
                 }
 
                 // Place the frame in the current Window
@@ -84,7 +92,57 @@ namespace PracticeTime
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            SaveDataAsync();
             deferral.Complete();
         }
+
+        public async void LoadData()
+        {
+            MainViewModel mainViewModel = ServiceLocator.Current.GetInstance<MainViewModel>();
+
+            IReadOnlyList<StorageFile> files = await ApplicationData.Current.LocalFolder.GetFilesAsync();
+
+            StorageFile sessionFile;
+            if (files.All(f => f.Name != OUTPUTFILE))
+            {
+                await ApplicationData.Current.LocalFolder.CreateFileAsync(OUTPUTFILE);
+            }
+
+
+            sessionFile = await ApplicationData.Current.LocalFolder.GetFileAsync(OUTPUTFILE);
+            IRandomAccessStream sessionRandomAccess = await sessionFile.OpenAsync(FileAccessMode.Read);
+            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<EventRecord>));
+
+            try
+            {
+                var result =
+                    serializer.Deserialize(sessionRandomAccess.AsStreamForRead()) as ObservableCollection<EventRecord>;
+                sessionRandomAccess.Dispose();
+                foreach (EventRecord data in result)
+                {
+                    mainViewModel.AddEventRecord(data);
+                }
+            }
+            catch (Exception)
+            {
+                // unable to deserailize data so don't do anything
+            }
+        }
+
+        public async void SaveDataAsync()
+        {
+            MainViewModel mainViewModel = ServiceLocator.Current.GetInstance<MainViewModel>();
+
+            StorageFile sessionFile = ApplicationData.Current.LocalFolder.CreateFileAsync(OUTPUTFILE, CreationCollisionOption.ReplaceExisting).GetAwaiter().GetResult();
+            IRandomAccessStream sessionRandomAccess = sessionFile.OpenAsync(FileAccessMode.ReadWrite).GetAwaiter().GetResult();
+            IOutputStream sessionOutputStream = sessionRandomAccess.GetOutputStreamAt(0);
+            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<EventRecord>));
+            serializer.Serialize(sessionOutputStream.AsStreamForWrite(), mainViewModel.EventRecordData);
+            sessionRandomAccess.Dispose();
+            await sessionOutputStream.FlushAsync();
+
+            sessionOutputStream.Dispose();
+        }
+
     }
 }

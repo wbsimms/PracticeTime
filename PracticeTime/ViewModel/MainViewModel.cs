@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight;
@@ -132,34 +133,36 @@ namespace PracticeTime.ViewModel
 
         private void SaveEntryCommandExecute()
         {
-            string entryToave = this.entryTitle;
-            string entrySliderToSave = this.entryDate;
             IsSaved = true;
-
         }
 
-        public const string AllEventRecordsPropertyName = "AllEventRecords";
-        private IList<EventRecord> allEntryRecords = new List<EventRecord>()
-        {
+        public const string EventRecordDataPropertyName = "EventRecordData";
+        private ObservableCollection<EventRecord> eventRecordData = new ObservableCollection<EventRecord>()        {
             new EventRecord() { EventName = "Blah1", Id = 1, Time = 100 },
             new EventRecord() { EventName = "Blah2", Id = 2, Time = 200 } ,
             new EventRecord() { EventName = "Blah3", Id=3, Time=300}
         };
 
-        public IList<EventRecord> AllEntryRecords
+        public ObservableCollection<EventRecord> EventRecordData
         {
-            get { return allEntryRecords; }
+            get { return eventRecordData; }
 
             set
             {
-                if (allEntryRecords.Equals(value))
+                if (eventRecordData == value)
                 {
                     return;
                 }
 
-                allEntryRecords = value;
-                RaisePropertyChanged(AllEventRecordsPropertyName);
+                eventRecordData = value;
+                RaisePropertyChanged(EventRecordDataPropertyName);
             }
+        }
+
+
+        public void AddEventRecord(EventRecord eventRecord)
+        {
+            eventRecordData.Add(eventRecord);
         }
 
     }

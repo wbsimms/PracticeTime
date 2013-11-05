@@ -57,9 +57,9 @@
                     <Button Margin="20,0" x:Name="DeleteEntry" Click="EntryButtonClick" Style="{StaticResource RoundedTextButton}">Delete Entry</Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
-                    <Grid:SfDataGrid AllowEditing="True" AutoGenerateColumns="True" ItemsSource="{Binding AllEntryRecords}">
+                    <Grid:SfDataGrid AllowEditing="True" AutoGenerateColumns="True" ItemsSource="{Binding EventRecordData,Mode=TwoWay}" NavigationMode="Cell" ColumnSizer="Star">
                         <Grid:SfDataGrid.Columns>
-                            <Grid:GridTextColumn HeaderText="Name" Width="200" MappingName="EventName"  />
+                            <Grid:GridTextColumn HeaderText="Name" Width="200" MappingName="EventName" />
                             <Grid:GridTextColumn HeaderText="Time" Width="200" MappingName="Time" />
                         </Grid:SfDataGrid.Columns>
                     </Grid:SfDataGrid>

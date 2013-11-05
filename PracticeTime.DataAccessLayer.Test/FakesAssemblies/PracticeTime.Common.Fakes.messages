@@ -1,1 +1,0 @@
-D:\Projects\PracticeTime\PracticeTime.DataAccessLayer.Test\Fakes\PracticeTime.Common.fakes : warning : Cannot generate shim for PracticeTime.Common.IDataAccessLayer.IEventRecordRepository: type is an interface.
