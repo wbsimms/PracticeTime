@@ -8,9 +8,8 @@
                  -->
         <ResourceDictionary Source="Common/StandardStyles.xaml" />
       </ResourceDictionary.MergedDictionaries>
+      <x:String x:Key="AppName">Practice Time!</x:String>
       <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:PracticeTime.ViewModel" />
-            <x:String x:Key="AppName">Practice Time!</x:String>
-
-        </ResourceDictionary>
+    </ResourceDictionary>
   </Application.Resources>
 </Application>
