@@ -16,7 +16,7 @@ namespace PracticeTime.ViewModel
     /// <para>
     /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
     /// </para>
-    /// <para>
+    /// <para>B
     /// You can also use Blend to data bind with the tool's support.
     /// </para>
     /// <para>
@@ -137,7 +137,8 @@ namespace PracticeTime.ViewModel
         }
 
         public const string EventRecordDataPropertyName = "EventRecordData";
-        private ObservableCollection<EventRecord> eventRecordData = new ObservableCollection<EventRecord>()        {
+        private ObservableCollection<EventRecord> eventRecordData = new ObservableCollection<EventRecord>()
+        {
             new EventRecord() { EventName = "Blah1", Id = 1, Time = 100 },
             new EventRecord() { EventName = "Blah2", Id = 2, Time = 200 } ,
             new EventRecord() { EventName = "Blah3", Id=3, Time=300}

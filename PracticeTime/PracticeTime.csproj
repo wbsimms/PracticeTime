@@ -183,12 +183,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PracticeTime.Common\PracticeTime.Common.csproj">
-      <Project>{58F6C97A-5A75-4022-8726-2255F9CCF18D}</Project>
-      <Name>PracticeTime.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight.Extras.Win8">
       <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\netcore45\GalaSoft.MvvmLight.Extras.Win8.dll</HintPath>
       <Private>True</Private>
@@ -206,6 +200,12 @@
     <SDKReference Include="Syncfusion 8.1 controls for WinRT XAML, Version=11.4.0.26">
       <Name>Syncfusion 8.1 Controls for WinRT XAML</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PracticeTime.Common\PracticeTime.Common.csproj">
+      <Project>{1C42BD41-31B9-4A3F-8B46-3EB0B18401CB}</Project>
+      <Name>PracticeTime.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

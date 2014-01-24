@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PracticeTime.Common.Models;
 
-namespace PracticeTime.Common.IDataAccessLayer
+namespace PracticeTime.Common.Interfaces
 {
     public interface IEventRecordRepository
     {
