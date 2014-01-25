@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RandomLib")]
+[assembly: AssemblyTitle("PracticeTime.Web.DataAccess.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RandomLib")]
+[assembly: AssemblyProduct("PracticeTime.Web.DataAccess.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("22aff375-eb54-42f7-9d7d-0206f640ecba")]
+[assembly: Guid("e0f2e7f0-c89d-4d1c-b14d-4add9fb8f9e1")]
 
 // Version information for an assembly consists of the following four values:
 //
