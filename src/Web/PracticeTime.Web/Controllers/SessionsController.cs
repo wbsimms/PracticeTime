@@ -36,5 +36,10 @@ namespace PracticeTime.Web.Controllers
             vm.AllSessions.Add(new Session() { Time = 400, Title = "bar" });
             return View(vm);
         }
-	}
+
+        public ActionResult Add(SessionEntryViewModel sessionEntry)
+        {
+            return View("Add");
+        }
+    }
 }
