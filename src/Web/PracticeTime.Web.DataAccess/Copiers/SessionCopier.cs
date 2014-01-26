@@ -23,7 +23,7 @@ namespace PracticeTime.Web.DataAccess.Copiers
             to.SessionId = from.SessionId;
             to.Time = from.Time;
             to.Title = from.Title;
-            to.UserId = from.UserId;
+            to.User = from.User;
         }
     }
 }

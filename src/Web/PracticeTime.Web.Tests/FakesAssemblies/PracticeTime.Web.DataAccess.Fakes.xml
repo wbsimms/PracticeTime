@@ -106,6 +106,12 @@
         <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.AttachBackingFieldToRoles">
+            <summary>Attaches delegates to emulate StubPracticeTimeContext.Roles as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.AttachBackingFieldToUsers">
+            <summary>Attaches delegates to emulate StubPracticeTimeContext.Users as a property with a backing field.</summary>
+        </member>
         <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Dispose(System.Boolean)">
             <summary>Sets the stub of DbContext.Dispose(Boolean disposing)</summary>
         </member>
@@ -128,10 +134,16 @@
             <summary>Initializes a new instance of type StubPracticeTimeContext</summary>
         </member>
         <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
-            <summary>Sets the stub of DbContext.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+            <summary>Sets the stub of IdentityDbContext`1.OnModelCreating(DbModelBuilder modelBuilder)</summary>
         </member>
         <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.OnModelCreatingDbModelBuilder">
-            <summary>Sets the stub of DbContext.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+            <summary>Sets the stub of IdentityDbContext`1.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.RolesGet">
+            <summary>Sets the stub of IdentityDbContext`1.get_Roles()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.RolesSetIDbSetOfIdentityRole">
+            <summary>Sets the stub of IdentityDbContext`1.set_Roles(IDbSet`1&lt;IdentityRole&gt; value)</summary>
         </member>
         <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChanges">
             <summary>Sets the stub of DbContext.SaveChanges()</summary>
@@ -163,11 +175,17 @@
         <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ToString01">
             <summary>Sets the stub of DbContext.ToString()</summary>
         </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.UsersGet">
+            <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.UsersSetIDbSetOfApplicationUser">
+            <summary>Sets the stub of IdentityDbContext`1.set_Users(IDbSet`1&lt;!0&gt; value)</summary>
+        </member>
         <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry,System.Collections.Generic.IDictionary{System.Object,System.Object})">
-            <summary>Sets the stub of DbContext.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+            <summary>Sets the stub of IdentityDbContext`1.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
         </member>
         <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ValidateEntityDbEntityEntryIDictionaryOfObjectObject">
-            <summary>Sets the stub of DbContext.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+            <summary>Sets the stub of IdentityDbContext`1.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
@@ -178,128 +196,38 @@
         <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId">
-            <summary>Shim type of PracticeTime.Web.DataAccess.Migrations.AddUserId</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Roles">
+            <summary>Sets the stub of IdentityDbContext`1.get_Roles()</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.#ctor">
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Users">
+            <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.#ctor(PracticeTime.Web.DataAccess.Migrations.AddUserId)">
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.#ctor(PracticeTime.Web.DataAccess.Models.ApplicationUser)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.BehaveAsCurrent">
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.BehaveAsNotImplemented">
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Bind(System.Data.Entity.Migrations.Infrastructure.IDbMigration)">
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Bind(Microsoft.AspNet.Identity.IUser)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Bind(System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Behavior">
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Constructor">
-            <summary>Sets the shim of AddUserId.AddUserId()</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Constructor">
+            <summary>Sets the shim of ApplicationUser.ApplicationUser()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Down">
-            <summary>Sets the shim of AddUserId.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.Up">
-            <summary>Sets the shim of AddUserId.Up()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId._Upb__0ColumnBuilder">
-            <summary>Sets the shim of AddUserId.&lt;Up&gt;b__0(ColumnBuilder c)</summary>
-        </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances">
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.AllInstances">
             <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances.Down">
-            <summary>Sets the shim of AddUserId.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of AddUserId.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimAddUserId.AllInstances.Up">
-            <summary>Sets the shim of AddUserId.Up()</summary>
-        </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate">
-            <summary>Shim type of PracticeTime.Web.DataAccess.Migrations.InitialCreate</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.#ctor(PracticeTime.Web.DataAccess.Migrations.InitialCreate)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Bind(System.Data.Entity.Migrations.Infrastructure.IDbMigration)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Bind(System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Constructor">
-            <summary>Sets the shim of InitialCreate.InitialCreate()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Down">
-            <summary>Sets the shim of InitialCreate.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Up">
-            <summary>Sets the shim of InitialCreate.Up()</summary>
-        </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.Down">
-            <summary>Sets the shim of InitialCreate.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.Up">
-            <summary>Sets the shim of InitialCreate.Up()</summary>
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession">
             <summary>Shim type of PracticeTime.Web.DataAccess.Models.Session</summary>
@@ -340,11 +268,17 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TitleSetString">
             <summary>Sets the shim of Session.set_Title(String value)</summary>
         </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserGet">
+            <summary>Sets the shim of Session.get_User()</summary>
+        </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserIdGet">
             <summary>Sets the shim of Session.get_UserId()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserIdSetInt32">
-            <summary>Sets the shim of Session.set_UserId(Int32 value)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserIdSetString">
+            <summary>Sets the shim of Session.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserSetIdentityUser">
+            <summary>Sets the shim of Session.set_User(IdentityUser value)</summary>
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances">
             <summary>Define shims for all instances members</summary>
@@ -367,11 +301,83 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TitleSetString">
             <summary>Sets the shim of Session.set_Title(String value)</summary>
         </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserGet">
+            <summary>Sets the shim of Session.get_User()</summary>
+        </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserIdGet">
             <summary>Sets the shim of Session.get_UserId()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserIdSetInt32">
-            <summary>Sets the shim of Session.set_UserId(Int32 value)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserIdSetString">
+            <summary>Sets the shim of Session.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserSetIdentityUser">
+            <summary>Sets the shim of Session.set_User(IdentityUser value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToId">
+            <summary>Attaches delegates to emulate StubApplicationUser.Id as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToPasswordHash">
+            <summary>Attaches delegates to emulate StubApplicationUser.PasswordHash as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToSecurityStamp">
+            <summary>Attaches delegates to emulate StubApplicationUser.SecurityStamp as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToUserName">
+            <summary>Attaches delegates to emulate StubApplicationUser.UserName as a property with a backing field.</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.IdGet">
+            <summary>Sets the stub of IdentityUser.get_Id()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.IdSetString">
+            <summary>Sets the stub of IdentityUser.set_Id(String value)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InitializeStub">
+            <summary>Initializes a new instance of type StubApplicationUser</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHashGet">
+            <summary>Sets the stub of IdentityUser.get_PasswordHash()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHashSetString">
+            <summary>Sets the stub of IdentityUser.set_PasswordHash(String value)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStampGet">
+            <summary>Sets the stub of IdentityUser.get_SecurityStamp()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStampSetString">
+            <summary>Sets the stub of IdentityUser.set_SecurityStamp(String value)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserNameGet">
+            <summary>Sets the stub of IdentityUser.get_UserName()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserNameSetString">
+            <summary>Sets the stub of IdentityUser.set_UserName(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.Id">
+            <summary>Sets the stub of IdentityUser.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHash">
+            <summary>Sets the stub of IdentityUser.get_PasswordHash()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStamp">
+            <summary>Sets the stub of IdentityUser.get_SecurityStamp()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserName">
+            <summary>Sets the stub of IdentityUser.get_UserName()</summary>
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubSession">
             <summary>Stub type of PracticeTime.Web.DataAccess.Models.Session</summary>

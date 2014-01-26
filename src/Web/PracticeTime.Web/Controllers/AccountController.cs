@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
+using PracticeTime.Web.DataAccess;
+using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
@@ -17,7 +19,7 @@ namespace PracticeTime.Web.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())))
         {
         }
 

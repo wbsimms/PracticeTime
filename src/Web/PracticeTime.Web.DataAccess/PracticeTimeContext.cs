@@ -4,11 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.DataAccess
 {
-    public class PracticeTimeContext : DbContext
+    public class PracticeTimeContext : IdentityDbContext<ApplicationUser>
     {
 
         public DbSet<Session> Sessions { get; set; }

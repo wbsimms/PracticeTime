@@ -19,10 +19,10 @@ namespace PracticeTime.Web.Tests.Controllers
             StubISessionRepository stub = new PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository();
             stub.GetAllForUserInt32 = i => { return new List<Session>() {new Session()
             {
-                SessionId = 1,Time = 20,UserId = 1,Title= "blah"
+                SessionId = 1,Time = 20,Title= "blah"
             }, new Session()
             {
-                SessionId = 1,Time = 20,UserId = 1,Title= "blah2"
+                SessionId = 1,Time = 20,Title= "blah2"
             }};
             };
 

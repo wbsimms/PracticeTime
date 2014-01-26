@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Models;
@@ -23,6 +26,10 @@ namespace PracticeTime.Web.Controllers
         // GET: /Sessions/
         public ActionResult Index()
         {
+            ApplicationUser user = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).FindByNameAsync
+                (User.Identity.Name).Result;
+            string id = user.Id;
+
             SessionsViewModel vm = new SessionsViewModel();
             vm.AllSessions = new List<Session>();
             vm.AllSessions.Add(new Session() {Time = 200, Title = "foo"});
