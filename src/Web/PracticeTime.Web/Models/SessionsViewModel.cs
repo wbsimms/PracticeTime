@@ -9,16 +9,6 @@ namespace PracticeTime.Web.Models
 {
     public class SessionsViewModel
     {
-        private readonly ISessionRepository sessionRepository;
-
-        public SessionsViewModel(ISessionRepository sessionRepository)
-        {
-            this.sessionRepository = sessionRepository;
-        }
-
-        public List<Session> AllSessions()
-        {
-            return sessionRepository.GetAll();
-        }
+        public List<Session> AllSessions { get; set; }
     }
 }

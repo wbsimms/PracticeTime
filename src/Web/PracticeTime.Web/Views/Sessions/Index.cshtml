@@ -1,0 +1,16 @@
+﻿@using PracticeTime.Web.DataAccess.Models
+@model PracticeTime.Web.Models.SessionsViewModel
+
+@{
+    ViewBag.Title = "Sessions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sessions</h2>
+
+<table>
+@foreach (Session session in Model.AllSessions)
+{
+  <tr><td>@session.Title</td><td>@session.Time</td></tr>
+}
+</table>

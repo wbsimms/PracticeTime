@@ -1,6 +1,10 @@
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Practices.Unity;
+using PracticeTime.Web.Controllers;
 using PracticeTime.Web.DataAccess.Repositories;
+using PracticeTime.Web.Models;
 using Unity.Mvc5;
 
 namespace PracticeTime.Web
@@ -16,6 +20,8 @@ namespace PracticeTime.Web
             
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ISessionRepository, SessionRepository>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

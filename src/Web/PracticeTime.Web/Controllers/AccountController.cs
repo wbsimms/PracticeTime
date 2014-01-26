@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using Microsoft.Practices.Unity;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
