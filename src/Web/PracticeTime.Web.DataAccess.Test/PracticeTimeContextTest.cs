@@ -17,7 +17,7 @@ namespace PracticeTime.Web.DataAccess.Test
             PracticeTimeContext context = new PracticeTimeContext();
             Assert.IsNotNull(context);
 
-            Session testSession = new Session() {Time = 300, Title = "Mel Bay Guitar 1"};
+            Session testSession = new Session() {Time = 300, Title = "Mel Bay Guitar 1", UserId = 2};
             context.Sessions.Add(testSession);
             context.SaveChanges();
             context.Dispose();

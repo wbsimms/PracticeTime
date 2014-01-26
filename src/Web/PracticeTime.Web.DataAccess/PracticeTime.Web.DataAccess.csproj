@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -52,14 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Copiers\SessionCopier.cs" />
     <Compile Include="Migrations\201401252033318_InitialCreate.cs" />
     <Compile Include="Migrations\201401252033318_InitialCreate.Designer.cs">
       <DependentUpon>201401252033318_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401261728223_AddUserId.cs" />
+    <Compile Include="Migrations\201401261728223_AddUserId.Designer.cs">
+      <DependentUpon>201401261728223_AddUserId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="PracticeTimeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\SessionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -68,12 +74,13 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401252033318_InitialCreate.resx">
       <DependentUpon>201401252033318_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401261728223_AddUserId.resx">
+      <DependentUpon>201401261728223_AddUserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
