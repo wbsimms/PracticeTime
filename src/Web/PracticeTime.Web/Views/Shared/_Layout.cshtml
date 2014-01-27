@@ -26,7 +26,15 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Sessions", "Index", "Sessions")</li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="session" href="#" data-toggle="dropdown">
+                                Sessions<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("View", "Index", "Sessions")</li>
+                                <li>@Html.ActionLink("Add", "Add", "Sessions")</li>
+                            </ul>
+                        </li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -42,7 +50,11 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/PracticeTime")
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
