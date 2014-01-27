@@ -202,6 +202,66 @@
         <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Users">
             <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
         </member>
+        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Migrations.InitialCreate</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.#ctor(PracticeTime.Web.DataAccess.Migrations.InitialCreate)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Bind(System.Data.Entity.Migrations.Infrastructure.IDbMigration)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Bind(System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Constructor">
+            <summary>Sets the shim of InitialCreate.InitialCreate()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Down">
+            <summary>Sets the shim of InitialCreate.Down()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.Up">
+            <summary>Sets the shim of InitialCreate.Up()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.Down">
+            <summary>Sets the shim of InitialCreate.Down()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of InitialCreate.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimInitialCreate.AllInstances.Up">
+            <summary>Sets the shim of InitialCreate.Up()</summary>
+        </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser">
             <summary>Shim type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
         </member>

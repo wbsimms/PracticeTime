@@ -23,8 +23,11 @@ namespace PracticeTime.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/PracticeTime").Include(
-            "~/Scripts/PracticeTime*"));
+            //bundles.Add(new ScriptBundle("~/bundles/PracticeTime").Include(
+            //"~/Scripts/PracticeTime*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/PracticeTime-Add").Include(
+            "~/Scripts/PracticeTime-Add*"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
