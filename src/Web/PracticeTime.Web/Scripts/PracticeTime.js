@@ -5,3 +5,5 @@ $("#slider").slider({
         $("#Time").val(value);
     }
 });
+
+$("#Title").autocomplete({ source: titles });

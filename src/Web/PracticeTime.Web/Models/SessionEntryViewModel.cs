@@ -11,5 +11,7 @@ namespace PracticeTime.Web.Models
         public int Time { get; set; }
         public string Title { get; set; }
         public int SessionId { get; set; }
+
+        public List<string> SessionTitles { get; set; }
     }
 }

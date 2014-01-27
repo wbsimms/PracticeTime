@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    var titles = ['@Html.Raw(string.Join("','",Model.SessionTitles))']
+</script>
+
 <h2>Add New Session</h2>
 @using (Html.BeginForm("Add","Sessions",FormMethod.Post))
 {
