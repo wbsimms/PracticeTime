@@ -1,0 +1,76 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="TestFast">
+	<PropertyGroup>
+		<MainSln>..\PracticeTime.sln</MainSln>
+		<WebDataAccess>..\src\Web\PracticeTime.Web.DataAccess.Test\bin\PracticeTime.Web.DataAccess.Test.dll</WebDataAccess>
+		<Web>..\src\Web\PracticeTime.Web.Tests\bin\PracticeTime.Web.Tests.dll</Web>
+		<StoreDataAccessLayer>..\src\StoreApp\PracticeTime.DataAccessLayer.Test\bin\PracticeTime.DataAccessLayer.Test/PracticeTime.DataAccessLayer.Test.dll</StoreDataAccessLayer>
+		<TestContainers>/testcontainer:$(WebDataAccess) /testcontainer:$(Web) /testcontainer:$(StoreDataAccessLayer)</TestContainers>
+	</PropertyGroup>
+
+	<Target Name="BuildCI">
+		<CallTarget Targets="BuildCommon" />
+	</Target>
+
+	<Target Name="TestFast">
+		<CallTarget Targets="BuildCommon" />
+		<CallTarget Targets="TestAll" />
+	</Target>
+	
+	<Target Name="BuildCommon">
+		<CallTarget Targets="BuildMain" />
+	</Target>
+
+	<Target Name="TestAll">
+		<Message Text="========= Testing All ========" />
+		<Exec Command='mstest.exe /nologo  $(TestContainers)' />
+	</Target>
+
+	<Target Name="TestAllCI">
+		<Message Text="========= Testing All ========" />
+		<Exec Command='mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx' />
+	</Target>
+
+	<Target Name="Coverage">
+		<Message Text="========= Testing All ========" />
+		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx' />
+	</Target>
+
+	<Target Name="CoverageReport">
+		<Exec Command='"C:\Program Files\ncover\ncover.reporting.exe" coverage.xml //or FullCoverageReport:Html //op .\coverage\ //mc BranchCoverage:6.39 //mcsc' />
+	</Target>
+	
+	<Target Name="RemoveTestResults">
+		<Exec Command='rmdir /S /Q TestResults' />
+	</Target>
+	
+	<Target Name="SimianReport">
+		<Exec Command='simian-2.3.34.exe ../src/**/*.cs -formatter=xml -failOnDuplication- > simian.xml' />
+	</Target>
+
+	
+	<Target Name="Clean">
+		<Message Text="================= Cleaning $(MainSln)"></Message>
+		<PropertyGroup>
+			<OutDir>$(SolutionRoot)\Bin\</OutDir>
+		</PropertyGroup>
+		<MSBuild Projects="$(MainSln)" Properties='OutDir=bin\' Targets='Clean'></MSBuild>
+		<RemoveDir Directories='obj\'></RemoveDir>
+		<Exec Command='git clean -fx -d' WorkingDirectory="..\" />
+	</Target>
+
+	<Target Name="CreateDatabase">
+		<Message Text="================= Creating Database"></Message>
+		<Exec Command="createdatabase.exe -dbname=Greenway" WorkingDirectory=".\Database" />
+	</Target>
+	
+	<Target Name="BuildMain">
+		<Message Text="================= Building $(MainSln)"></Message>
+		<CallTarget Targets="RemoveTestResults" />
+		<PropertyGroup>
+			<OutDir>$(SolutionRoot)\Bin\</OutDir>
+		</PropertyGroup>
+		<MSBuild Projects="$(MainSln)" Properties='Configuration=Debug;Platform=x86;OutDir=bin\;nowarn=1591' Targets='Rebuild'></MSBuild>
+		<RemoveDir Directories='obj\'></RemoveDir>
+	</Target>
+	</Project>
+
