@@ -17,7 +17,7 @@ namespace PracticeTime.Web.Tests.Controllers
         public void ConstructorTest()
         {
             StubISessionRepository stub = new PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository();
-            stub.GetAllForUserInt32 = i => { return new List<Session>() {new Session()
+            stub.GetAllForUserString = i => { return new List<Session>() {new Session()
             {
                 SessionId = 1,Time = 20,Title= "blah"
             }, new Session()

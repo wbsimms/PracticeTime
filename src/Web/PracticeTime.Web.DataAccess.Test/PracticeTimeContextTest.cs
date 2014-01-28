@@ -21,7 +21,7 @@ namespace PracticeTime.Web.DataAccess.Test
             UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
             string id = store.FindByNameAsync("wbsimms").Result.Id;
 
-            Session testSession = new Session() { Time = 300, Title = "Mel Bay Guitar 1", UserId = id };
+            Session testSession = new Session() { Time = 300, Title = "Mel Bay Guitar 1", UserId = id, SessionDateTimeUtc = DateTime.UtcNow, TimeZoneOffset = 300};
             context.Sessions.Add(testSession);
             context.SaveChanges();
             context.Dispose();
