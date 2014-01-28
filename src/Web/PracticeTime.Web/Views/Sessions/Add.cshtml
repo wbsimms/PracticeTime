@@ -1,5 +1,6 @@
 ﻿@using System.Collections.Specialized
 @using System.Web.UI.WebControls.WebParts
+@using Microsoft.AspNet.Identity
 @model PracticeTime.Web.Models.SessionEntryViewModel
 
 @{
@@ -7,11 +8,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<script type="text/javascript">
-        var titles = ['@Html.Raw(string.Join("','",Model.SessionTitles))']
-    </script>*@
-
-<h2>Add New Session</h2>
+<h2>Add New Session : @User.Identity.GetUserName()</h2>
+<h3>@Html.LabelFor(m => m.StateMessage)</h3>
 @using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -33,6 +31,13 @@
             @Html.HiddenFor(m => m.Time)
         </div>
     </div>
+        <div class="form-group">
+        @Html.LabelFor(s => s.SessionDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <div>@Html.TextBoxFor(m => m.SessionDate,new {@class ="datepicker form-control"})</div>
+        </div>
+    </div>
+    @Html.HiddenFor(m=>m.TimeZoneOffset)
     <div class="form-group">
         <div class="col-md-10">
             <input type="submit" class="btn btn-default" value="Submit" />
@@ -41,6 +46,7 @@
 }
 
 
-@section Bottom  {
+@section scripts  {
     @Scripts.Render("~/bundles/PracticeTime-Add")    
+    @Scripts.Render("~/bundles/jqueryval")
 }

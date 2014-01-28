@@ -40,7 +40,15 @@ namespace PracticeTime.Web.Controllers
 
         public ActionResult Add(SessionEntryViewModel sessionEntry)
         {
-            sessionEntry.SessionTitles = new List<string>(){"Mel Bay","FingerStyle"};
+            if (ModelState.IsValid)
+            {
+                
+            }
+            else
+            {
+                sessionEntry.SessionTitles = new List<string>() { "Mel Bay", "FingerStyle" };
+            }
+
             return View("Add",sessionEntry);
         }
     }

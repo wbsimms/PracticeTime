@@ -9,7 +9,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "PracticeTime.Web.DataAccess.PracticeTimeContext";
         }
 

@@ -1,6 +1,7 @@
 ﻿
 
 $(document).ready(function () {
+    var timeZoneOffset = new Date().getTimezoneOffset();
     $("#slider").slider({
         change: function(event, ui) {
             var value = $("#slider").slider("option", "value");
@@ -16,4 +17,12 @@ $(document).ready(function () {
     } catch (err)
     {
     }
+
+    var datePickerFormat = 'mm/dd/yy';
+    $(".datepicker").datepicker({ dateFormat: datePickerFormat });
+
+    var currentDate = $.datepicker.formatDate(datePickerFormat, new Date());
+
+    $(".datepicker").val(currentDate);
+    $("#TimeZoneOffset").val(timeZoneOffset);
 });

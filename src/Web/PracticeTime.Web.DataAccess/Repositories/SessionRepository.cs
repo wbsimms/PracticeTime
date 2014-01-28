@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using PracticeTime.Web.DataAccess.Copiers;
@@ -14,8 +15,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
         void Update(Session session);
         void Delete(Session session);
         Session GetById(int sessionId);
-        List<Session> GetAllForUser(int userId);
         List<Session> GetAll();
+        List<Session> GetAllForUser(string userId);
+        List<string> GetAllTitles();
+        List<string> GetAllTitlesForUser(string userId);
     }
 
     public class SessionRepository : ISessionRepository
@@ -74,16 +77,40 @@ namespace PracticeTime.Web.DataAccess.Repositories
             }
         }
 
-        public List<Session> GetAllForUser(int userId)
+        public List<Session> GetAllForUser(string userId)
         {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().ToList();
+                return context.Sessions.AsNoTracking().Where(s => s.UserId == userId).ToList();
             }
         }
+
+        public List<string> GetAllTitles()
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                return context.Sessions.AsNoTracking().Select((x) => x.Title ).ToList();
+            }
+        }
+
+
+        public List<string> GetAllTitlesForUser(string userId)
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                return context.Sessions.AsNoTracking().Where(s => s.UserId == userId).Select((x) => x.Title).ToList();
+            }
+        }
+
 
     }
 }
