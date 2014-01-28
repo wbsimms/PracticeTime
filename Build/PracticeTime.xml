@@ -3,8 +3,8 @@
 		<MainSln>..\PracticeTime.sln</MainSln>
 		<WebDataAccess>..\src\Web\PracticeTime.Web.DataAccess.Test\bin\PracticeTime.Web.DataAccess.Test.dll</WebDataAccess>
 		<Web>..\src\Web\PracticeTime.Web.Tests\bin\PracticeTime.Web.Tests.dll</Web>
-		<StoreDataAccessLayer>..\src\StoreApp\PracticeTime.DataAccessLayer.Test\bin\PracticeTime.DataAccessLayer.Test/PracticeTime.DataAccessLayer.Test.dll</StoreDataAccessLayer>
-		<TestContainers>/testcontainer:$(WebDataAccess) /testcontainer:$(Web) /testcontainer:$(StoreDataAccessLayer)</TestContainers>
+		<!-- StoreDataAccessLayer>..\src\StoreApp\PracticeTime.DataAccessLayer.Test\bin\PracticeTime.DataAccessLayer.Test/PracticeTime.DataAccessLayer.Test.dll</StoreDataAccessLayer -->
+		<TestContainers>/testcontainer:$(WebDataAccess) /testcontainer:$(Web) </TestContainers>
 	</PropertyGroup>
 
 	<Target Name="BuildCI">
@@ -69,7 +69,7 @@
 		<PropertyGroup>
 			<OutDir>$(SolutionRoot)\Bin\</OutDir>
 		</PropertyGroup>
-		<MSBuild Projects="$(MainSln)" Properties='Configuration=Debug;Platform=x86;OutDir=bin\;nowarn=1591' Targets='Rebuild'></MSBuild>
+		<MSBuild Projects="$(MainSln)" Properties='Configuration=Debug;OutDir=bin\;nowarn=1591' Targets='Rebuild'></MSBuild>
 		<RemoveDir Directories='obj\'></RemoveDir>
 	</Target>
 	</Project>

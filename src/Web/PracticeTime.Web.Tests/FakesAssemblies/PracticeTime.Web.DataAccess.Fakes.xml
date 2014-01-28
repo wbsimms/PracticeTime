@@ -310,6 +310,12 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.Constructor">
             <summary>Sets the shim of Session.Session()</summary>
         </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionDateTimeUtcGet">
+            <summary>Sets the shim of Session.get_SessionDateTimeUtc()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionDateTimeUtcSetDateTime">
+            <summary>Sets the shim of Session.set_SessionDateTimeUtc(DateTime value)</summary>
+        </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionIdGet">
             <summary>Sets the shim of Session.get_SessionId()</summary>
         </member>
@@ -321,6 +327,12 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeSetInt32">
             <summary>Sets the shim of Session.set_Time(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeZoneOffsetGet">
+            <summary>Sets the shim of Session.get_TimeZoneOffset()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeZoneOffsetSetInt32">
+            <summary>Sets the shim of Session.set_TimeZoneOffset(Int32 value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TitleGet">
             <summary>Sets the shim of Session.get_Title()</summary>
@@ -343,6 +355,12 @@
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionDateTimeUtcGet">
+            <summary>Sets the shim of Session.get_SessionDateTimeUtc()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionDateTimeUtcSetDateTime">
+            <summary>Sets the shim of Session.set_SessionDateTimeUtc(DateTime value)</summary>
+        </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionIdGet">
             <summary>Sets the shim of Session.get_SessionId()</summary>
         </member>
@@ -354,6 +372,12 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeSetInt32">
             <summary>Sets the shim of Session.set_Time(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeZoneOffsetGet">
+            <summary>Sets the shim of Session.get_TimeZoneOffset()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeZoneOffsetSetInt32">
+            <summary>Sets the shim of Session.set_TimeZoneOffset(Int32 value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TitleGet">
             <summary>Sets the shim of Session.get_Title()</summary>
@@ -490,8 +514,14 @@
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAll">
             <summary>Sets the shim of SessionRepository.GetAll()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllForUserInt32">
-            <summary>Sets the shim of SessionRepository.GetAllForUser(Int32 userId)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllTitles">
+            <summary>Sets the shim of SessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllTitlesForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetByIdInt32">
             <summary>Sets the shim of SessionRepository.GetById(Int32 sessionId)</summary>
@@ -511,8 +541,14 @@
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAll">
             <summary>Sets the shim of SessionRepository.GetAll()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllForUserInt32">
-            <summary>Sets the shim of SessionRepository.GetAllForUser(Int32 userId)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllTitles">
+            <summary>Sets the shim of SessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllTitlesForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetByIdInt32">
             <summary>Sets the shim of SessionRepository.GetById(Int32 sessionId)</summary>
@@ -535,8 +571,14 @@
         <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAll">
             <summary>Sets the stub of ISessionRepository.GetAll()</summary>
         </member>
-        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllForUserInt32">
-            <summary>Sets the stub of ISessionRepository.GetAllForUser(Int32 userId)</summary>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllForUserString">
+            <summary>Sets the stub of ISessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllTitles">
+            <summary>Sets the stub of ISessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllTitlesForUserString">
+            <summary>Sets the stub of ISessionRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetByIdInt32">
             <summary>Sets the stub of ISessionRepository.GetById(Int32 sessionId)</summary>
@@ -550,8 +592,14 @@
         <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAll">
             <summary>Sets the stub of ISessionRepository.GetAll()</summary>
         </member>
-        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllForUser(System.Int32)">
-            <summary>Sets the stub of ISessionRepository.GetAllForUser(Int32 userId)</summary>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllForUser(System.String)">
+            <summary>Sets the stub of ISessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllTitles">
+            <summary>Sets the stub of ISessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllTitlesForUser(System.String)">
+            <summary>Sets the stub of ISessionRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetById(System.Int32)">
             <summary>Sets the stub of ISessionRepository.GetById(Int32 sessionId)</summary>
