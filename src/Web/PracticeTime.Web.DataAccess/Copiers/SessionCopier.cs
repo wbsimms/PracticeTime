@@ -14,6 +14,7 @@ namespace PracticeTime.Web.DataAccess.Copiers
             if (from == null) return null;
             Session to = new Session();
             to.SessionId = from.SessionId;
+            Merge(from,to);
             return to;
         }
 
@@ -24,6 +25,9 @@ namespace PracticeTime.Web.DataAccess.Copiers
             to.Time = from.Time;
             to.Title = from.Title;
             to.User = from.User;
+            to.SessionDateTimeUtc = from.SessionDateTimeUtc;
+            to.TimeZoneOffset = from.TimeZoneOffset;
+            to.UserId = from.UserId;
         }
     }
 }

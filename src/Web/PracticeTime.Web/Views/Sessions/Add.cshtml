@@ -9,7 +9,11 @@
 }
 
 <h2>Add New Session : @User.Identity.GetUserName()</h2>
-<h3>@Html.LabelFor(m => m.StateMessage)</h3>
+
+@if (!string.IsNullOrEmpty(Model.StateMessage))
+{
+    <h3>@Model.StateMessage</h3>
+}
 @using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()

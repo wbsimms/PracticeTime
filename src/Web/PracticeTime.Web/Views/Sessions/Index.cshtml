@@ -6,11 +6,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Scripts/jsapi.js"></script>
+<script src="~/Scripts/PracticeTime-Index.js"></script>
+
 <h2>Sessions</h2>
 
-<table>
-@foreach (Session session in Model.AllSessions)
-{
-  <tr><td>@session.Title</td><td>@session.Time</td></tr>
-}
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+        </thead>
+        <tbody>
+            @foreach (Session session in Model.AllSessions)
+            {
+                <tr>
+                    <td>@session.Title</td>
+                    <td>@session.SessionDateTimeUtc.ToShortDateString()</td>
+                    <td>@session.Time</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div id="chart_div"></div>

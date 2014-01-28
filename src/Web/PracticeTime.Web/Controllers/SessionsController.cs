@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
+using PracticeTime.Web.Helpers;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
@@ -27,27 +28,30 @@ namespace PracticeTime.Web.Controllers
         // GET: /Sessions/
         public ActionResult Index()
         {
-            ApplicationUser user = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).FindByNameAsync
-                (User.Identity.Name).Result;
-            string id = user.Id;
-
+            string userId = UserHelper.GetUserId(User.Identity.Name);
             SessionsViewModel vm = new SessionsViewModel();
-            vm.AllSessions = new List<Session>();
-            vm.AllSessions.Add(new Session() {Time = 200, Title = "foo"});
-            vm.AllSessions.Add(new Session() { Time = 400, Title = "bar" });
+            vm.AllSessions = sessions.GetAllForUser(userId);
             return View(vm);
         }
 
         public ActionResult Add(SessionEntryViewModel sessionEntry)
         {
+            string userId = UserHelper.GetUserId(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                
+                sessions.Add(new Session()
+                {
+                    SessionDateTimeUtc = Convert.ToDateTime(sessionEntry.SessionDate),
+                    Time = sessionEntry.Time,
+                    TimeZoneOffset = sessionEntry.TimeZoneOffset,
+                    Title = sessionEntry.Title,
+                    UserId = userId
+                });
+                sessionEntry.StateMessage = "Session Saved";
             }
-            else
-            {
-                sessionEntry.SessionTitles = new List<string>() { "Mel Bay", "FingerStyle" };
-            }
+
+            List<string> userTitles = sessions.GetAllTitlesForUser(userId);
+            sessionEntry.SessionTitles = userTitles;
 
             return View("Add",sessionEntry);
         }

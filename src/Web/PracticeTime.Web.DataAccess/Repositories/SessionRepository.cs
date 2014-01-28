@@ -11,7 +11,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
 {
     public interface ISessionRepository
     {
-        void Add(Session session);
+        Session Add(Session session);
         void Update(Session session);
         void Delete(Session session);
         Session GetById(int sessionId);
@@ -23,7 +23,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
 
     public class SessionRepository : ISessionRepository
     {
-        public void Add(Session session)
+        public Session Add(Session session)
         {
             if (session.SessionId != 0) throw new ApplicationException("Session.SessionId must be zero");
             using (PracticeTimeContext context = new PracticeTimeContext())
@@ -31,6 +31,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 Session toSave = new SessionCopier().Copy(session);
                 context.Sessions.Add(toSave);
                 context.SaveChanges();
+                return GetById(toSave.SessionId);
             }
         }
 

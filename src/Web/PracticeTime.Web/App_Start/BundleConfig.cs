@@ -29,7 +29,6 @@ namespace PracticeTime.Web
             bundles.Add(new ScriptBundle("~/bundles/PracticeTime-Add").Include(
             "~/Scripts/PracticeTime-Add*"));
 
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
