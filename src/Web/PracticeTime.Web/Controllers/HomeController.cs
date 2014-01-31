@@ -15,14 +15,14 @@ namespace PracticeTime.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Thanks for wanting to learn more.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Thanks for wanting to get in touch.";
 
             return View();
         }
