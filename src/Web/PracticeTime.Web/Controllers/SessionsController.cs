@@ -60,49 +60,31 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUser()
         {
-            Random rnd = new Random();
+            string userId = UserHelper.GetUserId(User.Identity.Name);
+            List<Session> sessionList = sessions.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
                 cols = new ColInfo[]
                 {
-                    new ColInfo() { id="a",label = "First",type="date"},
-                    new ColInfo() { id="b",label = "Second",type="number"}
+                    new ColInfo() {id = "a", label = "Date", type = "date"},
+                    new ColInfo() {id = "b", label = "Minutes", type = "number"}
                 },
-                p = new Dictionary<string, string>(),
-                rows = new DataPointSet[]
-                {
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(-5).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(-4).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(-3).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(-2).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(-1).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                    new DataPointSet(){ c = new DataPoint[]
-                    {
-                        new DataPoint() {v = DateTime.UtcNow.AddDays(+0).ToShortDateString()}, 
-                        new DataPoint() {v = rnd.Next(1,1000)}, 
-                    }},
-                }
+                p = new Dictionary<string, string>()
             };
+            List<DataPointSet> dpsetList = new List<DataPointSet>(sessionList.Count);
+            foreach (Session s in sessionList.OrderBy(x => x.SessionDateTimeUtc))
+            {
+                DataPointSet dps = new DataPointSet() {
+                    c = new DataPoint[]
+                    {
+                        new DataPoint() {v = s.SessionDateTimeUtc.ToShortDateString()}, 
+                        new DataPoint() {v = s.Time} 
+                    }
+                };
+                dpsetList.Add(dps);
+            }
+            graph.rows = dpsetList.ToArray();
+
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(graph));
 //            string json = new GGraphSerializer().Serailize(graph);
 //            return json;
