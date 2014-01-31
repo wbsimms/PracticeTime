@@ -5,7 +5,7 @@ google.load('visualization', '1.0', { 'packages': ['corechart'] });
 
 google.setOnLoadCallback(drawChart);
 
-//setInterval(drawChart, 1000);
+setInterval(drawChart, 1000);
 
 function drawChart() {
 
