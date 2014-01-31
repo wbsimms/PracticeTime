@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -58,7 +59,7 @@ namespace PracticeTime.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetSessionsForUser()
+        public ActionResult GetSessionsForUserGraph()
         {
             string userId = UserHelper.GetUserId(User.Identity.Name);
             List<Session> sessionList = sessions.GetAllForUser(userId);
@@ -85,10 +86,48 @@ namespace PracticeTime.Web.Controllers
             }
             graph.rows = dpsetList.ToArray();
 
-            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(graph));
-//            string json = new GGraphSerializer().Serailize(graph);
-//            return json;
-//            return new JsonResult(){Data = json};
+            return Json(new GGraphSerializer().Serailize(graph));
         }
+
+        [HttpPost]
+        public ActionResult GetSessionsForUserGraphTitle()
+        {
+            string userId = UserHelper.GetUserId(User.Identity.Name);
+            List<Session> sessionList = sessions.GetAllForUser(userId);
+            GGraph graph = new GGraph()
+            {
+                cols = new ColInfo[]
+                {
+                    new ColInfo() {id = "a", label = "Title", type = "string"},
+                    new ColInfo() {id = "b", label = "Minutes", type = "number"}
+                },
+                p = new Dictionary<string, string>()
+            };
+            List<DataPointSet> dpsetList = new List<DataPointSet>(sessionList.Count);
+
+            IDictionary<string,int> aggregateSession = new Dictionary<string, int>();
+            foreach (Session s in sessionList)
+            {
+                if (!aggregateSession.ContainsKey(s.Title))
+                    aggregateSession.Add(s.Title,0);
+                aggregateSession[s.Title] += s.Time;
+            }
+
+            foreach (string s in aggregateSession.Keys)
+            {
+                DataPointSet dps = new DataPointSet()
+                {
+                    c = new DataPoint[]
+                    {
+                        new DataPoint() {v = s}, 
+                        new DataPoint() {v = aggregateSession[s]} 
+                    }
+                };
+                dpsetList.Add(dps);
+            }
+            graph.rows = dpsetList.ToArray();
+            return Json(new GGraphSerializer().Serailize(graph));
+        }
+
     }
 }

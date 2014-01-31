@@ -36,13 +36,10 @@ namespace PracticeTime.Web.Helpers
 
     public class GGraphSerializer
     {
-        private JavaScriptSerializer serializer = new JavaScriptSerializer();
 
         public string Serailize(GGraph graph)
         {
-            var sw = new StringBuilder();
-            serializer.Serialize(graph, sw);
-            return sw.ToString();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(graph);
         }
     }
 }
