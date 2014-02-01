@@ -63,8 +63,13 @@
     <Compile Include="Migrations\201401262003029_InitialCreate.Designer.cs">
       <DependentUpon>201401262003029_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402012136014_Badge.cs" />
+    <Compile Include="Migrations\201402012136014_Badge.Designer.cs">
+      <DependentUpon>201402012136014_Badge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Badge.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="PracticeTimeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401262003029_InitialCreate.resx">
       <DependentUpon>201401262003029_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402012136014_Badge.resx">
+      <DependentUpon>201402012136014_Badge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

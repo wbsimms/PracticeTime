@@ -96,7 +96,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().Select((x) => x.Title ).ToList();
+                return context.Sessions.AsNoTracking()
+                    .Select((x) => x.Title )
+                    .Distinct()
+                    .ToList();
             }
         }
 
@@ -108,7 +111,11 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().Where(s => s.UserId == userId).Select((x) => x.Title).ToList();
+                return context.Sessions.AsNoTracking()
+                    .Where(s => s.UserId == userId)
+                    .Select((x) => x.Title)
+                    .Distinct()
+                    .ToList();
             }
         }
 
