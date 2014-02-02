@@ -35,7 +35,7 @@ namespace PracticeTime.Web.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Thanks for wanting to learn more.", result.ViewBag.Message);
         }
 
         [TestMethod]

@@ -7,13 +7,13 @@ namespace PracticeTime.Web.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class C_Badge : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(C_Badge));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401262003029_InitialCreate"; }
+            get { return "201402021723007_C_Badge"; }
         }
         
         string IMigrationMetadata.Source

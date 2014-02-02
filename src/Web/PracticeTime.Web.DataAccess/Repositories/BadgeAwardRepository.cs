@@ -9,84 +9,83 @@ using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.DataAccess.Repositories
 {
-    public interface ISessionRepository
+    public interface IBadgeAwardRepository
     {
-        Session Add(Session session);
-        void Update(Session session);
-        void Delete(Session session);
-        Session GetById(int sessionId);
-        List<Session> GetAll();
-        List<Session> GetAllForUser(string userId);
+        BadgeAward Add(BadgeAward award);
+        void Update(BadgeAward badgeAward);
+        void Delete(BadgeAward badgeAward);
+        BadgeAward GetById(int badgeAwardId);
+        List<BadgeAward> GetAll();
+        List<BadgeAward> GetAllForUser(string userId);
         List<string> GetAllTitles();
         List<string> GetAllTitlesForUser(string userId);
     }
 
-    public class SessionRepository : ISessionRepository
+    public class BadgeAwardRepository : IBadgeAwardRepository
     {
-        public Session Add(Session session)
+        public BadgeAward Add(BadgeAward award)
         {
-            if (session.SessionId != 0) throw new ApplicationException("Session.SessionId must be zero");
+            if (award.BadgeAwardId != 0) throw new ApplicationException("BadgeAward.BadgeAwardId must be zero");
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
-                Session toSave = new SessionCopier().Copy(session);
-                context.Sessions.Add(toSave);
+                BadgeAward toSave = new BadgeAwardCopier().Copy(award);
+                context.BadgeAwards.Add(toSave);
                 context.SaveChanges();
-                return GetById(toSave.SessionId);
+                return GetById(toSave.BadgeId);
             }
         }
 
-        public void Update(Session session)
+        public void Update(BadgeAward badgeAward)
         {
-            if (session.SessionId == 0) throw new ApplicationException("Session.SessionId must be greather than 0");
+            if (badgeAward.BadgeAwardId == 0) throw new ApplicationException("Id must be greather than 0");
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
-                Session toUpdate = context.Sessions.FirstOrDefault(x => x.SessionId == session.SessionId);
-                if (toUpdate == null) throw new ApplicationException(string.Format("SessionId not found: {0}",session.SessionId));
-                new SessionCopier().Merge(session,toUpdate);
+                BadgeAward toUpdate = context.BadgeAwards.FirstOrDefault(x => x.BadgeAwardId == badgeAward.BadgeAwardId);
+                if (toUpdate == null) throw new ApplicationException(string.Format("SessionId not found: {0}", badgeAward.BadgeAwardId));
+                new BadgeAwardCopier().Merge(badgeAward, toUpdate);
+            }
+        }
+
+        public void Delete(BadgeAward badgeAward)
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                BadgeAward toDelete = context.BadgeAwards.FirstOrDefault(x => x.BadgeAwardId == badgeAward.BadgeAwardId);
+                context.BadgeAwards.Remove(toDelete);
                 context.SaveChanges();
             }
         }
 
-        public void Delete(Session session)
-        {
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                Session toDelete = context.Sessions.FirstOrDefault(x => x.SessionId == session.SessionId);
-                context.Sessions.Remove(toDelete);
-                context.SaveChanges();
-            }
-        }
-
-        public Session GetById(int sessionId)
+        public BadgeAward GetById(int badgeAwardId)
         {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().FirstOrDefault(x => x.SessionId == sessionId);
+                return context.BadgeAwards.AsNoTracking().FirstOrDefault(x => x.BadgeAwardId == badgeAwardId);
             }
         }
 
-        public List<Session> GetAll()
+        public List<BadgeAward> GetAll()
         {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().ToList();
+                return context.BadgeAwards.AsNoTracking().ToList();
             }
         }
 
-        public List<Session> GetAllForUser(string userId)
+        public List<BadgeAward> GetAllForUser(string userId)
         {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().Where(s => s.UserId == userId).ToList();
+                return context.BadgeAwards.AsNoTracking().Where(s => s.UserId== userId).ToList();
             }
         }
 

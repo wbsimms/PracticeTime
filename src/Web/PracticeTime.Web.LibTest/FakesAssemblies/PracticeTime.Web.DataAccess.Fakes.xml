@@ -1,0 +1,1136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PracticeTime.Web.DataAccess.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Copiers.BadgeAwardCopier</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.#ctor(PracticeTime.Web.DataAccess.Copiers.BadgeAwardCopier)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.Constructor">
+            <summary>Sets the shim of BadgeAwardCopier.BadgeAwardCopier()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.CopyBadgeAward">
+            <summary>Sets the shim of BadgeAwardCopier.Copy(BadgeAward from)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.MergeBadgeAwardBadgeAward">
+            <summary>Sets the shim of BadgeAwardCopier.Merge(BadgeAward from, BadgeAward to)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.AllInstances.CopyBadgeAward">
+            <summary>Sets the shim of BadgeAwardCopier.Copy(BadgeAward from)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimBadgeAwardCopier.AllInstances.MergeBadgeAwardBadgeAward">
+            <summary>Sets the shim of BadgeAwardCopier.Merge(BadgeAward from, BadgeAward to)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Copiers.SessionCopier</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.#ctor(PracticeTime.Web.DataAccess.Copiers.SessionCopier)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.Constructor">
+            <summary>Sets the shim of SessionCopier.SessionCopier()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.CopySession">
+            <summary>Sets the shim of SessionCopier.Copy(Session from)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.MergeSessionSession">
+            <summary>Sets the shim of SessionCopier.Merge(Session from, Session to)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.AllInstances.CopySession">
+            <summary>Sets the shim of SessionCopier.Copy(Session from)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.ShimSessionCopier.AllInstances.MergeSessionSession">
+            <summary>Sets the shim of SessionCopier.Merge(Session from, Session to)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Copiers.BadgeAwardCopier</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier.InitializeStub">
+            <summary>Initializes a new instance of type StubBadgeAwardCopier</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubBadgeAwardCopier.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Copiers.SessionCopier</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier.InitializeStub">
+            <summary>Initializes a new instance of type StubSessionCopier</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Copiers.Fakes.StubSessionCopier.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext">
+            <summary>Shim type of PracticeTime.Web.DataAccess.PracticeTimeContext</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.#ctor(PracticeTime.Web.DataAccess.PracticeTimeContext)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.Bind(System.Data.Entity.Infrastructure.IObjectContextAdapter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BadgeAwardsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_BadgeAwards()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BadgeAwardsSetDbSetOfBadgeAward">
+            <summary>Sets the shim of PracticeTimeContext.set_BadgeAwards(DbSet`1&lt;BadgeAward&gt; value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BadgesGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Badges()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.BadgesSetDbSetOfC_Badge">
+            <summary>Sets the shim of PracticeTimeContext.set_Badges(DbSet`1&lt;C_Badge&gt; value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.Constructor">
+            <summary>Sets the shim of PracticeTimeContext.PracticeTimeContext()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.SessionsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Sessions()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.SessionsSetDbSetOfSession">
+            <summary>Sets the shim of PracticeTimeContext.set_Sessions(DbSet`1&lt;Session&gt; value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.BadgeAwardsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_BadgeAwards()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.BadgeAwardsSetDbSetOfBadgeAward">
+            <summary>Sets the shim of PracticeTimeContext.set_BadgeAwards(DbSet`1&lt;BadgeAward&gt; value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.BadgesGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Badges()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.BadgesSetDbSetOfC_Badge">
+            <summary>Sets the shim of PracticeTimeContext.set_Badges(DbSet`1&lt;C_Badge&gt; value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.SessionsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Sessions()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.SessionsSetDbSetOfSession">
+            <summary>Sets the shim of PracticeTimeContext.set_Sessions(DbSet`1&lt;Session&gt; value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext">
+            <summary>Stub type of PracticeTime.Web.DataAccess.PracticeTimeContext</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.AttachBackingFieldToRoles">
+            <summary>Attaches delegates to emulate StubPracticeTimeContext.Roles as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.AttachBackingFieldToUsers">
+            <summary>Attaches delegates to emulate StubPracticeTimeContext.Users as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Dispose(System.Boolean)">
+            <summary>Sets the stub of DbContext.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.DisposeBoolean">
+            <summary>Sets the stub of DbContext.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Equals(System.Object)">
+            <summary>Sets the stub of DbContext.Equals(Object obj)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.EqualsObject">
+            <summary>Sets the stub of DbContext.Equals(Object obj)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.GetHashCode">
+            <summary>Sets the stub of DbContext.GetHashCode()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.GetHashCode01">
+            <summary>Sets the stub of DbContext.GetHashCode()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.InitializeStub">
+            <summary>Initializes a new instance of type StubPracticeTimeContext</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>Sets the stub of IdentityDbContext`1.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.OnModelCreatingDbModelBuilder">
+            <summary>Sets the stub of IdentityDbContext`1.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.RolesGet">
+            <summary>Sets the stub of IdentityDbContext`1.get_Roles()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.RolesSetIDbSetOfIdentityRole">
+            <summary>Sets the stub of IdentityDbContext`1.set_Roles(IDbSet`1&lt;IdentityRole&gt; value)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChanges">
+            <summary>Sets the stub of DbContext.SaveChanges()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChanges01">
+            <summary>Sets the stub of DbContext.SaveChanges()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChangesAsync">
+            <summary>Sets the stub of DbContext.SaveChangesAsync()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>Sets the stub of DbContext.SaveChangesAsync(CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChangesAsync01">
+            <summary>Sets the stub of DbContext.SaveChangesAsync()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.SaveChangesAsyncCancellationToken">
+            <summary>Sets the stub of DbContext.SaveChangesAsync(CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ShouldValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry)">
+            <summary>Sets the stub of DbContext.ShouldValidateEntity(DbEntityEntry entityEntry)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ShouldValidateEntityDbEntityEntry">
+            <summary>Sets the stub of DbContext.ShouldValidateEntity(DbEntityEntry entityEntry)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ToString">
+            <summary>Sets the stub of DbContext.ToString()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ToString01">
+            <summary>Sets the stub of DbContext.ToString()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.UsersGet">
+            <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.UsersSetIDbSetOfApplicationUser">
+            <summary>Sets the stub of IdentityDbContext`1.set_Users(IDbSet`1&lt;!0&gt; value)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry,System.Collections.Generic.IDictionary{System.Object,System.Object})">
+            <summary>Sets the stub of IdentityDbContext`1.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.ValidateEntityDbEntityEntryIDictionaryOfObjectObject">
+            <summary>Sets the stub of IdentityDbContext`1.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Roles">
+            <summary>Sets the stub of IdentityDbContext`1.get_Roles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Users">
+            <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Migrations.C_Badge</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.#ctor(PracticeTime.Web.DataAccess.Migrations.C_Badge)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Bind(System.Data.Entity.Migrations.Infrastructure.IDbMigration)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Bind(System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Constructor">
+            <summary>Sets the shim of C_Badge.C_Badge()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Down">
+            <summary>Sets the shim of C_Badge.Down()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Up">
+            <summary>Sets the shim of C_Badge.Up()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.Down">
+            <summary>Sets the shim of C_Badge.Down()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
+            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.Up">
+            <summary>Sets the shim of C_Badge.Up()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.#ctor(PracticeTime.Web.DataAccess.Models.ApplicationUser)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Bind(Microsoft.AspNet.Identity.IUser)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.Constructor">
+            <summary>Sets the shim of ApplicationUser.ApplicationUser()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.BadgeAward</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.#ctor(PracticeTime.Web.DataAccess.Models.BadgeAward)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AwardDateGet">
+            <summary>Sets the shim of BadgeAward.get_AwardDate()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AwardDateSetDateTime">
+            <summary>Sets the shim of BadgeAward.set_AwardDate(DateTime value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeAwardIdGet">
+            <summary>Sets the shim of BadgeAward.get_BadgeAwardId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeAwardIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_BadgeAwardId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeGet">
+            <summary>Sets the shim of BadgeAward.get_Badge()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeIdGet">
+            <summary>Sets the shim of BadgeAward.get_BadgeId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_BadgeId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeSetC_Badge">
+            <summary>Sets the shim of BadgeAward.set_Badge(C_Badge value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.Constructor">
+            <summary>Sets the shim of BadgeAward.BadgeAward()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.UserGet">
+            <summary>Sets the shim of BadgeAward.get_User()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.UserIdGet">
+            <summary>Sets the shim of BadgeAward.get_UserId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.UserIdSetString">
+            <summary>Sets the shim of BadgeAward.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.UserSetIdentityUser">
+            <summary>Sets the shim of BadgeAward.set_User(IdentityUser value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.AwardDateGet">
+            <summary>Sets the shim of BadgeAward.get_AwardDate()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.AwardDateSetDateTime">
+            <summary>Sets the shim of BadgeAward.set_AwardDate(DateTime value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeAwardIdGet">
+            <summary>Sets the shim of BadgeAward.get_BadgeAwardId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeAwardIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_BadgeAwardId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeGet">
+            <summary>Sets the shim of BadgeAward.get_Badge()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeIdGet">
+            <summary>Sets the shim of BadgeAward.get_BadgeId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_BadgeId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeSetC_Badge">
+            <summary>Sets the shim of BadgeAward.set_Badge(C_Badge value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.UserGet">
+            <summary>Sets the shim of BadgeAward.get_User()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.UserIdGet">
+            <summary>Sets the shim of BadgeAward.get_UserId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.UserIdSetString">
+            <summary>Sets the shim of BadgeAward.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.UserSetIdentityUser">
+            <summary>Sets the shim of BadgeAward.set_User(IdentityUser value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.C_Badge</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.#ctor(PracticeTime.Web.DataAccess.Models.C_Badge)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.C_BadgeIdGet">
+            <summary>Sets the shim of C_Badge.get_C_BadgeId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.C_BadgeIdSetInt32">
+            <summary>Sets the shim of C_Badge.set_C_BadgeId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.Constructor">
+            <summary>Sets the shim of C_Badge.C_Badge()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.DescriptionGet">
+            <summary>Sets the shim of C_Badge.get_Description()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.DescriptionSetString">
+            <summary>Sets the shim of C_Badge.set_Description(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.ImageUrlGet">
+            <summary>Sets the shim of C_Badge.get_ImageUrl()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.ImageUrlSetString">
+            <summary>Sets the shim of C_Badge.set_ImageUrl(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.NameGet">
+            <summary>Sets the shim of C_Badge.get_Name()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.NameSetString">
+            <summary>Sets the shim of C_Badge.set_Name(String value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.C_BadgeIdGet">
+            <summary>Sets the shim of C_Badge.get_C_BadgeId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.C_BadgeIdSetInt32">
+            <summary>Sets the shim of C_Badge.set_C_BadgeId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.DescriptionGet">
+            <summary>Sets the shim of C_Badge.get_Description()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.DescriptionSetString">
+            <summary>Sets the shim of C_Badge.set_Description(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.ImageUrlGet">
+            <summary>Sets the shim of C_Badge.get_ImageUrl()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.ImageUrlSetString">
+            <summary>Sets the shim of C_Badge.set_ImageUrl(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.NameGet">
+            <summary>Sets the shim of C_Badge.get_Name()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.NameSetString">
+            <summary>Sets the shim of C_Badge.set_Name(String value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.Session</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.#ctor(PracticeTime.Web.DataAccess.Models.Session)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.Constructor">
+            <summary>Sets the shim of Session.Session()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionDateTimeUtcGet">
+            <summary>Sets the shim of Session.get_SessionDateTimeUtc()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionDateTimeUtcSetDateTime">
+            <summary>Sets the shim of Session.set_SessionDateTimeUtc(DateTime value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionIdGet">
+            <summary>Sets the shim of Session.get_SessionId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.SessionIdSetInt32">
+            <summary>Sets the shim of Session.set_SessionId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeGet">
+            <summary>Sets the shim of Session.get_Time()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeSetInt32">
+            <summary>Sets the shim of Session.set_Time(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeZoneOffsetGet">
+            <summary>Sets the shim of Session.get_TimeZoneOffset()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TimeZoneOffsetSetInt32">
+            <summary>Sets the shim of Session.set_TimeZoneOffset(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TitleGet">
+            <summary>Sets the shim of Session.get_Title()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.TitleSetString">
+            <summary>Sets the shim of Session.set_Title(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserGet">
+            <summary>Sets the shim of Session.get_User()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserIdGet">
+            <summary>Sets the shim of Session.get_UserId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserIdSetString">
+            <summary>Sets the shim of Session.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.UserSetIdentityUser">
+            <summary>Sets the shim of Session.set_User(IdentityUser value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionDateTimeUtcGet">
+            <summary>Sets the shim of Session.get_SessionDateTimeUtc()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionDateTimeUtcSetDateTime">
+            <summary>Sets the shim of Session.set_SessionDateTimeUtc(DateTime value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionIdGet">
+            <summary>Sets the shim of Session.get_SessionId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionIdSetInt32">
+            <summary>Sets the shim of Session.set_SessionId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeGet">
+            <summary>Sets the shim of Session.get_Time()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeSetInt32">
+            <summary>Sets the shim of Session.set_Time(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeZoneOffsetGet">
+            <summary>Sets the shim of Session.get_TimeZoneOffset()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TimeZoneOffsetSetInt32">
+            <summary>Sets the shim of Session.set_TimeZoneOffset(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TitleGet">
+            <summary>Sets the shim of Session.get_Title()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.TitleSetString">
+            <summary>Sets the shim of Session.set_Title(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserGet">
+            <summary>Sets the shim of Session.get_User()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserIdGet">
+            <summary>Sets the shim of Session.get_UserId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserIdSetString">
+            <summary>Sets the shim of Session.set_UserId(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.UserSetIdentityUser">
+            <summary>Sets the shim of Session.set_User(IdentityUser value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToId">
+            <summary>Attaches delegates to emulate StubApplicationUser.Id as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToPasswordHash">
+            <summary>Attaches delegates to emulate StubApplicationUser.PasswordHash as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToSecurityStamp">
+            <summary>Attaches delegates to emulate StubApplicationUser.SecurityStamp as a property with a backing field.</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.AttachBackingFieldToUserName">
+            <summary>Attaches delegates to emulate StubApplicationUser.UserName as a property with a backing field.</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.IdGet">
+            <summary>Sets the stub of IdentityUser.get_Id()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.IdSetString">
+            <summary>Sets the stub of IdentityUser.set_Id(String value)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InitializeStub">
+            <summary>Initializes a new instance of type StubApplicationUser</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHashGet">
+            <summary>Sets the stub of IdentityUser.get_PasswordHash()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHashSetString">
+            <summary>Sets the stub of IdentityUser.set_PasswordHash(String value)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStampGet">
+            <summary>Sets the stub of IdentityUser.get_SecurityStamp()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStampSetString">
+            <summary>Sets the stub of IdentityUser.set_SecurityStamp(String value)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserNameGet">
+            <summary>Sets the stub of IdentityUser.get_UserName()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserNameSetString">
+            <summary>Sets the stub of IdentityUser.set_UserName(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.Id">
+            <summary>Sets the stub of IdentityUser.get_Id()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.PasswordHash">
+            <summary>Sets the stub of IdentityUser.get_PasswordHash()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.SecurityStamp">
+            <summary>Sets the stub of IdentityUser.get_SecurityStamp()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubApplicationUser.UserName">
+            <summary>Sets the stub of IdentityUser.get_UserName()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.BadgeAward</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward.InitializeStub">
+            <summary>Initializes a new instance of type StubBadgeAward</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubBadgeAward.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.C_Badge</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.InitializeStub">
+            <summary>Initializes a new instance of type StubC_Badge</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubSession">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.Session</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubSession.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubSession.InitializeStub">
+            <summary>Initializes a new instance of type StubSession</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubSession.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubSession.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubSession.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Repositories.BadgeAwardRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.#ctor(PracticeTime.Web.DataAccess.Repositories.BadgeAwardRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.Bind(PracticeTime.Web.DataAccess.Repositories.IBadgeAwardRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AddBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Add(BadgeAward award)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.Constructor">
+            <summary>Sets the shim of BadgeAwardRepository.BadgeAwardRepository()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.DeleteBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Delete(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAll">
+            <summary>Sets the shim of BadgeAwardRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllForUserString">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllTitles">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllTitlesForUserString">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetByIdInt32">
+            <summary>Sets the shim of BadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.UpdateBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Update(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.AddBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Add(BadgeAward award)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.DeleteBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Delete(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAll">
+            <summary>Sets the shim of BadgeAwardRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllForUserString">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllTitles">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllTitlesForUserString">
+            <summary>Sets the shim of BadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetByIdInt32">
+            <summary>Sets the shim of BadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.UpdateBadgeAward">
+            <summary>Sets the shim of BadgeAwardRepository.Update(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Repositories.BadgeRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.#ctor(PracticeTime.Web.DataAccess.Repositories.BadgeRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.Bind(PracticeTime.Web.DataAccess.Repositories.IBadgeRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.Constructor">
+            <summary>Sets the shim of BadgeRepository.BadgeRepository()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.GetAll">
+            <summary>Sets the shim of BadgeRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.GetByIdInt32">
+            <summary>Sets the shim of BadgeRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.AllInstances.GetAll">
+            <summary>Sets the shim of BadgeRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.AllInstances.GetByIdInt32">
+            <summary>Sets the shim of BadgeRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Repositories.SessionRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.#ctor(PracticeTime.Web.DataAccess.Repositories.SessionRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.Bind(PracticeTime.Web.DataAccess.Repositories.ISessionRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AddSession">
+            <summary>Sets the shim of SessionRepository.Add(Session session)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.Constructor">
+            <summary>Sets the shim of SessionRepository.SessionRepository()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.DeleteSession">
+            <summary>Sets the shim of SessionRepository.Delete(Session session)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAll">
+            <summary>Sets the shim of SessionRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllTitles">
+            <summary>Sets the shim of SessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetAllTitlesForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.GetByIdInt32">
+            <summary>Sets the shim of SessionRepository.GetById(Int32 sessionId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.UpdateSession">
+            <summary>Sets the shim of SessionRepository.Update(Session session)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.AddSession">
+            <summary>Sets the shim of SessionRepository.Add(Session session)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.DeleteSession">
+            <summary>Sets the shim of SessionRepository.Delete(Session session)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAll">
+            <summary>Sets the shim of SessionRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllTitles">
+            <summary>Sets the shim of SessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetAllTitlesForUserString">
+            <summary>Sets the shim of SessionRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.GetByIdInt32">
+            <summary>Sets the shim of SessionRepository.GetById(Int32 sessionId)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository.AllInstances.UpdateSession">
+            <summary>Sets the shim of SessionRepository.Update(Session session)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.BadgeAwardRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubBadgeAwardRepository</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeAwardRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.BadgeRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubBadgeRepository</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubBadgeRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.IBadgeAwardRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.#ctor">
+            <summary>Initializes a new instance of type StubIBadgeAwardRepository</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.AddBadgeAward">
+            <summary>Sets the stub of IBadgeAwardRepository.Add(BadgeAward award)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.DeleteBadgeAward">
+            <summary>Sets the stub of IBadgeAwardRepository.Delete(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAll">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAll()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllForUserString">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllTitles">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitles()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllTitlesForUserString">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetByIdInt32">
+            <summary>Sets the stub of IBadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#Add(PracticeTime.Web.DataAccess.Models.BadgeAward)">
+            <summary>Sets the stub of IBadgeAwardRepository.Add(BadgeAward award)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#Delete(PracticeTime.Web.DataAccess.Models.BadgeAward)">
+            <summary>Sets the stub of IBadgeAwardRepository.Delete(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAll">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAll()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllForUser(System.String)">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllTitles">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitles()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllTitlesForUser(System.String)">
+            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetById(System.Int32)">
+            <summary>Sets the stub of IBadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#Update(PracticeTime.Web.DataAccess.Models.BadgeAward)">
+            <summary>Sets the stub of IBadgeAwardRepository.Update(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.UpdateBadgeAward">
+            <summary>Sets the stub of IBadgeAwardRepository.Update(BadgeAward badgeAward)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.IBadgeRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.#ctor">
+            <summary>Initializes a new instance of type StubIBadgeRepository</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.GetAll">
+            <summary>Sets the stub of IBadgeRepository.GetAll()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.GetByIdInt32">
+            <summary>Sets the stub of IBadgeRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeRepository#GetAll">
+            <summary>Sets the stub of IBadgeRepository.GetAll()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeRepository#GetById(System.Int32)">
+            <summary>Sets the stub of IBadgeRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.ISessionRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.#ctor">
+            <summary>Initializes a new instance of type StubISessionRepository</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.AddSession">
+            <summary>Sets the stub of ISessionRepository.Add(Session session)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.DeleteSession">
+            <summary>Sets the stub of ISessionRepository.Delete(Session session)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAll">
+            <summary>Sets the stub of ISessionRepository.GetAll()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllForUserString">
+            <summary>Sets the stub of ISessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllTitles">
+            <summary>Sets the stub of ISessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetAllTitlesForUserString">
+            <summary>Sets the stub of ISessionRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.GetByIdInt32">
+            <summary>Sets the stub of ISessionRepository.GetById(Int32 sessionId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#Add(PracticeTime.Web.DataAccess.Models.Session)">
+            <summary>Sets the stub of ISessionRepository.Add(Session session)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#Delete(PracticeTime.Web.DataAccess.Models.Session)">
+            <summary>Sets the stub of ISessionRepository.Delete(Session session)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAll">
+            <summary>Sets the stub of ISessionRepository.GetAll()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllForUser(System.String)">
+            <summary>Sets the stub of ISessionRepository.GetAllForUser(String userId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllTitles">
+            <summary>Sets the stub of ISessionRepository.GetAllTitles()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetAllTitlesForUser(System.String)">
+            <summary>Sets the stub of ISessionRepository.GetAllTitlesForUser(String userId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#GetById(System.Int32)">
+            <summary>Sets the stub of ISessionRepository.GetById(Int32 sessionId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#ISessionRepository#Update(PracticeTime.Web.DataAccess.Models.Session)">
+            <summary>Sets the stub of ISessionRepository.Update(Session session)</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.UpdateSession">
+            <summary>Sets the stub of ISessionRepository.Update(Session session)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.SessionRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubSessionRepository</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>

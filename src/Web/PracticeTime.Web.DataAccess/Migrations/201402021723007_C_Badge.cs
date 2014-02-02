@@ -1,33 +1,40 @@
+using System.Data;
+
 namespace PracticeTime.Web.DataAccess.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class C_Badge : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.AspNetRoles",
+                "dbo.BadgeAwards",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false),
+                        BadgeAwardId = c.Int(nullable: false, identity: true),
+                        AwardDate = c.DateTime(nullable: false),
+                        Badge_C_BadgeId = c.Int(),
+                        User_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.BadgeAwardId)
+                .ForeignKey("dbo.C_Badge", t => t.Badge_C_BadgeId)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.Badge_C_BadgeId)
+                .Index(t => t.User_Id);
             
             CreateTable(
-                "dbo.Sessions",
+                "dbo.C_Badge",
                 c => new
                     {
-                        SessionId = c.Int(nullable: false, identity: true),
-                        Time = c.Int(nullable: false),
-                        Title = c.String(),
-                        UserId = c.String(maxLength: 128),
+                        C_BadgeId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable:false,maxLength:255),
+                        Description = c.String(),
+                        ImageUrl = c.String(maxLength:255),
                     })
-                .PrimaryKey(t => t.SessionId)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
+                .PrimaryKey(t => t.C_BadgeId)
+                .Index(t => t.Name,unique:true);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -79,26 +86,57 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 .Index(t => t.RoleId)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Sessions",
+                c => new
+                    {
+                        SessionId = c.Int(nullable: false, identity: true),
+                        Time = c.Int(nullable: false),
+                        Title = c.String(),
+                        SessionDateTimeUtc = c.DateTime(nullable: false),
+                        TimeZoneOffset = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.SessionId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Sessions", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.BadgeAwards", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.BadgeAwards", "Badge_C_BadgeId", "dbo.C_Badge");
             DropIndex("dbo.Sessions", new[] { "UserId" });
+            DropIndex("dbo.BadgeAwards", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "User_Id" });
+            DropIndex("dbo.BadgeAwards", new[] { "Badge_C_BadgeId" });
+            DropTable("dbo.Sessions");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Sessions");
-            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.C_Badge");
+            DropTable("dbo.BadgeAwards");
         }
     }
 }

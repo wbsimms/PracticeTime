@@ -13,6 +13,8 @@ namespace PracticeTime.Web.DataAccess
     {
 
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<BadgeAward> BadgeAwards { get; set; }
+        public DbSet<C_Badge> Badges { get; set; }
 
         public PracticeTimeContext() : base("DefaultConnection")
         {

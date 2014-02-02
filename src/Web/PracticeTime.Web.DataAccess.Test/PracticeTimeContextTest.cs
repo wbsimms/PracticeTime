@@ -19,13 +19,17 @@ namespace PracticeTime.Web.DataAccess.Test
             Assert.IsNotNull(context);
 
             UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
-            string id = store.FindByNameAsync("wbsimms").Result.Id;
+            ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+            if (user != null)
+            {
+                string id = store.FindByNameAsync("wbsimms").Result.Id;
 
-            Session testSession = new Session() { Time = 300, Title = "Mel Bay Guitar 1", UserId = id, SessionDateTimeUtc = DateTime.UtcNow, TimeZoneOffset = 300};
-            context.Sessions.Add(testSession);
-            context.SaveChanges();
-            context.Dispose();
-            Assert.IsTrue(testSession.SessionId > 0);
+                Session testSession = new Session() { Time = 300, Title = "Mel Bay Guitar 1", UserId = id, SessionDateTimeUtc = DateTime.UtcNow, TimeZoneOffset = 300 };
+                context.Sessions.Add(testSession);
+                context.SaveChanges();
+                context.Dispose();
+                Assert.IsTrue(testSession.SessionId > 0);
+            }
         }
     }
 }
