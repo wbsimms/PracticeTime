@@ -8,7 +8,11 @@ using PracticeTime.Web.DataAccess.Repositories;
 
 namespace PracticeTime.Web.Lib.BadgeRules
 {
-    public class FirstSessionRule : IBadgeRule
+    public interface IFirstSessionRule : IBadgeRule
+    {
+    }
+
+    public class FirstSessionRule : IFirstSessionRule
     {
         private ISessionRepository sessionRepository;
         private IBadgeAwardRepository badgeAwardRepository;
@@ -21,6 +25,7 @@ namespace PracticeTime.Web.Lib.BadgeRules
 
         public void Rule(Session session, ResponseModel response)
         {
+            badgeAwardRepository.GetAllForUser(session.UserId);
             List<Session> sessions = sessionRepository.GetAllForUser(session.UserId);
             if (sessions.Count == 1 &&
                 sessions.Any(x =>x.SessionId == session.SessionId))
@@ -29,14 +34,12 @@ namespace PracticeTime.Web.Lib.BadgeRules
                 {
                     UserId = session.UserId,
                     AwardDate = DateTime.UtcNow,
-                    BadgeId = 1
+                    C_BadgeId = 1
                 };
-                badgeAwardRepository.Add(award);
+                BadgeAward badgeAward = badgeAwardRepository.Add(award);
                 response.HasNewBadges = true;
-                response.Badges.Add(award);
-                response.NewBadges.Add(award);
+                response.NewBadges.Add(badgeAward);
             }
-
         }
     }
 }

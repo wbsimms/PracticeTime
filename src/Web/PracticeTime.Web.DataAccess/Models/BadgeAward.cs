@@ -10,8 +10,8 @@ namespace PracticeTime.Web.DataAccess.Models
     public class BadgeAward
     {
         public int BadgeAwardId { get; set; }
-        public C_Badge Badge { get; set; }
-        public int BadgeId { get; set; }
+        public C_Badge C_Badge { get; set; }
+        public int C_BadgeId { get; set; }
         public DateTime AwardDate { get; set; }
         public IdentityUser User { get; set; }
         public string UserId { get; set; }

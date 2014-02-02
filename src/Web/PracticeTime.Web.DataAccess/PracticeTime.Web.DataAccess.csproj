@@ -60,10 +60,6 @@
   <ItemGroup>
     <Compile Include="Copiers\BadgeAwardCopier.cs" />
     <Compile Include="Copiers\SessionCopier.cs" />
-    <Compile Include="Migrations\201402021723007_C_Badge.cs" />
-    <Compile Include="Migrations\201402021723007_C_Badge.Designer.cs">
-      <DependentUpon>201402021723007_C_Badge.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\BadgeAward.cs" />
@@ -81,11 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201402021723007_C_Badge.resx">
-      <DependentUpon>201402021723007_C_Badge.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

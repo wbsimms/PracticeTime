@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using PracticeTime.Web.DataAccess.Copiers;
 using PracticeTime.Web.DataAccess.Models;
+using System.Data.Entity;
+
 
 namespace PracticeTime.Web.DataAccess.Repositories
 {
@@ -17,8 +19,6 @@ namespace PracticeTime.Web.DataAccess.Repositories
         BadgeAward GetById(int badgeAwardId);
         List<BadgeAward> GetAll();
         List<BadgeAward> GetAllForUser(string userId);
-        List<string> GetAllTitles();
-        List<string> GetAllTitlesForUser(string userId);
     }
 
     public class BadgeAwardRepository : IBadgeAwardRepository
@@ -31,7 +31,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 BadgeAward toSave = new BadgeAwardCopier().Copy(award);
                 context.BadgeAwards.Add(toSave);
                 context.SaveChanges();
-                return GetById(toSave.BadgeId);
+                return GetById(toSave.BadgeAwardId);
             }
         }
 
@@ -63,7 +63,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.BadgeAwards.AsNoTracking().FirstOrDefault(x => x.BadgeAwardId == badgeAwardId);
+                return context.BadgeAwards
+                    .Include(x => x.C_Badge)
+                    .AsNoTracking()
+                    .FirstOrDefault(x => x.BadgeAwardId == badgeAwardId);
             }
         }
 
@@ -74,7 +77,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.BadgeAwards.AsNoTracking().ToList();
+                return context.BadgeAwards
+                    .Include(x => x.C_Badge)
+                    .AsNoTracking()
+                    .ToList();
             }
         }
 
@@ -85,40 +91,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.BadgeAwards.AsNoTracking().Where(s => s.UserId== userId).ToList();
+                return context.BadgeAwards.AsNoTracking()
+                    .Include(x => x.C_Badge)
+                    .Where(s => s.UserId == userId).ToList();
             }
         }
-
-        public List<string> GetAllTitles()
-        {
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                context.Configuration.AutoDetectChangesEnabled = false;
-                context.Configuration.LazyLoadingEnabled = false;
-                context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking()
-                    .Select((x) => x.Title )
-                    .Distinct()
-                    .ToList();
-            }
-        }
-
-
-        public List<string> GetAllTitlesForUser(string userId)
-        {
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                context.Configuration.AutoDetectChangesEnabled = false;
-                context.Configuration.LazyLoadingEnabled = false;
-                context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking()
-                    .Where(s => s.UserId == userId)
-                    .Select((x) => x.Title)
-                    .Distinct()
-                    .ToList();
-            }
-        }
-
-
     }
 }

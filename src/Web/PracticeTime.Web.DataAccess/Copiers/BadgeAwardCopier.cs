@@ -23,7 +23,7 @@ namespace PracticeTime.Web.DataAccess.Copiers
             if (from == null) return;
             to.AwardDate = from.AwardDate;
             to.UserId = from.UserId;
-            to.BadgeId = from.BadgeId;
+            to.C_BadgeId = from.C_BadgeId;
         }
     }
 }

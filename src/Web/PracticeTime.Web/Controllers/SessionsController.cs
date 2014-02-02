@@ -12,6 +12,7 @@ using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Helpers;
+using PracticeTime.Web.Lib;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
@@ -20,10 +21,12 @@ namespace PracticeTime.Web.Controllers
     public class SessionsController : Controller
     {
         private ISessionRepository sessions;
+        private IBadgeRulesEngine rulesEngine;
 
-        public SessionsController(ISessionRepository sessionRepository)
+        public SessionsController(ISessionRepository sessionRepository, IBadgeRulesEngine badgeRulesEngine)
         {
             this.sessions = sessionRepository;
+            this.rulesEngine = badgeRulesEngine;
         }
 
         //
@@ -41,15 +44,23 @@ namespace PracticeTime.Web.Controllers
             string userId = UserHelper.GetUserId(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                sessions.Add(new Session()
+                Session session = new Session()
                 {
                     SessionDateTimeUtc = Convert.ToDateTime(sessionEntry.SessionDate),
                     Time = sessionEntry.Time,
                     TimeZoneOffset = sessionEntry.TimeZoneOffset,
                     Title = sessionEntry.Title,
                     UserId = userId
-                });
+                };
+
+                Session savedSession = sessions.Add(session);
                 sessionEntry.StateMessage = "Session Saved";
+                ResponseModel response = rulesEngine.RunRules(savedSession);
+                if (response.HasNewBadges)
+                {
+                    sessionEntry.BadgeAward = response.NewBadges.FirstOrDefault();
+                }
+                sessionEntry.BadgeAwards = response.Badges;
             }
 
             List<string> userTitles = sessions.GetAllTitlesForUser(userId);

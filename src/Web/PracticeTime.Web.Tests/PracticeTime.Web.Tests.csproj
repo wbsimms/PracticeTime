@@ -44,6 +44,9 @@
     <Reference Include="PracticeTime.Web.DataAccess.Fakes">
       <HintPath>FakesAssemblies\PracticeTime.Web.DataAccess.Fakes.dll</HintPath>
     </Reference>
+    <Reference Include="PracticeTime.Web.Lib.Fakes">
+      <HintPath>FakesAssemblies\PracticeTime.Web.Lib.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -98,12 +101,17 @@
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\PracticeTime.Web.DataAccess.fakes" />
+    <Fakes Include="Fakes\PracticeTime.Web.Lib.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PracticeTime.Web.DataAccess\PracticeTime.Web.DataAccess.csproj">
       <Project>{ab1f6758-3a65-4215-afc3-2ee22ea98831}</Project>
       <Name>PracticeTime.Web.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticeTime.Web.Lib\PracticeTime.Web.Lib.csproj">
+      <Project>{870B1B06-EA94-4C33-8C3C-423E48756006}</Project>
+      <Name>PracticeTime.Web.Lib</Name>
     </ProjectReference>
     <ProjectReference Include="..\PracticeTime.Web\PracticeTime.Web.csproj">
       <Project>{45E19BB2-686A-44FF-9F7E-AD7170DCD521}</Project>

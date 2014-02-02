@@ -324,6 +324,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Sessions\Index.cshtml" />
     <Content Include="Views\Sessions\Add.cshtml" />
+    <Content Include="Views\Sessions\_NewBadge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -336,6 +337,10 @@
     <ProjectReference Include="..\PracticeTime.Web.DataAccess\PracticeTime.Web.DataAccess.csproj">
       <Project>{AB1F6758-3A65-4215-AFC3-2EE22EA98831}</Project>
       <Name>PracticeTime.Web.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticeTime.Web.Lib\PracticeTime.Web.Lib.csproj">
+      <Project>{870B1B06-EA94-4C33-8C3C-423E48756006}</Project>
+      <Name>PracticeTime.Web.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

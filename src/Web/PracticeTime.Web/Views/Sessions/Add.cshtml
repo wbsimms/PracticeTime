@@ -1,6 +1,7 @@
 ﻿@using System.Collections.Specialized
 @using System.Web.UI.WebControls.WebParts
 @using Microsoft.AspNet.Identity
+@using PracticeTime.Web.DataAccess.Models
 @model PracticeTime.Web.Models.SessionEntryViewModel
 
 @{
@@ -20,7 +21,14 @@
 </div>
 }
 
-    @using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@if (Model.BadgeAward != null)
+{
+    <div class="row">
+        @Html.Partial("_NewBadge",Model)
+    </div>
+}
+
+@using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-group">

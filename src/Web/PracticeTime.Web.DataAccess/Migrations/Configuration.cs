@@ -14,6 +14,18 @@ namespace PracticeTime.Web.DataAccess.Migrations
 
         protected override void Seed(PracticeTime.Web.DataAccess.PracticeTimeContext context)
         {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
             context.Badges.AddOrUpdate(b => b.C_BadgeId,
                 new Models.C_Badge { C_BadgeId = 1, Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/FirstSession.png" },
                 new Models.C_Badge { C_BadgeId = 2, Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "" },

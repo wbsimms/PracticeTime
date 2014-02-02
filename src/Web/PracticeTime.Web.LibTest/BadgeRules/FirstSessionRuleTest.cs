@@ -36,7 +36,7 @@ namespace PracticeTime.Web.LibTest.BadgeRules
             sessionRepository.GetAllForUserString = s => { return new List<Session>() {new Session(){SessionId = 1}}; };
 
             StubIBadgeAwardRepository badgeAwardRepository = new StubIBadgeAwardRepository();
-            badgeAwardRepository.AddBadgeAward = award => { return new BadgeAward() { BadgeAwardId = 1, BadgeId = 1}; };
+            badgeAwardRepository.AddBadgeAward = award => { return new BadgeAward() { BadgeAwardId = 1, C_BadgeId = 1}; };
 
             FirstSessionRule firstSessionRule = new FirstSessionRule(sessionRepository, badgeAwardRepository);
             Assert.IsNotNull(firstSessionRule);
@@ -44,7 +44,7 @@ namespace PracticeTime.Web.LibTest.BadgeRules
             ResponseModel responseModel = new ResponseModel();
             firstSessionRule.Rule(testSession,responseModel);
             Assert.IsTrue(responseModel.HasNewBadges);
-            Assert.IsTrue(responseModel.Badges.FirstOrDefault(x =>x.BadgeId == 1) != null);
+            Assert.IsTrue(responseModel.Badges.FirstOrDefault(x =>x.C_BadgeId == 1) != null);
         }
 
     }

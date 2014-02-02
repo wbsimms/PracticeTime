@@ -7,6 +7,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeTime.Web.Controllers;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories.Fakes;
+using PracticeTime.Web.Lib;
+using PracticeTime.Web.Lib.Fakes;
 
 namespace PracticeTime.Web.Tests.Controllers
 {
@@ -17,7 +19,10 @@ namespace PracticeTime.Web.Tests.Controllers
         public void ConstructorTest()
         {
             StubISessionRepository stub = new PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository();
-            stub.GetAllForUserString = i => { return new List<Session>() {new Session()
+            StubIBadgeRulesEngine stubIBadgeRulesEngine = new StubIBadgeRulesEngine(); 
+            stub.GetAllForUserString = i =>
+            {
+                return new List<Session>() {new Session()
             {
                 SessionId = 1,Time = 20,Title= "blah"
             }, new Session()
@@ -26,7 +31,7 @@ namespace PracticeTime.Web.Tests.Controllers
             }};
             };
 
-            SessionsController controller = new SessionsController(stub);
+            SessionsController controller = new SessionsController(stub,stubIBadgeRulesEngine);
             Assert.IsNotNull(controller);
         }
     }

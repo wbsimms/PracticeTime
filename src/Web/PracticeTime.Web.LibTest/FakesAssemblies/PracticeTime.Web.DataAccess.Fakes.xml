@@ -280,66 +280,6 @@
         <member name="P:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext.Users">
             <summary>Sets the stub of IdentityDbContext`1.get_Users()</summary>
         </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge">
-            <summary>Shim type of PracticeTime.Web.DataAccess.Migrations.C_Badge</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.#ctor(PracticeTime.Web.DataAccess.Migrations.C_Badge)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Bind(System.Data.Entity.Migrations.Infrastructure.IDbMigration)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Bind(System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Constructor">
-            <summary>Sets the shim of C_Badge.C_Badge()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Down">
-            <summary>Sets the shim of C_Badge.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.Up">
-            <summary>Sets the shim of C_Badge.Up()</summary>
-        </member>
-        <member name="T:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.Down">
-            <summary>Sets the shim of C_Badge.Down()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.IdSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Id()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.SourceSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Source()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.TargetSystemDataEntityMigrationsInfrastructureIMigrationMetadataget">
-            <summary>Sets the shim of C_Badge.System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.get_Target()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Migrations.Fakes.ShimC_Badge.AllInstances.Up">
-            <summary>Sets the shim of C_Badge.Up()</summary>
-        </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimApplicationUser">
             <summary>Shim type of PracticeTime.Web.DataAccess.Models.ApplicationUser</summary>
         </member>
@@ -394,20 +334,20 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeAwardIdSetInt32">
             <summary>Sets the shim of BadgeAward.set_BadgeAwardId(Int32 value)</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeGet">
-            <summary>Sets the shim of BadgeAward.get_Badge()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeIdGet">
-            <summary>Sets the shim of BadgeAward.get_BadgeId()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeIdSetInt32">
-            <summary>Sets the shim of BadgeAward.set_BadgeId(Int32 value)</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.BadgeSetC_Badge">
-            <summary>Sets the shim of BadgeAward.set_Badge(C_Badge value)</summary>
-        </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.C_BadgeGet">
+            <summary>Sets the shim of BadgeAward.get_C_Badge()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.C_BadgeIdGet">
+            <summary>Sets the shim of BadgeAward.get_C_BadgeId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.C_BadgeIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_C_BadgeId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.C_BadgeSetC_Badge">
+            <summary>Sets the shim of BadgeAward.set_C_Badge(C_Badge value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.Constructor">
             <summary>Sets the shim of BadgeAward.BadgeAward()</summary>
@@ -439,17 +379,17 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeAwardIdSetInt32">
             <summary>Sets the shim of BadgeAward.set_BadgeAwardId(Int32 value)</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeGet">
-            <summary>Sets the shim of BadgeAward.get_Badge()</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.C_BadgeGet">
+            <summary>Sets the shim of BadgeAward.get_C_Badge()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeIdGet">
-            <summary>Sets the shim of BadgeAward.get_BadgeId()</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.C_BadgeIdGet">
+            <summary>Sets the shim of BadgeAward.get_C_BadgeId()</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeIdSetInt32">
-            <summary>Sets the shim of BadgeAward.set_BadgeId(Int32 value)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.C_BadgeIdSetInt32">
+            <summary>Sets the shim of BadgeAward.set_C_BadgeId(Int32 value)</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.BadgeSetC_Badge">
-            <summary>Sets the shim of BadgeAward.set_Badge(C_Badge value)</summary>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.C_BadgeSetC_Badge">
+            <summary>Sets the shim of BadgeAward.set_C_Badge(C_Badge value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimBadgeAward.AllInstances.UserGet">
             <summary>Sets the shim of BadgeAward.get_User()</summary>
@@ -799,12 +739,6 @@
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllForUserString">
             <summary>Sets the shim of BadgeAwardRepository.GetAllForUser(String userId)</summary>
         </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllTitles">
-            <summary>Sets the shim of BadgeAwardRepository.GetAllTitles()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetAllTitlesForUserString">
-            <summary>Sets the shim of BadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
-        </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.GetByIdInt32">
             <summary>Sets the shim of BadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
         </member>
@@ -825,12 +759,6 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllForUserString">
             <summary>Sets the shim of BadgeAwardRepository.GetAllForUser(String userId)</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllTitles">
-            <summary>Sets the shim of BadgeAwardRepository.GetAllTitles()</summary>
-        </member>
-        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetAllTitlesForUserString">
-            <summary>Sets the shim of BadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeAwardRepository.AllInstances.GetByIdInt32">
             <summary>Sets the shim of BadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
@@ -1006,12 +934,6 @@
         <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllForUserString">
             <summary>Sets the stub of IBadgeAwardRepository.GetAllForUser(String userId)</summary>
         </member>
-        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllTitles">
-            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitles()</summary>
-        </member>
-        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetAllTitlesForUserString">
-            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
-        </member>
         <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.GetByIdInt32">
             <summary>Sets the stub of IBadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>
         </member>
@@ -1026,12 +948,6 @@
         </member>
         <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllForUser(System.String)">
             <summary>Sets the stub of IBadgeAwardRepository.GetAllForUser(String userId)</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllTitles">
-            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitles()</summary>
-        </member>
-        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetAllTitlesForUser(System.String)">
-            <summary>Sets the stub of IBadgeAwardRepository.GetAllTitlesForUser(String userId)</summary>
         </member>
         <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeAwardRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeAwardRepository#GetById(System.Int32)">
             <summary>Sets the stub of IBadgeAwardRepository.GetById(Int32 badgeAwardId)</summary>

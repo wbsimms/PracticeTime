@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Practices.Unity;
 using PracticeTime.Web.Controllers;
 using PracticeTime.Web.DataAccess.Repositories;
+using PracticeTime.Web.Lib;
 using Unity.Mvc5;
 
 namespace PracticeTime.Web
@@ -12,18 +13,41 @@ namespace PracticeTime.Web
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-            
-            // e.g. container.RegisterType<ITestService, TestService>();
+            PracticeTimeWebResolver resolver = PracticeTimeWebResolver.Instance;
+            resolver.Register(resolver.Container);
+            PracticeTimeLibResolver.Instance.Register(resolver.Container); 
+            DependencyResolver.SetResolver(new UnityDependencyResolver(resolver.Container));
+        }
+    }
+
+    public class PracticeTimeWebResolver
+    {
+        private static PracticeTimeWebResolver instance = new PracticeTimeWebResolver();
+        private UnityContainer container;
+
+        private PracticeTimeWebResolver()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            container = new UnityContainer();
+            Register(container);
+        }
+
+        public void Register(UnityContainer container)
+        {
             container.RegisterType<ISessionRepository, SessionRepository>();
             container.RegisterType<IBadgeAwardRepository, BadgeAwardRepository>();
             container.RegisterType<IBadgeRepository, BadgeRepository>();
             container.RegisterType<AccountController>(new InjectionConstructor());
-
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
+
+        public static PracticeTimeWebResolver Instance {
+            get { return instance; }
+        }
+
+        public UnityContainer Container { get { return this.container; } }
     }
 }

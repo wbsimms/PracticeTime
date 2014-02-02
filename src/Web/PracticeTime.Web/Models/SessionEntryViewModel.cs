@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Permissions;
 using System.Web;
+using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Models
 {
@@ -21,5 +22,9 @@ namespace PracticeTime.Web.Models
         public int TimeZoneOffset { get; set; }
         public List<string> SessionTitles { get; set; }
         public string StateMessage { get; set; }
+
+        public BadgeAward BadgeAward { get; set; }
+
+        public List<BadgeAward> BadgeAwards { get; set; }
     }
 }
