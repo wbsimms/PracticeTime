@@ -35,7 +35,7 @@ namespace PracticeTime.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-cerulean.css",
-                      "~/Content/site.css",
+                      "~/Content/Site.css",
                       "~/Content/themes/base/jquery-ui*"));
 
 

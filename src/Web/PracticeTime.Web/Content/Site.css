@@ -40,3 +40,8 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.ui-slider-horizontal-PT {
+    margin-left: 22px;
+    margin-top: 10px
+}

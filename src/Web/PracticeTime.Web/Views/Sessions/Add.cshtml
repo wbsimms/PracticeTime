@@ -9,26 +9,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add New Session : @User.Identity.GetUserName()</h2>
+<h3>Add New Session : @User.Identity.GetUserName()</h3>
 
-@if (!string.IsNullOrEmpty(Model.StateMessage))
-{
-<div class="row">
-    <div class="alert alert-dismissable alert-success col-lg-4">
-        <button class="close" type="button" data-dismiss="alert">x</button>
-        @Model.StateMessage
-    </div>
-</div>
-}
 
-@if (Model.BadgeAward != null)
-{
-    <div class="row">
-        @Html.Partial("_NewBadge",Model)
-    </div>
-}
-
-@using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<div class="col-md-12">
+    <div class="col-lg-4">
+    @using (Html.BeginForm("Add", "Sessions", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-group">
@@ -43,9 +29,9 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(s => s.Time, new { @class = "col-md-2 control-label" })
-            <div class="col-md-7">
-                <div class="col-md-5" id="slider"></div>
-                <div><label class="col-md-1" id="slider-value">0</label></div>
+            <div>
+                <div class="col-md-7 ui-slider-horizontal-PT" id="slider"></div>
+                <div><label class="col-md-1 control-label" id="slider-value">0</label></div>
                 @Html.HiddenFor(m => m.Time)
             </div>
         </div>
@@ -62,7 +48,27 @@
             </div>
         </div>
     }
-
+    </div>
+    <div class="col-lg-4">
+        @if (!string.IsNullOrEmpty(Model.StateMessage))
+        {
+        <div class="row">
+            <div class="alert alert-dismissable alert-success">
+                <button class="close" type="button" data-dismiss="alert">x</button>
+                @Model.StateMessage
+            </div>
+        </div>
+        }
+        @if (Model.BadgeAward != null)
+        {
+            <div class="row">
+                <div class="">
+                    @Html.Partial("_NewBadge", Model)
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
 @section scripts  {
     @Scripts.Render("~/bundles/PracticeTime-Add")
