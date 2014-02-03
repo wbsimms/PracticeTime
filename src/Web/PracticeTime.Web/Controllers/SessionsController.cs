@@ -20,12 +20,16 @@ namespace PracticeTime.Web.Controllers
     [Authorize]
     public class SessionsController : Controller
     {
-        private ISessionRepository sessions;
+        private ISessionRepository sessionRepository;
         private IBadgeRulesEngine rulesEngine;
+        private IInstrumentRepository instrumentRepository;
 
-        public SessionsController(ISessionRepository sessionRepository, IBadgeRulesEngine badgeRulesEngine)
+        public SessionsController(ISessionRepository sessions,
+            IBadgeRulesEngine badgeRulesEngine,
+            IInstrumentRepository instuments)
         {
-            this.sessions = sessionRepository;
+            this.instrumentRepository = instuments;
+            this.sessionRepository = sessions;
             this.rulesEngine = badgeRulesEngine;
         }
 
@@ -35,12 +39,13 @@ namespace PracticeTime.Web.Controllers
         {
             string userId = UserHelper.GetUserId(User.Identity.Name);
             SessionsViewModel vm = new SessionsViewModel();
-            vm.AllSessions = sessions.GetAllForUser(userId);
+            vm.AllSessions = sessionRepository.GetAllForUser(userId);
             return View(vm);
         }
 
         public ActionResult Add(SessionEntryViewModel sessionEntry)
         {
+            List<C_Instrument> instruments = instrumentRepository.GetAll();
             string userId = UserHelper.GetUserId(User.Identity.Name);
             if (ModelState.IsValid)
             {
@@ -50,10 +55,11 @@ namespace PracticeTime.Web.Controllers
                     Time = sessionEntry.Time,
                     TimeZoneOffset = sessionEntry.TimeZoneOffset,
                     Title = sessionEntry.Title,
-                    UserId = userId
+                    UserId = userId,
+                    C_InstrumentId = sessionEntry.SelectedInstrumentId
                 };
 
-                Session savedSession = sessions.Add(session);
+                Session savedSession = sessionRepository.Add(session);
                 sessionEntry.StateMessage = "Session Saved";
                 ResponseModel response = rulesEngine.RunRules(savedSession);
                 if (response.HasNewBadges)
@@ -63,8 +69,9 @@ namespace PracticeTime.Web.Controllers
                 sessionEntry.BadgeAwards = response.Badges;
             }
 
-            List<string> userTitles = sessions.GetAllTitlesForUser(userId);
+            List<string> userTitles = sessionRepository.GetAllTitlesForUser(userId);
             sessionEntry.SessionTitles = userTitles;
+            sessionEntry.Instruments = new SelectList(instruments,"C_InstrumentId","Name");
 
             return View("Add",sessionEntry);
         }
@@ -73,7 +80,7 @@ namespace PracticeTime.Web.Controllers
         public ActionResult GetSessionsForUserGraph()
         {
             string userId = UserHelper.GetUserId(User.Identity.Name);
-            List<Session> sessionList = sessions.GetAllForUser(userId);
+            List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
                 cols = new ColInfo[]
@@ -83,14 +90,25 @@ namespace PracticeTime.Web.Controllers
                 },
                 p = new Dictionary<string, string>()
             };
+
+            IDictionary<DateTime,int> sessionDateTimes = new Dictionary<DateTime, int>();
+            foreach (Session s in sessionList)
+            {
+                if (!sessionDateTimes.ContainsKey(s.SessionDateTimeUtc))
+                {
+                    sessionDateTimes.Add(s.SessionDateTimeUtc,0);
+                }
+                sessionDateTimes[s.SessionDateTimeUtc] += s.Time;
+            }
+
             List<DataPointSet> dpsetList = new List<DataPointSet>(sessionList.Count);
-            foreach (Session s in sessionList.OrderBy(x => x.SessionDateTimeUtc))
+            foreach (DateTime d in sessionDateTimes.Keys.OrderBy(x => x.Date))
             {
                 DataPointSet dps = new DataPointSet() {
                     c = new DataPoint[]
                     {
-                        new DataPoint() {v = s.SessionDateTimeUtc.ToShortDateString()}, 
-                        new DataPoint() {v = s.Time} 
+                        new DataPoint() {v = d.ToShortDateString()}, 
+                        new DataPoint() {v = sessionDateTimes[d]} 
                     }
                 };
                 dpsetList.Add(dps);
@@ -104,7 +122,7 @@ namespace PracticeTime.Web.Controllers
         public ActionResult GetSessionsForUserGraphTitle()
         {
             string userId = UserHelper.GetUserId(User.Identity.Name);
-            List<Session> sessionList = sessions.GetAllForUser(userId);
+            List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
                 cols = new ColInfo[]

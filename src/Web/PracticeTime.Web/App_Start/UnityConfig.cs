@@ -41,6 +41,7 @@ namespace PracticeTime.Web
             container.RegisterType<ISessionRepository, SessionRepository>();
             container.RegisterType<IBadgeAwardRepository, BadgeAwardRepository>();
             container.RegisterType<IBadgeRepository, BadgeRepository>();
+            container.RegisterType<IInstrumentRepository, InstrumentRepository>();
             container.RegisterType<AccountController>(new InjectionConstructor());
         }
 

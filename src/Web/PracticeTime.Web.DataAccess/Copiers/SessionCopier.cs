@@ -21,13 +21,14 @@ namespace PracticeTime.Web.DataAccess.Copiers
         public void Merge(Session from, Session to)
         {
             if (from == null) return;
-            to.SessionId = from.SessionId;
             to.Time = from.Time;
             to.Title = from.Title;
             to.User = from.User;
             to.SessionDateTimeUtc = from.SessionDateTimeUtc;
             to.TimeZoneOffset = from.TimeZoneOffset;
             to.UserId = from.UserId;
+            to.C_Instrument = from.C_Instrument;
+            to.C_InstrumentId = from.C_InstrumentId;
         }
     }
 }

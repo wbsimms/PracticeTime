@@ -17,5 +17,8 @@ namespace PracticeTime.Web.DataAccess.Models
         public DateTime SessionDateTimeUtc { get; set; }
         public int TimeZoneOffset { get; set; }
         public string UserId { get; set; }
+        public int C_InstrumentId { get; set; }
+        public C_Instrument C_Instrument { get; set; }
+
     }
 }

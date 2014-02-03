@@ -3,13 +3,12 @@
 $(document).ready(function () {
     var timeZoneOffset = new Date().getTimezoneOffset();
     $("#slider").slider({
-        change: function(event, ui) {
+        slide: function(event, ui) {
             var value = $("#slider").slider("option", "value");
             $("#Time").val(value);
             $("#slider-value").text(value);
         }
     });
-    var titlesData;
     try {
         var data = $("#Title").data("titles");
         var titlesData = data.split(',');
@@ -17,6 +16,13 @@ $(document).ready(function () {
     } catch (err)
     {
     }
+
+    //try {
+    //    var data = $("#SelectedInstrument").data("instruments");
+    //    var titlesData = data.split(',');
+    //    $("#SelectedInstrument").autocomplete({ source: titlesData });
+    //} catch (err) {
+    //}
 
     var datePickerFormat = 'mm/dd/yy';
     $(".datepicker").datepicker({ dateFormat: datePickerFormat });

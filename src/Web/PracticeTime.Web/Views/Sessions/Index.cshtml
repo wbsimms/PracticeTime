@@ -19,6 +19,7 @@
 <div class="table-responsive">
     <table class="table table-bordered table-striped">
         <thead>
+            <th>Instrument</th>
             <th>Title</th>
             <th>Date</th>
             <th>Time</th>
@@ -27,6 +28,7 @@
             @foreach (Session session in Model.AllSessions)
             {
                 <tr>
+                    <td>@session.C_Instrument.Name</td>
                     <td>@session.Title</td>
                     <td>@session.SessionDateTimeUtc.ToShortDateString()</td>
                     <td>@session.Time</td>

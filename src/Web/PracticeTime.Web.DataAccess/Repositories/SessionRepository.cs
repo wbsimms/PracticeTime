@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using PracticeTime.Web.DataAccess.Copiers;
 using PracticeTime.Web.DataAccess.Models;
+using System.Data.Entity;
 
 namespace PracticeTime.Web.DataAccess.Repositories
 {
@@ -64,7 +62,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().FirstOrDefault(x => x.SessionId == sessionId);
+                return context.Sessions
+                    .Include(x => x.C_Instrument)
+                    .AsNoTracking()
+                    .FirstOrDefault(x => x.SessionId == sessionId);
             }
         }
 
@@ -86,7 +87,11 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                return context.Sessions.AsNoTracking().Where(s => s.UserId == userId).ToList();
+                return context.Sessions
+                    .Include(x => x.C_Instrument)
+                    .AsNoTracking()
+                    .Where(s => s.UserId == userId)
+                    .ToList();
             }
         }
 

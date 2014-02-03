@@ -151,6 +151,12 @@
         <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.Constructor">
             <summary>Sets the shim of PracticeTimeContext.PracticeTimeContext()</summary>
         </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.InstrumentsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Instruments()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.InstrumentsSetDbSetOfC_Instrument">
+            <summary>Sets the shim of PracticeTimeContext.set_Instruments(DbSet`1&lt;C_Instrument&gt; value)</summary>
+        </member>
         <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.SessionsGet">
             <summary>Sets the shim of PracticeTimeContext.get_Sessions()</summary>
         </member>
@@ -171,6 +177,12 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.BadgesSetDbSetOfC_Badge">
             <summary>Sets the shim of PracticeTimeContext.set_Badges(DbSet`1&lt;C_Badge&gt; value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.InstrumentsGet">
+            <summary>Sets the shim of PracticeTimeContext.get_Instruments()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.InstrumentsSetDbSetOfC_Instrument">
+            <summary>Sets the shim of PracticeTimeContext.set_Instruments(DbSet`1&lt;C_Instrument&gt; value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.SessionsGet">
             <summary>Sets the shim of PracticeTimeContext.get_Sessions()</summary>
@@ -475,6 +487,78 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Badge.AllInstances.NameSetString">
             <summary>Sets the shim of C_Badge.set_Name(String value)</summary>
         </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Models.C_Instrument</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.#ctor(PracticeTime.Web.DataAccess.Models.C_Instrument)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.C_InstrumentIdGet">
+            <summary>Sets the shim of C_Instrument.get_C_InstrumentId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.C_InstrumentIdSetInt32">
+            <summary>Sets the shim of C_Instrument.set_C_InstrumentId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.Constructor">
+            <summary>Sets the shim of C_Instrument.C_Instrument()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.DescriptionGet">
+            <summary>Sets the shim of C_Instrument.get_Description()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.DescriptionSetString">
+            <summary>Sets the shim of C_Instrument.set_Description(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.IconUrlGet">
+            <summary>Sets the shim of C_Instrument.get_IconUrl()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.IconUrlSetString">
+            <summary>Sets the shim of C_Instrument.set_IconUrl(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.NameGet">
+            <summary>Sets the shim of C_Instrument.get_Name()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.NameSetString">
+            <summary>Sets the shim of C_Instrument.set_Name(String value)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.C_InstrumentIdGet">
+            <summary>Sets the shim of C_Instrument.get_C_InstrumentId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.C_InstrumentIdSetInt32">
+            <summary>Sets the shim of C_Instrument.set_C_InstrumentId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.DescriptionGet">
+            <summary>Sets the shim of C_Instrument.get_Description()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.DescriptionSetString">
+            <summary>Sets the shim of C_Instrument.set_Description(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.IconUrlGet">
+            <summary>Sets the shim of C_Instrument.get_IconUrl()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.IconUrlSetString">
+            <summary>Sets the shim of C_Instrument.set_IconUrl(String value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.NameGet">
+            <summary>Sets the shim of C_Instrument.get_Name()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimC_Instrument.AllInstances.NameSetString">
+            <summary>Sets the shim of C_Instrument.set_Name(String value)</summary>
+        </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession">
             <summary>Shim type of PracticeTime.Web.DataAccess.Models.Session</summary>
         </member>
@@ -492,6 +576,18 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.C_InstrumentGet">
+            <summary>Sets the shim of Session.get_C_Instrument()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.C_InstrumentIdGet">
+            <summary>Sets the shim of Session.get_C_InstrumentId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.C_InstrumentIdSetInt32">
+            <summary>Sets the shim of Session.set_C_InstrumentId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.C_InstrumentSetC_Instrument">
+            <summary>Sets the shim of Session.set_C_Instrument(C_Instrument value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.Constructor">
             <summary>Sets the shim of Session.Session()</summary>
@@ -540,6 +636,18 @@
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.C_InstrumentGet">
+            <summary>Sets the shim of Session.get_C_Instrument()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.C_InstrumentIdGet">
+            <summary>Sets the shim of Session.get_C_InstrumentId()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.C_InstrumentIdSetInt32">
+            <summary>Sets the shim of Session.set_C_InstrumentId(Int32 value)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.C_InstrumentSetC_Instrument">
+            <summary>Sets the shim of Session.set_C_Instrument(C_Instrument value)</summary>
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.ShimSession.AllInstances.SessionDateTimeUtcGet">
             <summary>Sets the shim of Session.get_SessionDateTimeUtc()</summary>
@@ -685,6 +793,24 @@
         <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Badge.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Models.C_Instrument</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument.InitializeStub">
+            <summary>Initializes a new instance of type StubC_Instrument</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Models.Fakes.StubC_Instrument.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
         <member name="T:PracticeTime.Web.DataAccess.Models.Fakes.StubSession">
             <summary>Stub type of PracticeTime.Web.DataAccess.Models.Session</summary>
         </member>
@@ -804,6 +930,45 @@
         </member>
         <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimBadgeRepository.AllInstances.GetByIdInt32">
             <summary>Sets the shim of BadgeRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository">
+            <summary>Shim type of PracticeTime.Web.DataAccess.Repositories.InstrumentRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.#ctor(PracticeTime.Web.DataAccess.Repositories.InstrumentRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.Bind(PracticeTime.Web.DataAccess.Repositories.IInstrumentRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.Constructor">
+            <summary>Sets the shim of InstrumentRepository.InstrumentRepository()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.GetAll">
+            <summary>Sets the shim of InstrumentRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.GetByIdInt32">
+            <summary>Sets the shim of InstrumentRepository.GetById(Int32 instrumentId)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.AllInstances.GetAll">
+            <summary>Sets the shim of InstrumentRepository.GetAll()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimInstrumentRepository.AllInstances.GetByIdInt32">
+            <summary>Sets the shim of InstrumentRepository.GetById(Int32 instrumentId)</summary>
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.ShimSessionRepository">
             <summary>Shim type of PracticeTime.Web.DataAccess.Repositories.SessionRepository</summary>
@@ -976,6 +1141,24 @@
         <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIBadgeRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IBadgeRepository#GetById(System.Int32)">
             <summary>Sets the stub of IBadgeRepository.GetById(Int32 badgeId)</summary>
         </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.IInstrumentRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository.#ctor">
+            <summary>Initializes a new instance of type StubIInstrumentRepository</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository.GetAll">
+            <summary>Sets the stub of IInstrumentRepository.GetAll()</summary>
+        </member>
+        <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository.GetByIdInt32">
+            <summary>Sets the stub of IInstrumentRepository.GetById(Int32 badgeId)</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IInstrumentRepository#GetAll">
+            <summary>Sets the stub of IInstrumentRepository.GetAll()</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubIInstrumentRepository.ptwda::PracticeTime#Web#DataAccess#Repositories#IInstrumentRepository#GetById(System.Int32)">
+            <summary>Sets the stub of IInstrumentRepository.GetById(Int32 badgeId)</summary>
+        </member>
         <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository">
             <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.ISessionRepository</summary>
         </member>
@@ -1029,6 +1212,24 @@
         </member>
         <member name="F:PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository.UpdateSession">
             <summary>Sets the stub of ISessionRepository.Update(Session session)</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository">
+            <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.InstrumentRepository</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubInstrumentRepository</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Repositories.Fakes.StubInstrumentRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:PracticeTime.Web.DataAccess.Repositories.Fakes.StubSessionRepository">
             <summary>Stub type of PracticeTime.Web.DataAccess.Repositories.SessionRepository</summary>

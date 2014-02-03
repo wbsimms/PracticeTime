@@ -37,8 +37,6 @@ namespace PracticeTime.Web
                       "~/Content/bootstrap-cerulean.css",
                       "~/Content/Site.css",
                       "~/Content/themes/base/jquery-ui*"));
-
-
-        }
+         }
     }
 }
