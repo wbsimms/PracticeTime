@@ -2,9 +2,10 @@
 	<PropertyGroup>
 		<MainSln>..\PracticeTime.sln</MainSln>
 		<WebDataAccess>..\src\Web\PracticeTime.Web.DataAccess.Test\bin\PracticeTime.Web.DataAccess.Test.dll</WebDataAccess>
-		<Web>..\src\Web\PracticeTime.Web.Tests\bin\PracticeTime.Web.Tests.dll</Web>
+		<Web>..\src\Web\PracticeTime.Web.Test\bin\PracticeTime.Web.Test.dll</Web>
+		<WebLib>..\src\Web\PracticeTime.Web.Lib.Test\bin\PracticeTime.Web.Lib.Test.dll</WebLib>
 		<!-- StoreDataAccessLayer>..\src\StoreApp\PracticeTime.DataAccessLayer.Test\bin\PracticeTime.DataAccessLayer.Test/PracticeTime.DataAccessLayer.Test.dll</StoreDataAccessLayer -->
-		<TestContainers>/testcontainer:$(WebDataAccess) /testcontainer:$(Web) </TestContainers>
+		<TestContainers>/testcontainer:$(WebDataAccess) /testcontainer:$(Web) /testcontainer:$(WebLib)</TestContainers>
 	</PropertyGroup>
 
 	<Target Name="BuildCI">

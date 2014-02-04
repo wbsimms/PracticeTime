@@ -24,7 +24,15 @@ namespace PracticeTime.Web.DataAccess.Test
             {
                 string id = store.FindByNameAsync("wbsimms").Result.Id;
 
-                Session testSession = new Session() { Time = 300, Title = "Mel Bay Guitar 1", UserId = id, SessionDateTimeUtc = DateTime.UtcNow, TimeZoneOffset = 300 };
+                Session testSession = new Session()
+                {
+                    Time = 300, 
+                    Title = "Mel Bay Guitar 1", 
+                    UserId = id, 
+                    SessionDateTimeUtc = DateTime.UtcNow, 
+                    TimeZoneOffset = 300,
+                    C_InstrumentId = 1
+                };
                 context.Sessions.Add(testSession);
                 context.SaveChanges();
                 context.Dispose();
