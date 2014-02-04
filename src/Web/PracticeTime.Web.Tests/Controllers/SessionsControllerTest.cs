@@ -18,6 +18,7 @@ namespace PracticeTime.Web.Tests.Controllers
         [TestMethod]
         public void ConstructorTest()
         {
+            StubIInstrumentRepository stubIInstrumentRepository = new StubIInstrumentRepository();
             StubISessionRepository stub = new PracticeTime.Web.DataAccess.Repositories.Fakes.StubISessionRepository();
             StubIBadgeRulesEngine stubIBadgeRulesEngine = new StubIBadgeRulesEngine(); 
             stub.GetAllForUserString = i =>
@@ -31,7 +32,7 @@ namespace PracticeTime.Web.Tests.Controllers
             }};
             };
 
-            SessionsController controller = new SessionsController(stub,stubIBadgeRulesEngine);
+            SessionsController controller = new SessionsController(stub,stubIBadgeRulesEngine,stubIInstrumentRepository);
             Assert.IsNotNull(controller);
         }
     }
