@@ -37,9 +37,9 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(s => s.Time, new { @class = "col-md-2 control-label" })
-            <div>
-                <div class="col-md-7 ui-slider-horizontal-PT" id="slider"></div>
-                <div><label class="col-md-1 control-label" id="slider-value">0</label></div>
+            <div class="col-md-10">
+                <div class="col-md-9 ui-slider-horizontal-PT" style="max-width: 255px;" id="slider"></div>
+                <div class="col-md-1"><label style="margin-top: 5px" id="slider-value">0</label></div>
                 @Html.HiddenFor(m => m.Time)
             </div>
         </div>

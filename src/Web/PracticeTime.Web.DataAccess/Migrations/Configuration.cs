@@ -28,17 +28,34 @@ namespace PracticeTime.Web.DataAccess.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Badges.AddOrUpdate(b => b.C_BadgeId,
-                new Models.C_Badge { C_BadgeId = 1, Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/FirstSession.png" },
-                new Models.C_Badge { C_BadgeId = 2, Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "" },
-                new Models.C_Badge { C_BadgeId = 3, Name = "Song Master", Description = "You're practiced this song over 5 hours.", ImageUrl = "" }
+            context.Badges.AddOrUpdate(b => b.Name,
+                new Models.C_Badge { Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/FirstSession.png" },
+                new Models.C_Badge { Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 1", Description = "You're practiced a song over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 2", Description = "You're practiced two songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 3", Description = "You're practiced three songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 4", Description = "You're practiced four songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 5", Description = "You're practiced five songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 6", Description = "You're practiced six songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 7", Description = "You're practiced seven songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 8", Description = "You're practiced eight songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Song Master: Level 9", Description = "You're practiced nine songs over 5 hours.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Stage Ready", Description = "You've mastered 10 songs.", ImageUrl = "" }
                 );
 
-            context.Instruments.AddOrUpdate(b => b.C_InstrumentId,
-                new C_Instrument { C_InstrumentId = 1, Name = "Guitar - Acoustic",Description = "",IconUrl = ""},
-                new C_Instrument { C_InstrumentId = 2, Name = "Guitar - Classical", Description = "", IconUrl = "" },
-                new C_Instrument { C_InstrumentId = 3, Name = "Guitar - Electric", Description = "", IconUrl = "" },
-                new C_Instrument { C_InstrumentId = 4, Name = "Piano", Description = "", IconUrl = "" }
+            context.Instruments.AddOrUpdate(b => b.Name,
+                new C_Instrument { Name = "Guitar - Acoustic",Description = "",IconUrl = ""},
+                new C_Instrument { Name = "Guitar - Classical", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Guitar - Electric", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Piano", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Saxaphone", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Clarinet", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Flute", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Oboe", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Drums", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Bass", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Voice", Description = "", IconUrl = "" },
+                new C_Instrument { Name = "Violin", Description = "", IconUrl = "" }
                 );
 
             context.SaveChanges();

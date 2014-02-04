@@ -10,7 +10,7 @@ using PracticeTime.Web.DataAccess.Repositories.Fakes;
 using PracticeTime.Web.Lib;
 using PracticeTime.Web.Lib.BadgeRules;
 
-namespace PracticeTime.Web.LibTest.BadgeRules
+namespace PracticeTime.Web.Lib.Test.BadgeRules
 {
     [TestClass]
     public class FirstSessionRuleTest

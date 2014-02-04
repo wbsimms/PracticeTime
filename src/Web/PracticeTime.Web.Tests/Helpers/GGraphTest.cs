@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeTime.Web.Helpers;
 
-namespace PracticeTime.Web.Tests.Helpers
+namespace PracticeTime.Web.Test.Helpers
 {
     [TestClass]
     public class GGraphTest

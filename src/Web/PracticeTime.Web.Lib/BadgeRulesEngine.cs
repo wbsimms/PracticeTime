@@ -16,20 +16,28 @@ namespace PracticeTime.Web.Lib
 
     public class BadgeRulesEngine : IBadgeRulesEngine
     {
-        private IFirstSessionRule firstSessionRule;
         private IBadgeAwardRepository badgeAwardRepository;
+        List<IBadgeRule> rulesToCheck = new List<IBadgeRule>(); 
 
-        public BadgeRulesEngine(IFirstSessionRule firstSessionRule, IBadgeAwardRepository badgeAwardRepository)
+        public BadgeRulesEngine(
+            IFirstSessionRule firstSessionRule,
+            IOneManBandRule oneManBandRule,
+            IBadgeAwardRepository badgeAwardRepository)
         {
-            this.firstSessionRule = firstSessionRule;
             this.badgeAwardRepository = badgeAwardRepository;
+            rulesToCheck.Add(firstSessionRule);
+            rulesToCheck.Add(oneManBandRule);
         }
 
         public ResponseModel RunRules(Session session)
         {
             ResponseModel response = new ResponseModel();
             response.Badges.AddRange(badgeAwardRepository.GetAllForUser(session.UserId));
-            firstSessionRule.Rule(session, response);
+            foreach (IBadgeRule rule in rulesToCheck)
+            {
+                rule.Rule(session,response);
+                if (response.HasNewBadges) break;
+            }
             return response;
         }
     }

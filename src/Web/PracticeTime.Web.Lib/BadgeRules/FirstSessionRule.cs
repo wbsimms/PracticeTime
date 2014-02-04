@@ -12,15 +12,10 @@ namespace PracticeTime.Web.Lib.BadgeRules
     {
     }
 
-    public class FirstSessionRule : IFirstSessionRule
+    public class FirstSessionRule : BadgeRuleBase, IFirstSessionRule
     {
-        private ISessionRepository sessionRepository;
-        private IBadgeAwardRepository badgeAwardRepository;
-
-        public FirstSessionRule(ISessionRepository sessionRepository,IBadgeAwardRepository badgeAwardRepository)
+        public FirstSessionRule(ISessionRepository sessionRepository, IBadgeAwardRepository badgeAwardRepository) : base(sessionRepository, badgeAwardRepository)
         {
-            this.sessionRepository = sessionRepository;
-            this.badgeAwardRepository = badgeAwardRepository;
         }
 
         public void Rule(Session session, ResponseModel response)

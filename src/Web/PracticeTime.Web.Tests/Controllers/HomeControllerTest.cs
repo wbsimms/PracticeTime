@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeTime.Web;
 using PracticeTime.Web.Controllers;
 
-namespace PracticeTime.Web.Tests.Controllers
+namespace PracticeTime.Web.Test.Controllers
 {
     [TestClass]
     public class HomeControllerTest

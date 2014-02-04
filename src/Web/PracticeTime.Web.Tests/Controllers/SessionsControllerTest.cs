@@ -10,7 +10,7 @@ using PracticeTime.Web.DataAccess.Repositories.Fakes;
 using PracticeTime.Web.Lib;
 using PracticeTime.Web.Lib.Fakes;
 
-namespace PracticeTime.Web.Tests.Controllers
+namespace PracticeTime.Web.Test.Controllers
 {
     [TestClass]
     public class SessionsControllerTest

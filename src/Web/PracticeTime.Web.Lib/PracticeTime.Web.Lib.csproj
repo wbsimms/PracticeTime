@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BadgeRulesEngine.cs" />
+    <Compile Include="BadgeRules\BadgeRuleBase.cs" />
     <Compile Include="BadgeRules\FirstSessionRule.cs" />
     <Compile Include="BadgeRules\IBadgeRule.cs" />
+    <Compile Include="BadgeRules\OneManBandRule.cs" />
     <Compile Include="PracticeTimeLibResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseModel.cs" />

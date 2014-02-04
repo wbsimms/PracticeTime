@@ -190,6 +190,54 @@
         <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeContext.AllInstances.SessionsSetDbSetOfSession">
             <summary>Sets the shim of PracticeTimeContext.set_Sessions(DbSet`1&lt;Session&gt; value)</summary>
         </member>
+        <member name="T:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver">
+            <summary>Shim type of PracticeTime.Web.DataAccess.PracticeTimeDataAccessResolver</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.#ctor(PracticeTime.Web.DataAccess.PracticeTimeDataAccessResolver)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.Constructor">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.PracticeTimeDataAccessResolver()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.ContainerGet">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.get_Container()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.Init">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.Init()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.InstanceGet">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.get_Instance()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.RegisterUnityContainer">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.Register(UnityContainer container)</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.StaticConstructor">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.PracticeTimeDataAccessResolver()</summary>
+        </member>
+        <member name="T:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.AllInstances.ContainerGet">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.get_Container()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.AllInstances.Init">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.Init()</summary>
+        </member>
+        <member name="P:PracticeTime.Web.DataAccess.Fakes.ShimPracticeTimeDataAccessResolver.AllInstances.RegisterUnityContainer">
+            <summary>Sets the shim of PracticeTimeDataAccessResolver.Register(UnityContainer container)</summary>
+        </member>
         <member name="T:PracticeTime.Web.DataAccess.Fakes.StubPracticeTimeContext">
             <summary>Stub type of PracticeTime.Web.DataAccess.PracticeTimeContext</summary>
         </member>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.Lib.BadgeRules;
 
 namespace PracticeTime.Web.Lib
@@ -27,7 +28,9 @@ namespace PracticeTime.Web.Lib
 
         public void Register(UnityContainer container)
         {
+            PracticeTimeDataAccessResolver.Instance.Register(container);
             container.RegisterType<IFirstSessionRule, FirstSessionRule>();
+            container.RegisterType<IOneManBandRule, OneManBandRule>();
             container.RegisterType<IBadgeRulesEngine, BadgeRulesEngine>();
         }
 
