@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.DataAccessLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web", "src\Web\PracticeTime.Web\PracticeTime.Web.csproj", "{45E19BB2-686A-44FF-9F7E-AD7170DCD521}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web.Test", "src\Web\PracticeTime.Web.Tests\PracticeTime.Web.Test.csproj", "{5F175F0A-BE60-4DC3-9382-F1D070F4D77A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web.Test", "src\Web\PracticeTime.Web.Test\PracticeTime.Web.Test.csproj", "{5F175F0A-BE60-4DC3-9382-F1D070F4D77A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{235D6D66-5DAC-48F5-A5FD-42EABCECA565}"
 EndProject
@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreApp", "StoreApp", "{7A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web.Lib", "src\Web\PracticeTime.Web.Lib\PracticeTime.Web.Lib.csproj", "{870B1B06-EA94-4C33-8C3C-423E48756006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web.Lib.Test", "src\Web\PracticeTime.Web.LibTest\PracticeTime.Web.Lib.Test.csproj", "{A12030CA-BF37-422B-AA0F-FD6142BDF09E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeTime.Web.Lib.Test", "src\Web\PracticeTime.Web.Lib.Test\PracticeTime.Web.Lib.Test.csproj", "{A12030CA-BF37-422B-AA0F-FD6142BDF09E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
