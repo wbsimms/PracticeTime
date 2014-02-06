@@ -38,7 +38,6 @@ namespace PracticeTime.Web.Lib.Test
             StringReader sr = new StringReader(sb.ToString());
             ResponseModel model = (ResponseModel)serializer.Deserialize(sr);
             Assert.IsNotNull(model);
-
         }
     }
 }
