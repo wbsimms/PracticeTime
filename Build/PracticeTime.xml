@@ -45,7 +45,8 @@
 	</Target>
 	
 	<Target Name="SimianReport">
-		<Exec Command='simian-2.3.35.exe ../src/**/*.cs -formatter=xml -failOnDuplication- > simian.xml' />
+		<Exec Command='simian-2.3.35.exe -includes=../src/**/*.cs -excludes=**/obj -excludes=**/bin -formatter=xml -failOnDuplication- > simian.xml' />
+		<Exec Command='SimianOutputCleaner.exe' />
 	</Target>
 	
 	<Target Name="Clean">
