@@ -26,5 +26,56 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             OneManBandRule rule = new OneManBandRule(sessionRepository.Object,badgeAwardRepository.Object);
             Assert.IsNotNull(rule);
         }
+
+        [TestMethod]
+        public void RuleNoBadgeTest()
+        {
+            var sessionRepository = new Mock<ISessionRepository>();
+            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>()))
+                .Returns(() =>
+                {
+                    return new List<Session>()
+                    {
+                        new Session(){SessionId = 1,C_InstrumentId = 1},
+                        new Session(){SessionId = 2,C_InstrumentId = 2},
+                        new Session(){SessionId = 2,C_InstrumentId = 1},
+                    };
+                });
+
+            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
+            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1 }; }).Verifiable();
+
+            OneManBandRule rule = new OneManBandRule(sessionRepository.Object, badgeAwardRepository.Object);
+            ResponseModel response = new ResponseModel();
+            rule.Rule(new Session(){SessionId = 4,C_InstrumentId = 2},response);
+            Assert.IsFalse(response.HasNewBadges);
+            Assert.AreEqual(0,response.NewBadges.Count);
+        }
+
+        [TestMethod]
+        public void RuleTest()
+        {
+            var sessionRepository = new Mock<ISessionRepository>();
+            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>()))
+                .Returns(() =>
+                {
+                    return new List<Session>()
+                    {
+                        new Session(){SessionId = 1,C_InstrumentId = 1},
+                        new Session(){SessionId = 2,C_InstrumentId = 2},
+                        new Session(){SessionId = 3,C_InstrumentId = 3},
+                    };
+                });
+
+            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
+            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1 }; }).Verifiable();
+
+            OneManBandRule rule = new OneManBandRule(sessionRepository.Object, badgeAwardRepository.Object);
+            ResponseModel response = new ResponseModel();
+            rule.Rule(new Session() { SessionId = 4, C_InstrumentId = 2 }, response);
+            Assert.IsTrue(response.HasNewBadges);
+            Assert.AreEqual(1, response.NewBadges.Count);
+        }
+
     }
 }
