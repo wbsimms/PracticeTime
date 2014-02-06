@@ -44,6 +44,9 @@ namespace PracticeTime.Web.Lib
             get { return this.container; }
         }
 
-
+        public void Reset()
+        {
+            this.Init();
+        }
     }
 }

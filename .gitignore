@@ -109,3 +109,7 @@ UpgradeLog*.XML
 /src/Web/PracticeTime.Web.Tests/FakesAssemblies
 FakesAssemblies
 /Build/simian.xml
+/Build/coverage
+/Build/Wm.Barrett_*
+/Build/coverage.xml
+/Build/coverage.xml.bkp
