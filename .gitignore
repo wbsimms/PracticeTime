@@ -108,3 +108,4 @@ Backup*/
 UpgradeLog*.XML
 /src/Web/PracticeTime.Web.Tests/FakesAssemblies
 FakesAssemblies
+/Build/simian.xml

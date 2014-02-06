@@ -1,1 +1,1 @@
-msbuild PracticeTime.xml
+msbuild PracticeTime.xml /t:SimianReport;BuildCI;Coverage;CoverageReport
