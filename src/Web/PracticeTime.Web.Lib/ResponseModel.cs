@@ -7,6 +7,7 @@ using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Lib
 {
+    [Serializable]
     public class ResponseModel
     {
         public List<string> Errors { get; set; }

@@ -58,7 +58,6 @@
     <Compile Include="PracticeTimeLibResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseModel.cs" />
-    <Compile Include="ValidationModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PracticeTime.Web.DataAccess\PracticeTime.Web.DataAccess.csproj">

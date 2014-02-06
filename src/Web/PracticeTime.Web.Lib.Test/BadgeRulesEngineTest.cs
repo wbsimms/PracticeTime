@@ -43,6 +43,30 @@ namespace PracticeTime.Web.Lib.Test
             mockBadgeRepository.VerifyAll();
         }
 
+        [TestMethod]
+        public void RunRulesFirstTimeBadgeTest()
+        {
+            var mockBadgeRepository = new Mock<IBadgeAwardRepository>();
+            mockBadgeRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() => { return new List<BadgeAward>(); }).Verifiable();
+
+            var mockFirstSession = new Mock<IFirstSessionRule>();
+            var mockOneManBand = new Mock<IOneManBandRule>();
+            mockFirstSession.Setup(x => x.Rule(It.IsAny<Session>(), It.IsAny<ResponseModel>())).Callback((Session session, ResponseModel response) =>
+            {
+                response.HasNewBadges = true;
+            }).Verifiable();
+            mockOneManBand.Setup(x => x.Rule(It.IsAny<Session>(), It.IsAny<ResponseModel>())).Verifiable();
+            PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IFirstSessionRule), mockFirstSession.Object);
+            PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IOneManBandRule), mockOneManBand.Object);
+            PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IBadgeAwardRepository), mockBadgeRepository.Object);
+            PracticeTimeLibResolver.Instance.Container.Resolve<IBadgeRulesEngine>()
+                .RunRules(new Session() { SessionId = 1, C_InstrumentId = 1 });
+            mockFirstSession.VerifyAll();
+            mockOneManBand.Verify(blah => blah.Rule(It.IsAny<Session>(),It.IsAny<ResponseModel>()),Times.Never);
+            mockBadgeRepository.VerifyAll();
+        }
+
+
         [TestCleanup]
         public void Cleanup()
         {

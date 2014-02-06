@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PracticeTime.Web.DataAccess.Models
 {
+    [Serializable]
     public class C_Badge
     {
         public int C_BadgeId { get; set; }

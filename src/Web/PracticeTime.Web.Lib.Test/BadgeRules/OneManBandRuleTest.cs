@@ -77,5 +77,31 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             Assert.AreEqual(1, response.NewBadges.Count);
         }
 
+        [TestMethod]
+        public void RuleHasBadgeTest()
+        {
+            var sessionRepository = new Mock<ISessionRepository>();
+            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>()))
+                .Returns(() =>
+                {
+                    return new List<Session>()
+                    {
+                        new Session(){SessionId = 1,C_InstrumentId = 1},
+                        new Session(){SessionId = 2,C_InstrumentId = 2},
+                        new Session(){SessionId = 3,C_InstrumentId = 3},
+                    };
+                });
+
+            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
+            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1 }; }).Verifiable();
+
+            OneManBandRule rule = new OneManBandRule(sessionRepository.Object, badgeAwardRepository.Object);
+            ResponseModel response = new ResponseModel() {Badges = new List<BadgeAward>(){ new BadgeAward(){C_BadgeId = 2}}};
+            rule.Rule(new Session() { SessionId = 4, C_InstrumentId = 2 }, response);
+            Assert.IsFalse(response.HasNewBadges);
+            Assert.AreEqual(0, response.NewBadges.Count);
+        }
+
+
     }
 }
