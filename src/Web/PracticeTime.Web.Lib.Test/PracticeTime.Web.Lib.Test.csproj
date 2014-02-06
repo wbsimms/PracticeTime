@@ -41,10 +41,9 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\..\..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="PracticeTime.Web.DataAccess.Fakes">
-      <HintPath>FakesAssemblies\PracticeTime.Web.DataAccess.Fakes.dll</HintPath>
+    <Reference Include="Moq">
+      <HintPath>..\..\..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BadgeRulesEngineTest.cs" />
     <Compile Include="BadgeRules\FirstSessionRuleTest.cs" />
+    <Compile Include="BadgeRules\OneManBandRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +68,6 @@
       <Project>{870B1B06-EA94-4C33-8C3C-423E48756006}</Project>
       <Name>PracticeTime.Web.Lib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Fakes Include="Fakes\PracticeTime.Web.DataAccess.fakes" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
