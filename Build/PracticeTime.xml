@@ -33,11 +33,11 @@
 
 	<Target Name="Coverage">
 		<Message Text="========= Testing All ========" />
-		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx' />
+		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx //at PracticeTime.CoverageTrend' />
 	</Target>
 
 	<Target Name="CoverageReport">
-		<Exec Command='"C:\Program Files\ncover\ncover.reporting.exe" coverage.xml //or FullCoverageReport:Html //op .\coverage\ //mc BranchCoverage:6.39 //mcsc' />
+		<Exec Command='"C:\Program Files\ncover\ncover.reporting.exe" coverage.xml //or FullCoverageReport:Html //op .\coverage\ //mc BranchCoverage:6.39 //mcsc //lt PracticeTime.CoverageTrend' />
 	</Target>
 	
 	<Target Name="RemoveTestResults">
