@@ -1,8 +1,7 @@
 ﻿
 
-var time = new Date();
-google.load('visualization', '1.0', { 'packages': ['corechart'] });
 
+google.load('visualization', '1.0', { 'packages': ['corechart'] });
 google.setOnLoadCallback(drawChart_chart_div_timedate);
 
 

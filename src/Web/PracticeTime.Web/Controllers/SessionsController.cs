@@ -23,21 +23,24 @@ namespace PracticeTime.Web.Controllers
         private ISessionRepository sessionRepository;
         private IBadgeRulesEngine rulesEngine;
         private IInstrumentRepository instrumentRepository;
+        private IUserHelper userHelper;
 
         public SessionsController(ISessionRepository sessions,
             IBadgeRulesEngine badgeRulesEngine,
-            IInstrumentRepository instuments)
+            IInstrumentRepository instuments,
+            IUserHelper userHelper)
         {
             this.instrumentRepository = instuments;
             this.sessionRepository = sessions;
             this.rulesEngine = badgeRulesEngine;
+            this.userHelper = userHelper;
         }
 
         //
         // GET: /Sessions/
         public ActionResult Index()
         {
-            string userId = UserHelper.GetUserId(User.Identity.Name);
+            string userId = new UserHelper().GetUserId(User.Identity.Name);
             SessionsViewModel vm = new SessionsViewModel();
             vm.AllSessions = sessionRepository.GetAllForUser(userId);
             return View(vm);
@@ -46,7 +49,7 @@ namespace PracticeTime.Web.Controllers
         public ActionResult Add(SessionEntryViewModel sessionEntry)
         {
             List<C_Instrument> instruments = instrumentRepository.GetAll();
-            string userId = UserHelper.GetUserId(User.Identity.Name);
+            string userId = new UserHelper().GetUserId(User.Identity.Name);
             if (ModelState.IsValid)
             {
                 Session session = new Session()
@@ -79,7 +82,7 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUserGraph()
         {
-            string userId = UserHelper.GetUserId(User.Identity.Name);
+            string userId = new UserHelper().GetUserId(User.Identity.Name);
             List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
@@ -94,11 +97,11 @@ namespace PracticeTime.Web.Controllers
             IDictionary<DateTime,int> sessionDateTimes = new Dictionary<DateTime, int>();
             foreach (Session s in sessionList)
             {
-                if (!sessionDateTimes.ContainsKey(s.SessionDateTimeUtc))
+                if (!sessionDateTimes.ContainsKey(s.SessionDateTimeUtc.Date))
                 {
-                    sessionDateTimes.Add(s.SessionDateTimeUtc,0);
+                    sessionDateTimes.Add(s.SessionDateTimeUtc.Date,0);
                 }
-                sessionDateTimes[s.SessionDateTimeUtc] += s.Time;
+                sessionDateTimes[s.SessionDateTimeUtc.Date] += s.Time;
             }
 
             List<DataPointSet> dpsetList = new List<DataPointSet>(sessionList.Count);
@@ -121,7 +124,7 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUserGraphTitle()
         {
-            string userId = UserHelper.GetUserId(User.Identity.Name);
+            string userId = new UserHelper().GetUserId(User.Identity.Name);
             List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {

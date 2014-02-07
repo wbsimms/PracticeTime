@@ -9,9 +9,14 @@ using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Helpers
 {
-    public class UserHelper
+    public interface IUserHelper
     {
-        public static string GetUserId(string name)
+        string GetUserId(string name);
+    }
+
+    public class UserHelper : IUserHelper
+    {
+        public string GetUserId(string name)
         {
             return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
                 FindByNameAsync(name).Result.Id;

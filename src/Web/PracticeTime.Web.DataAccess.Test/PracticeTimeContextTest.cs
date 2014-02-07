@@ -35,8 +35,10 @@ namespace PracticeTime.Web.DataAccess.Test
                 };
                 context.Sessions.Add(testSession);
                 context.SaveChanges();
-                context.Dispose();
                 Assert.IsTrue(testSession.SessionId > 0);
+                context.Sessions.Remove(testSession);
+                context.SaveChanges();
+                context.Dispose();
             }
         }
     }
