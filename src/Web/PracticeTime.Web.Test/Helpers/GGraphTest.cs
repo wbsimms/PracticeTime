@@ -33,7 +33,7 @@ namespace PracticeTime.Web.Test.Helpers
                 {
                     new DataPointSet(){ c = new DataPoint[]
                     {
-                        new DataPoint() {v = DateTime.UtcNow.ToShortDateString()}, 
+                        new DataPoint() {v = DateTime.UtcNow.ToShortDateString(),f="blah"}, 
                         new DataPoint() {v = 25}, 
                     }},
                     new DataPointSet(){ c = new DataPoint[]

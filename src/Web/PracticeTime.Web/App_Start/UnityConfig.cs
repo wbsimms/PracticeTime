@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -6,6 +7,7 @@ using Unity.Mvc5;
 
 namespace PracticeTime.Web
 {
+    [ExcludeFromCodeCoverage]
     public static class UnityConfig
     {
         public static void RegisterComponents()

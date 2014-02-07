@@ -10,5 +10,10 @@ namespace PracticeTime.Web.Models
     public class SessionsViewModel
     {
         public List<Session> AllSessions { get; set; }
+
+        public SessionsViewModel()
+        {
+            this.AllSessions = new List<Session>();
+        }
     }
 }

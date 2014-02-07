@@ -34,7 +34,7 @@
 	<Target Name="Coverage">
 		<Message Text="========= Testing All ========" />
 		<Exec Command='del TestResults.trx' />
-		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx //at PracticeTime.CoverageTrend' />
+		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //ea System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx //at PracticeTime.CoverageTrend' />
 	</Target>
 
 	<Target Name="CoverageReport">

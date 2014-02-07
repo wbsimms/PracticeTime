@@ -34,6 +34,11 @@ namespace PracticeTime.Web
             get { return instance; }
         }
 
+        public void Reset()
+        {
+            this.Init();
+        }
+
         public UnityContainer Container { get { return this.container; } }
     }
 }

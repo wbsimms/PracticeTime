@@ -33,5 +33,11 @@ namespace PracticeTime.Web.Models
         [DisplayName("Instrument")]
         public int SelectedInstrumentId { get; set; }
 
+        public SessionEntryViewModel()
+        {
+            this.Instruments = new List<SelectListItem>();
+            this.BadgeAwards = new List<BadgeAward>();
+            this.SessionTitles = new List<string>();
+        }
     }
 }
