@@ -34,6 +34,10 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             C_Badge badge = repo.GetById(1);
             Assert.IsNotNull(badge);
             Assert.AreEqual("First Session", badge.Name);
+            Assert.IsNotNull(badge.Name);
+            Assert.IsNotNull(badge.Description);
+            Assert.IsNotNull(badge.ImageUrl);
+            Assert.IsNotNull(badge.C_BadgeId);
         }
 
     }

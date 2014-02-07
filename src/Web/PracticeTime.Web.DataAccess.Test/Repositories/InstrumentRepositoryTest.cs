@@ -33,6 +33,9 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             InstrumentRepository repo = new InstrumentRepository();
             C_Instrument instrument = repo.GetById(1);
             Assert.IsNotNull(instrument);
-       }
+            Assert.IsNotNull(instrument.Name);
+            Assert.IsNotNull(instrument.Description);
+            Assert.IsNotNull(instrument.IconUrl);
+        }
     }
 }

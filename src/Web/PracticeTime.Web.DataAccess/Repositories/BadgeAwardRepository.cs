@@ -43,6 +43,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 BadgeAward toUpdate = context.BadgeAwards.FirstOrDefault(x => x.BadgeAwardId == badgeAward.BadgeAwardId);
                 if (toUpdate == null) throw new ApplicationException(string.Format("SessionId not found: {0}", badgeAward.BadgeAwardId));
                 new BadgeAwardCopier().Merge(badgeAward, toUpdate);
+                context.SaveChanges();
             }
         }
 
