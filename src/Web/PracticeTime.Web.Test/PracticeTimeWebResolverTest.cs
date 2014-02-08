@@ -13,6 +13,12 @@ namespace PracticeTime.Web.Test
             Assert.IsNotNull(resolver);
         }
 
+        [TestMethod]
+        public void RestTest()
+        {
+            Assert.IsNotNull(PracticeTimeWebResolver.Instance.Container);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {

@@ -8,7 +8,6 @@ using System.Web.Routing;
 
 namespace PracticeTime.Web
 {
-    [ExcludeFromCodeCoverage]
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
