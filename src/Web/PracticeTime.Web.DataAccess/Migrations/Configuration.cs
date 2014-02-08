@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.DataAccess.Migrations
@@ -7,6 +8,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
+    [ExcludeFromCodeCoverage]
     internal sealed class Configuration : DbMigrationsConfiguration<PracticeTime.Web.DataAccess.PracticeTimeContext>
     {
         public Configuration()

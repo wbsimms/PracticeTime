@@ -50,9 +50,20 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 BadgeAward award =
                     repo.Add(new BadgeAward() { AwardDate = DateTime.UtcNow, C_BadgeId = 1, UserId = user.Id });
+                BadgeAward award2 =
+                    repo.Add(new BadgeAward() { AwardDate = DateTime.UtcNow, C_BadgeId = 1, UserId = user.Id });
+
                 Assert.IsTrue(award.BadgeAwardId > 0);
                 Assert.IsNotNull(award.C_Badge);
                 Assert.IsNotNull(award.C_Badge.Name);
+
+                List<BadgeAward> all = repo.GetAll();
+                Assert.IsNotNull(all);
+                Assert.IsTrue(all.Count > 1);
+
+                List<BadgeAward> allUsersAwards = repo.GetAllForUser(user.Id);
+                Assert.IsNotNull(allUsersAwards);
+                Assert.IsTrue(allUsersAwards.Count > 1);
 
                 award.AwardDate = DateTime.UtcNow.AddDays(-1);
                 repo.Update(award);
