@@ -57,6 +57,7 @@
     <Compile Include="BadgeRulesEngineTest.cs" />
     <Compile Include="BadgeRules\FirstSessionRuleTest.cs" />
     <Compile Include="BadgeRules\OneManBandRuleTest.cs" />
+    <Compile Include="BadgeRules\SongMasterRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseModelTest.cs" />
   </ItemGroup>

@@ -22,11 +22,13 @@ namespace PracticeTime.Web.Lib
         public BadgeRulesEngine(
             IFirstSessionRule firstSessionRule,
             IOneManBandRule oneManBandRule,
-            IBadgeAwardRepository badgeAwardRepository)
+            IBadgeAwardRepository badgeAwardRepository,
+            ISongMasterRule songMasterRule)
         {
             this.badgeAwardRepository = badgeAwardRepository;
             rulesToCheck.Add(firstSessionRule);
             rulesToCheck.Add(oneManBandRule);
+            rulesToCheck.Add(songMasterRule);
         }
 
         public ResponseModel RunRules(Session session)

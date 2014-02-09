@@ -20,7 +20,6 @@ namespace PracticeTime.Web.Lib.BadgeRules
 
         public void Rule(Session session, ResponseModel response)
         {
-            badgeAwardRepository.GetAllForUser(session.UserId);
             List<Session> sessions = sessionRepository.GetAllForUser(session.UserId);
             if (sessions.Count == 1 &&
                 sessions.Any(x =>x.SessionId == session.SessionId))

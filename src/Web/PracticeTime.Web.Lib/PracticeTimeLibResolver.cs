@@ -32,6 +32,7 @@ namespace PracticeTime.Web.Lib
             container.RegisterType<IFirstSessionRule, FirstSessionRule>();
             container.RegisterType<IOneManBandRule, OneManBandRule>();
             container.RegisterType<IBadgeRulesEngine, BadgeRulesEngine>();
+            container.RegisterType<ISongMasterRule, SongMasterRule>();
         }
 
         public static PracticeTimeLibResolver Instance

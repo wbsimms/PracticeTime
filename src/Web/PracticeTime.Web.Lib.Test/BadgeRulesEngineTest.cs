@@ -31,16 +31,20 @@ namespace PracticeTime.Web.Lib.Test
 
             var mockFirstSession = new Mock<IFirstSessionRule>();
             var mockOneManBand = new Mock<IOneManBandRule>();
+            var mockSongMaster = new Mock<ISongMasterRule>();
             mockFirstSession.Setup(x => x.Rule(It.IsAny<Session>(), It.IsAny<ResponseModel>())).Verifiable();
             mockOneManBand.Setup(x => x.Rule(It.IsAny<Session>(), It.IsAny<ResponseModel>())).Verifiable();
+            mockSongMaster.Setup(x => x.Rule(It.IsAny<Session>(), It.IsAny<ResponseModel>())).Verifiable();
             PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IFirstSessionRule),mockFirstSession.Object);
             PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IOneManBandRule), mockOneManBand.Object);
             PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IBadgeAwardRepository), mockBadgeRepository.Object);
+            PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(ISongMasterRule), mockSongMaster.Object);
             PracticeTimeLibResolver.Instance.Container.Resolve<IBadgeRulesEngine>()
                 .RunRules(new Session() {SessionId = 1, C_InstrumentId = 1});
             mockFirstSession.VerifyAll();
             mockOneManBand.VerifyAll();
             mockBadgeRepository.VerifyAll();
+            mockSongMaster.VerifyAll();
         }
 
         [TestMethod]
