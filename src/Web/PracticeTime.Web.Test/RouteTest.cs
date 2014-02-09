@@ -37,9 +37,7 @@ namespace PracticeTime.Web.Test
             routeData = routeEvaluator.GetMatches("~/Add");
             Assert.IsTrue(routeData.Count > 0);
             Assert.AreEqual("Add", routeData[0].Values["controller"]);
-
         }
-
     }
 
     public class RouteEvaluator
