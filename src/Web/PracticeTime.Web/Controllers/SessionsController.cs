@@ -161,5 +161,46 @@ namespace PracticeTime.Web.Controllers
             return Json(new GGraphSerializer().Serailize(graph));
         }
 
+        [HttpPost]
+        public ActionResult GetSessionsForUserGraphInstruments()
+        {
+            string userId = userHelper.GetUserId(User.Identity.Name);
+            List<Session> sessionList = sessionRepository.GetAllForUser(userId);
+            GGraph graph = new GGraph()
+            {
+                cols = new ColInfo[]
+                {
+                    new ColInfo() {id = "a", label = "Instrument", type = "string"},
+                    new ColInfo() {id = "b", label = "Minutes", type = "number"}
+                },
+                p = new Dictionary<string, string>()
+            };
+            List<DataPointSet> dpsetList = new List<DataPointSet>(sessionList.Count);
+
+            IDictionary<string, int> aggregateSession = new Dictionary<string, int>();
+            foreach (Session s in sessionList)
+            {
+                if (!aggregateSession.ContainsKey(s.C_Instrument.Name))
+                    aggregateSession.Add(s.C_Instrument.Name, 0);
+                aggregateSession[s.C_Instrument.Name] += s.Time;
+            }
+
+            foreach (string s in aggregateSession.Keys)
+            {
+                DataPointSet dps = new DataPointSet()
+                {
+                    c = new DataPoint[]
+                    {
+                        new DataPoint() {v = s}, 
+                        new DataPoint() {v = aggregateSession[s]} 
+                    }
+                };
+                dpsetList.Add(dps);
+            }
+            graph.rows = dpsetList.ToArray();
+            return Json(new GGraphSerializer().Serailize(graph));
+        }
+
+
     }
 }

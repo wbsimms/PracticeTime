@@ -37,10 +37,10 @@ namespace PracticeTime.Web.Test.Controllers
             {
                 return new List<Session>() {new Session()
                 {
-                    SessionId = 1,Time = 20,Title= "blah", SessionDateTimeUtc = DateTime.UtcNow, C_InstrumentId = 1
+                    SessionId = 1,Time = 20,Title= "blah", SessionDateTimeUtc = DateTime.UtcNow, C_InstrumentId = 1,C_Instrument = new C_Instrument(){Name="Guitar"}
                 }, new Session()
                 {
-                    SessionId = 1,Time = 20,Title= "blah2", SessionDateTimeUtc = DateTime.UtcNow, C_InstrumentId = 1
+                    SessionId = 1,Time = 20,Title= "blah2", SessionDateTimeUtc = DateTime.UtcNow, C_InstrumentId = 1,C_Instrument = new C_Instrument(){Name="Guitar"}
                 }};
             });
         }
@@ -133,5 +133,19 @@ namespace PracticeTime.Web.Test.Controllers
             Assert.IsNotNull(view);
             Assert.AreEqual(null, view.ViewBag.ReturnUrl);
         }
+
+        [TestMethod]
+        public void GetSessionsForUserGraphInstrumentTest()
+        {
+            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            controller.ControllerContext = new TestControllerContext();
+            JsonResult retval = (JsonResult)controller.GetSessionsForUserGraphInstruments();
+            string json = retval.Data as string;
+            Assert.IsNotNull(json);
+            GGraph graph = Newtonsoft.Json.JsonConvert.DeserializeObject<GGraph>(json);
+            Assert.IsNotNull(graph);
+            Assert.AreEqual(40,Convert.ToInt32(graph.rows[0].c[1].v));
+        }
+
    }
 }

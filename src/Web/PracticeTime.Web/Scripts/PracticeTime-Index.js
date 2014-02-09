@@ -2,8 +2,13 @@
 
 
 google.load('visualization', '1.0', { 'packages': ['corechart'] });
-google.setOnLoadCallback(drawChart_chart_div_timedate);
+google.setOnLoadCallback(draw_charts);
 
+function draw_charts() {
+    drawChart_chart_div_timedate();
+    drawChart_chart_div_timetitle();
+    drawChart_chart_div_timeinstruments();
+}
 
 function drawChart_chart_div_timedate() {
 
@@ -25,13 +30,13 @@ function drawChart_chart_div_timedate() {
 
     var options = {
         'title': 'Practice Time by Date',
-        'width': 400,
-        'height': 300
+        'width': 300,
+        'height': 200,
+        'legend': { position: "none" }
+
     };
     var chart = new google.visualization.LineChart(document.getElementById('chart_div_timedate'));
     chart.draw(data, options);
-
-    drawChart_chart_div_timetitle();
 }
 
 function drawChart_chart_div_timetitle() {
@@ -49,10 +54,36 @@ function drawChart_chart_div_timetitle() {
 
     var options = {
         'title': 'Practice Time per Passage',
-        'width': 400,
-        'height': 300,
-        'orientation' : 'horizontal'
+        'width': 300,
+        'height': 200,
+        'orientation': 'horizontal',
+        'legend': { position: "none" }
+
     };
     var chart = new google.visualization.BarChart(document.getElementById('chart_div_timetitle'));
+    chart.draw(data, options);
+}
+
+function drawChart_chart_div_timeinstruments() {
+
+    var dataTable;
+    $.ajax({
+        url: "/Sessions/GetSessionsForUserGraphInstruments",
+        dataType: 'json',
+        async: false,
+        type: "POST"
+    }).success(function (data) {
+        dataTable = data;
+    });
+    var data = new google.visualization.DataTable(dataTable);
+
+    var options = {
+        'title': 'Practice Time per Instrument',
+        'width': 300,
+        'height': 200,
+        'orientation': 'horizontal',
+        'legend': { position: "none" }
+    };
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div_timeinstruments'));
     chart.draw(data, options);
 }
