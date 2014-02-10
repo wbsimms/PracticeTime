@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.UI.WebControls;
 
 namespace PracticeTime.Web.Models
 {
@@ -59,5 +61,17 @@ namespace PracticeTime.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-    }
-}
+
+        [Display(Name="Account Type")]
+        public string SelectedAccountType { get; set; }
+
+        public List<ListItem> AccountTypes = new List<ListItem>()
+                {
+                    new ListItem("Student","1",true),
+                    new ListItem("Instructor","2",true),
+                    new ListItem("Parent","3",true),
+
+               };
+     }
+ }
+ 

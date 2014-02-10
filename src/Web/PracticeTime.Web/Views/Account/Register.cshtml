@@ -1,4 +1,5 @@
-﻿@model PracticeTime.Web.Models.RegisterViewModel
+﻿@using System.Web.UI.WebControls
+@model PracticeTime.Web.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -27,6 +28,20 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.SelectedAccountType, new {@class = "col-md-2 control-label"})
+        <div class="col-md-10">
+            @foreach (ListItem option in Model.AccountTypes)
+            {
+                object options = new {};
+                if (option.Value == "1")
+                {
+                    options = new {@checked = "checked"};
+                }
+                @Html.RadioButtonFor(m=>m.SelectedAccountType,option.Value, options) @option.Text<br />
+            }
         </div>
     </div>
     <div class="form-group">

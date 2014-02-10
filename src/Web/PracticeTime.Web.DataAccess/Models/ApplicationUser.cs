@@ -9,5 +9,6 @@ namespace PracticeTime.Web.DataAccess.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public string AccountType { get; set; }
     }
 }
