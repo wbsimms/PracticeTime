@@ -60,6 +60,11 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 new C_Instrument { Name = "Violin", Description = "", IconUrl = "" }
                 );
 
+            context.AccountTypes.AddOrUpdate(b =>b.Name,
+                new C_AccountType{Name = "Student",Description = "", Active = true},
+                new C_AccountType{Name = "Instructor", Description = "", Active = true},
+                new C_AccountType() {Name = "Parent", Description = "", Active = false});
+
             context.SaveChanges();
         }
     }

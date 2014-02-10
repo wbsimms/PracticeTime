@@ -33,7 +33,7 @@
     <div>
         @Html.LabelFor(m => m.SelectedAccountType, new {@class = "col-md-2 control-label"})
         <div class="col-md-10">
-            @foreach (ListItem option in Model.AccountTypes)
+            @foreach (SelectListItem option in Model.AccountTypes)
             {
                 object options = new {};
                 if (option.Value == "1")

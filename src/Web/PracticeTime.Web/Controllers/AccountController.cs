@@ -12,6 +12,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
 using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
+using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
@@ -20,13 +21,16 @@ namespace PracticeTime.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())))
+        private IAccountTypeRepository accountTypeRepository;
+
+        public AccountController(IAccountTypeRepository accountType)
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())),accountType)
         {
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager)
+        public AccountController(UserManager<ApplicationUser> userManager, IAccountTypeRepository accountType)
         {
+            this.accountTypeRepository = accountType;
             UserManager = userManager;
         }
 
@@ -65,13 +69,15 @@ namespace PracticeTime.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
+        
         //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View(new RegisterViewModel());
+            RegisterViewModel viewModel = new RegisterViewModel();
+            viewModel.AccountTypes = new SelectList(accountTypeRepository.GetAll(), "C_AccountTypeId", "Name");
+            return View(viewModel);
         }
 
         //
@@ -83,7 +89,7 @@ namespace PracticeTime.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, AccountType = model.SelectedAccountType};
+                var user = new ApplicationUser() { UserName = model.UserName, C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType)};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

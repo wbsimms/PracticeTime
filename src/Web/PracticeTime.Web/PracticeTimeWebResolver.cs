@@ -1,6 +1,7 @@
 using Microsoft.Practices.Unity;
 using PracticeTime.Web.Controllers;
 using PracticeTime.Web.DataAccess;
+using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Helpers;
 using PracticeTime.Web.Lib;
 
@@ -27,7 +28,7 @@ namespace PracticeTime.Web
             PracticeTimeLibResolver.Instance.Register(container);
             PracticeTimeDataAccessResolver.Instance.Register(container);
             container.RegisterType<IUserHelper, UserHelper>();
-            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<AccountController>(new InjectionConstructor(container.Resolve<IAccountTypeRepository>()));
         }
 
         public static PracticeTimeWebResolver Instance {

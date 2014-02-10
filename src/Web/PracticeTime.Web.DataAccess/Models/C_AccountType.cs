@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PracticeTime.Web.DataAccess.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class C_AccountType
     {
-        public C_AccountType C_AccountType { get; set; }
         public int C_AccountTypeId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Active { get; set; }
     }
 }
