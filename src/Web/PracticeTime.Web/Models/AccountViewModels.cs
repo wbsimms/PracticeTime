@@ -10,6 +10,12 @@ namespace PracticeTime.Web.Models
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
+
+        [Display(Name = "Account Type")]
+        public string SelectedAccountType { get; set; }
+
+        public SelectList AccountTypes { get; set; }
+
     }
 
     public class ManageUserViewModel

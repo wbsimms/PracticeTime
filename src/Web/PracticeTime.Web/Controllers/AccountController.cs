@@ -225,7 +225,11 @@ namespace PracticeTime.Web.Controllers
                 // If the user does not have an account, then prompt the user to create an account
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel
+                {
+                    UserName = loginInfo.DefaultUserName, 
+                    AccountTypes = new SelectList(accountTypeRepository.GetAll(), "C_AccountTypeId", "Name")
+                });
             }
         }
 
@@ -276,7 +280,7 @@ namespace PracticeTime.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName, C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType)};
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
