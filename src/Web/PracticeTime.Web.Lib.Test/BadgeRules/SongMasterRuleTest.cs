@@ -47,124 +47,57 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
         [TestMethod]
         public void RuleLevel1Test()
         {
-            var sessionRepository = new Mock<ISessionRepository>();
-            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() => { return new List<Session>(){new Session(){Title = "blah", Time = 300}}; });
-
-            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
-            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1,C_BadgeId = 3}; });
-
-            SongMasterRule rule = new SongMasterRule(sessionRepository.Object, badgeAwardRepository.Object);
-
-            ResponseModel response = new ResponseModel();
-            rule.Rule(new Session(), response);
-            Assert.IsTrue(response.HasNewBadges);
-            Assert.AreEqual(3,response.NewBadges.First().C_BadgeId);
+            SongMasterRuleTester(1, 3);
         }
 
         [TestMethod]
         public void RuleLevel2Test()
         {
-            var sessionRepository = new Mock<ISessionRepository>();
-            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() => { return new List<Session>()
-            {
-                new Session() { Title = "blah", Time = 300 },
-                new Session() { Title = "blah2", Time = 300 }
-            }; });
-
-            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
-            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1, C_BadgeId = 4 }; });
-
-            SongMasterRule rule = new SongMasterRule(sessionRepository.Object, badgeAwardRepository.Object);
-
-            ResponseModel response = new ResponseModel();
-            response.Badges = new List<BadgeAward>()
-            {
-                new BadgeAward() {C_BadgeId = 3},
-                new BadgeAward() {C_BadgeId = 2},
-            };
-            rule.Rule(new Session(), response);
-            Assert.IsTrue(response.HasNewBadges);
-            Assert.AreEqual(4, response.NewBadges.First().C_BadgeId);
+            SongMasterRuleTester(2, 4);
         }
 
         [TestMethod]
         public void RuleLevel3Test()
         {
-            int id = 5;
-            var sessionRepository = new Mock<ISessionRepository>();
-            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
-            {
-                return new List<Session>()
-            {
-                new Session() { Title = "blah", Time = 300 },
-                new Session() { Title = "blah2", Time = 300 },
-                new Session() { Title = "blah3", Time = 300 }
-            };
-            });
-
-            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
-            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1, C_BadgeId = id }; });
-
-            SongMasterRule rule = new SongMasterRule(sessionRepository.Object, badgeAwardRepository.Object);
-
-            ResponseModel response = new ResponseModel();
-            response.Badges = new List<BadgeAward>()
-            {
-                new BadgeAward() {C_BadgeId = 3},
-                new BadgeAward() {C_BadgeId = 2},
-            };
-            rule.Rule(new Session(), response);
-            Assert.IsTrue(response.HasNewBadges);
-            Assert.AreEqual(id, response.NewBadges.First().C_BadgeId);
+            SongMasterRuleTester(3, 5);
         }
 
         [TestMethod]
         public void RuleLevel4Test()
         {
-            int id = 6;
-            var sessionRepository = new Mock<ISessionRepository>();
-            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
-            {
-                return new List<Session>()
-            {
-                new Session() { Title = "blah", Time = 300 },
-                new Session() { Title = "blah2", Time = 300 },
-                new Session() { Title = "blah4", Time = 300 },
-                new Session() { Title = "blah3", Time = 300 }
-            };
-            });
-
-            var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
-            badgeAwardRepository.Setup(x => x.Add(It.IsAny<BadgeAward>())).Returns(() => { return new BadgeAward() { BadgeAwardId = 1, C_BadgeId = id }; });
-
-            SongMasterRule rule = new SongMasterRule(sessionRepository.Object, badgeAwardRepository.Object);
-
-            ResponseModel response = new ResponseModel();
-            response.Badges = new List<BadgeAward>()
-            {
-                new BadgeAward() {C_BadgeId = 3},
-                new BadgeAward() {C_BadgeId = 2},
-            };
-            rule.Rule(new Session(), response);
-            Assert.IsTrue(response.HasNewBadges);
-            Assert.AreEqual(id, response.NewBadges.First().C_BadgeId);
+            SongMasterRuleTester(4,6);
         }
 
         [TestMethod]
         public void RuleLevel5Test()
         {
-            int id = 7;
+            SongMasterRuleTester(5,7);
+        }
+
+        [TestMethod]
+        public void RuleLevel6_9Test()
+        {
+            SongMasterRuleTester(6, 8);
+            SongMasterRuleTester(7, 9);
+            SongMasterRuleTester(8, 10);
+            SongMasterRuleTester(9, 11);
+        }
+
+
+        public void SongMasterRuleTester(int sessionCount, int badgeIdToReturn)
+        {
+            int id = badgeIdToReturn;
             var sessionRepository = new Mock<ISessionRepository>();
+
+            List<Session> sessions = new List<Session>();
+            for (int i = 0; i < sessionCount; i++)
+            {
+                sessions.Add(new Session() { Title = "blah"+i, Time = 300 });
+            }
+
             sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
             {
-                return new List<Session>()
-            {
-                new Session() { Title = "blah", Time = 300 },
-                new Session() { Title = "blah2", Time = 300 },
-                new Session() { Title = "blah4", Time = 300 },
-                new Session() { Title = "blah5", Time = 300 },
-                new Session() { Title = "blah3", Time = 300 }
-            };
+                return sessions;
             });
 
             var badgeAwardRepository = new Mock<IBadgeAwardRepository>();
@@ -175,13 +108,11 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             ResponseModel response = new ResponseModel();
             response.Badges = new List<BadgeAward>()
             {
-                new BadgeAward() {C_BadgeId = 3},
                 new BadgeAward() {C_BadgeId = 2},
             };
             rule.Rule(new Session(), response);
             Assert.IsTrue(response.HasNewBadges);
             Assert.AreEqual(id, response.NewBadges.First().C_BadgeId);
         }
-
     }
 }

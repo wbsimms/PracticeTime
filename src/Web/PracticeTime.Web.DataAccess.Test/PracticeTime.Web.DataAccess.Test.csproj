@@ -71,6 +71,7 @@
     <Compile Include="PracticeTimeDataAccessResolverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BadgeAwardRepositoryTest.cs" />
+    <Compile Include="Repositories\AccountTypeRepositoryTest.cs" />
     <Compile Include="Repositories\BadgeRepositoryTest.cs" />
     <Compile Include="Repositories\InstrumentRepositoryTest.cs" />
     <Compile Include="Repositories\SessionRepositoryTest.cs" />

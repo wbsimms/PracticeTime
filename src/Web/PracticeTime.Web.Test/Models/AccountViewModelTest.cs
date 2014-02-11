@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeTime.Web.Models;
 
@@ -14,9 +15,10 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void ExternalLoginConfirmationViewModelTest()
         {
-            ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel();
-            model.UserName = "blah";
+            ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel(){AccountTypes = new SelectList(new SelectListItem[2]),SelectedAccountType = "",UserName = "blah"};
             Assert.IsNotNull(model.UserName);
+            Assert.IsNotNull(model.AccountTypes);
+            Assert.IsNotNull(model.SelectedAccountType);
         }
 
         [TestMethod]
@@ -43,10 +45,17 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void RegisterViewModelTest()
         {
-            RegisterViewModel model = new RegisterViewModel(){ConfirmPassword = "blah",Password = "blah",UserName = "sfdgh"};
+            RegisterViewModel model = new RegisterViewModel()
+            {
+                ConfirmPassword = "blah",Password = "blah",UserName = "sfdgh",
+                AccountTypes = new SelectList(new SelectListItem[2]),
+                SelectedAccountType = ""
+            };
             Assert.IsNotNull(model.ConfirmPassword);
             Assert.IsNotNull(model.Password);
             Assert.IsNotNull(model.UserName);
+            Assert.IsNotNull(model.AccountTypes);
+            Assert.IsNotNull(model.SelectedAccountType);
         }
     }
 }
