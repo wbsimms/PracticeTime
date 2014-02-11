@@ -40,6 +40,89 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
         }
 
         [TestMethod]
+        public void AddExistingIdTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+
+                BadgeAwardRepository repo = new BadgeAwardRepository();
+                try
+                {
+                    BadgeAward award =
+                        repo.Add(new BadgeAward()
+                        {
+                            BadgeAwardId = 4,
+                            AwardDate = DateTime.UtcNow,
+                            C_BadgeId = 1,
+                            UserId = user.Id
+                        });
+                }
+                catch (ApplicationException ae)
+                {
+                    Assert.AreEqual("BadgeAward.BadgeAwardId must be zero",ae.Message);
+                }
+                scope.Dispose();
+            }
+        }
+
+        [TestMethod]
+        public void UpdateNoIdTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+
+                BadgeAwardRepository repo = new BadgeAwardRepository();
+                try
+                {
+                        repo.Update(new BadgeAward()
+                        {
+                            BadgeAwardId = 0,
+                            AwardDate = DateTime.UtcNow,
+                            C_BadgeId = 1,
+                            UserId = user.Id
+                        });
+                }
+                catch (ApplicationException ae)
+                {
+                    Assert.AreEqual("Id must be greather than 0", ae.Message);
+                }
+                scope.Dispose();
+            }
+        }
+
+        [TestMethod]
+        public void UpdateNoBadgeIdTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+
+                BadgeAwardRepository repo = new BadgeAwardRepository();
+                try
+                {
+                    repo.Update(new BadgeAward()
+                    {
+                        BadgeAwardId = 999999,
+                        AwardDate = DateTime.UtcNow,
+                        C_BadgeId = 1,
+                        UserId = user.Id
+                    });
+                }
+                catch (ApplicationException ae)
+                {
+                    Assert.AreEqual("BadgeAward not found: 999999", ae.Message);
+                }
+                scope.Dispose();
+            }
+        }
+
+
+        [TestMethod]
         public void UpdateAndDeleteTest()
         {
             using (var scope = new TransactionScope())
