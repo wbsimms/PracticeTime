@@ -67,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ApplicationUserTest.cs" />
+    <Compile Include="Models\BadgeAwardTest.cs" />
+    <Compile Include="Models\C_AccountTypeTest.cs" />
     <Compile Include="PracticeTimeContextTest.cs" />
     <Compile Include="PracticeTimeDataAccessResolverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
