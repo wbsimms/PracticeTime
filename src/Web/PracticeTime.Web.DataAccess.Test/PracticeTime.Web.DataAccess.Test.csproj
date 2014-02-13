@@ -76,6 +76,7 @@
     <Compile Include="Repositories\BadgeAwardRepositoryTest.cs" />
     <Compile Include="Repositories\AccountTypeRepositoryTest.cs" />
     <Compile Include="Repositories\BadgeRepositoryTest.cs" />
+    <Compile Include="Repositories\InstructorStudentRepositoryTest.cs" />
     <Compile Include="Repositories\InstrumentRepositoryTest.cs" />
     <Compile Include="Repositories\SessionRepositoryTest.cs" />
   </ItemGroup>

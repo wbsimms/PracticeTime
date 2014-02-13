@@ -27,7 +27,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (var scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 BadgeAward award =
@@ -45,7 +45,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (var scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 try
@@ -73,7 +73,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (var scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 try
@@ -100,7 +100,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (var scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 try
@@ -128,7 +128,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (var scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 BadgeAwardRepository repo = new BadgeAwardRepository();
                 BadgeAward award =

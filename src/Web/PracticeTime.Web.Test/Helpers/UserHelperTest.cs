@@ -22,7 +22,7 @@ namespace PracticeTime.Web.Test.Helpers
         public void GetUserIdTest()
         {
             UserHelper helper = new UserHelper();
-            string userId = helper.GetUserId("wbsimms");
+            string userId = helper.GetUserId("student");
             Assert.IsNotNull(userId);
             Assert.IsTrue(!string.IsNullOrEmpty(userId));
 

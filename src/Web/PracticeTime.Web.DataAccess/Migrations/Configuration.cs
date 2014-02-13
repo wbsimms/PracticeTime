@@ -71,8 +71,12 @@ namespace PracticeTime.Web.DataAccess.Migrations
             context.SaveChanges();
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
-            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "wbsimms" }, "kimball").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student" }, "student").Result.Succeeded)
                 throw new Exception("Unable to Add user");
+
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 2, UserName = "teacher" }, "teacher").Result.Succeeded)
+                throw new Exception("Unable to Add user");
+
         }
     }
 }

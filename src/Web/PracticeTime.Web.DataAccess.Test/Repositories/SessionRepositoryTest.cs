@@ -28,7 +28,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 SessionRepository repo = new SessionRepository();
                 Session retval = repo.Add(new Session()
@@ -53,7 +53,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 SessionRepository repo = new SessionRepository();
                 try
@@ -83,7 +83,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 SessionRepository repo = new SessionRepository();
                 Session retval = repo.Add(new Session()
@@ -113,7 +113,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-                ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+                ApplicationUser user = store.FindByNameAsync("student").Result;
 
                 SessionRepository repo = new SessionRepository();
                 Session retval1 = repo.Add(new Session()

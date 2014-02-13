@@ -19,10 +19,10 @@ namespace PracticeTime.Web.DataAccess.Test
             Assert.IsNotNull(context);
 
             UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
-            ApplicationUser user = store.FindByNameAsync("wbsimms").Result;
+            ApplicationUser user = store.FindByNameAsync("student").Result;
             if (user != null)
             {
-                string id = store.FindByNameAsync("wbsimms").Result.Id;
+                string id = store.FindByNameAsync("student").Result.Id;
 
                 Session testSession = new Session()
                 {
