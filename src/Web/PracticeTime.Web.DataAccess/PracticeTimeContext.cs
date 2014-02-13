@@ -17,6 +17,8 @@ namespace PracticeTime.Web.DataAccess
         public DbSet<C_Badge> Badges { get; set; }
         public DbSet<C_Instrument> Instruments { get; set; }
         public DbSet<C_AccountType> AccountTypes { get; set; }
+        public DbSet<InstructorStudent> InstructorStudents { get; set; }
+
         public PracticeTimeContext() : base("DefaultConnection")
         {
         }

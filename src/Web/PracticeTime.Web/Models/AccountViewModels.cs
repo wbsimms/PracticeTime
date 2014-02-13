@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
@@ -15,6 +16,9 @@ namespace PracticeTime.Web.Models
         public string SelectedAccountType { get; set; }
 
         public SelectList AccountTypes { get; set; }
+        [ReadOnly(true)]
+        public string StudentToken { get; set; }
+
 
     }
 
@@ -35,6 +39,9 @@ namespace PracticeTime.Web.Models
         [Display(Name = "Confirm new password")]
         [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [ReadOnly(true)]
+        public string StudentToken { get; set; }
     }
 
     public class LoginViewModel
@@ -73,6 +80,9 @@ namespace PracticeTime.Web.Models
         public string SelectedAccountType { get; set; }
 
         public SelectList AccountTypes { get; set; }
+
+        [ReadOnly(true)]
+        public string StudentToken { get; set; }
     }
  }
  

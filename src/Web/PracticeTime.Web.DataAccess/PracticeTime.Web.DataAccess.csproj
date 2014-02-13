@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Copiers\BadgeAwardCopier.cs" />
+    <Compile Include="Copiers\InstructorStudentCopier.cs" />
     <Compile Include="Copiers\SessionCopier.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -73,11 +74,13 @@
     <Compile Include="Models\C_AccountType.cs" />
     <Compile Include="Models\C_Badge.cs" />
     <Compile Include="Models\C_Instrument.cs" />
+    <Compile Include="Models\InstructorStudent.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="PracticeTimeContext.cs" />
     <Compile Include="PracticeTimeDataAccessResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountTypeRepository.cs" />
+    <Compile Include="Repositories\InstructorStudentRepository.cs" />
     <Compile Include="Repositories\InstrumentRepository.cs" />
     <Compile Include="Repositories\BadgeRepository.cs" />
     <Compile Include="Repositories\BadgeAwardRepository.cs" />

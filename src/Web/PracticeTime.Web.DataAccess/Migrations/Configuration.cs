@@ -1,4 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.DataAccess.Migrations
@@ -65,7 +67,12 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 new C_AccountType{Name = "Instructor", Description = "", Active = true},
                 new C_AccountType() {Name = "Parent", Description = "", Active = false});
 
+
             context.SaveChanges();
+
+            UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "wbsimms" }, "kimball").Result.Succeeded)
+                throw new Exception("Unable to Add user");
         }
     }
 }

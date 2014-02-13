@@ -15,12 +15,13 @@ namespace PracticeTime.Web.DataAccess.Test.Models
         [TestMethod]
         public void ConstructorTest()
         {
-            ApplicationUser user = new ApplicationUser();
+            ApplicationUser user = new ApplicationUser() {StudentToken = "blah"};
             user.C_AccountTypeId = 4;
             user.C_AccountType = new C_AccountType();
             Assert.IsNotNull(user);
             Assert.IsNotNull(user.C_AccountType);
             Assert.AreEqual(4,user.C_AccountTypeId);
+            Assert.IsNotNull(user.StudentToken);
         }
     }
 }

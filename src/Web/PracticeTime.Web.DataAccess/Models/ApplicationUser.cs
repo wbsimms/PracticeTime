@@ -11,5 +11,6 @@ namespace PracticeTime.Web.DataAccess.Models
     {
         public C_AccountType C_AccountType { get; set; }
         public int C_AccountTypeId { get; set; }
+        public string StudentToken { get; set; }
     }
 }

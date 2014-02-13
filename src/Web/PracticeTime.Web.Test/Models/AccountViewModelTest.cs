@@ -15,22 +15,31 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void ExternalLoginConfirmationViewModelTest()
         {
-            ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel(){AccountTypes = new SelectList(new SelectListItem[2]),SelectedAccountType = "",UserName = "blah"};
+            ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel()
+            {
+                AccountTypes = new SelectList(new SelectListItem[2]),
+                SelectedAccountType = "",
+                UserName = "blah",
+                StudentToken = "blah"
+            };
             Assert.IsNotNull(model.UserName);
             Assert.IsNotNull(model.AccountTypes);
             Assert.IsNotNull(model.SelectedAccountType);
+            Assert.IsNotNull(model.StudentToken);
+
         }
 
         [TestMethod]
         public void ManageUserViewModelTest()
         {
-            ManageUserViewModel model = new ManageUserViewModel();
+            ManageUserViewModel model = new ManageUserViewModel(){StudentToken = "blah"};
             model.ConfirmPassword = "blah";
             model.NewPassword = "blah1";
             model.OldPassword = "blah1";
             Assert.IsNotNull(model.ConfirmPassword);
             Assert.IsNotNull(model.NewPassword);
             Assert.IsNotNull(model.OldPassword);
+            Assert.IsNotNull(model.StudentToken);
         }
 
         [TestMethod]
@@ -49,13 +58,15 @@ namespace PracticeTime.Web.Test.Models
             {
                 ConfirmPassword = "blah",Password = "blah",UserName = "sfdgh",
                 AccountTypes = new SelectList(new SelectListItem[2]),
-                SelectedAccountType = ""
+                SelectedAccountType = "",
+                StudentToken = "blah"
             };
             Assert.IsNotNull(model.ConfirmPassword);
             Assert.IsNotNull(model.Password);
             Assert.IsNotNull(model.UserName);
             Assert.IsNotNull(model.AccountTypes);
             Assert.IsNotNull(model.SelectedAccountType);
+            Assert.IsNotNull(model.StudentToken);
         }
     }
 }
