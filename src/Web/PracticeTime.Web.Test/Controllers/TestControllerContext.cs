@@ -6,18 +6,38 @@ namespace PracticeTime.Web.Test.Controllers
 {
     public class TestControllerContext : ControllerContext
     {
-        public override HttpContextBase HttpContext { get { return new TestHttpContext(); }
+        private string userName = "student";
+        public string UserName
+        {
+            get { return this.userName; }
+            set { this.userName = value; }
+        }
+
+        public override HttpContextBase HttpContext { get { return new TestHttpContext(){UserName = this.UserName}; }
             set { base.HttpContext = value; }
         }
     }
 
     public class TestHttpContext : HttpContextBase
     {
-        public override IPrincipal User { get { return new TestPrincipal(); } set { base.User = value; } }
+        private string userName = "student";
+        public string UserName {
+            get { return this.userName; }
+            set { this.userName = value; }
+        }
+
+        public override IPrincipal User { get { return new TestPrincipal(UserName); } set { base.User = value; } }
     }
 
     public class TestPrincipal : IPrincipal
     {
+        private string userName = "student";
+
+        public TestPrincipal(string userName)
+        {
+            this.userName = userName;
+        }
+
         public bool IsInRole(string role)
         {
             return true;
@@ -25,7 +45,7 @@ namespace PracticeTime.Web.Test.Controllers
 
         public IIdentity Identity
         {
-            get { return new GenericIdentity("genericIdentidy"); }
+            get { return new GenericIdentity(userName); }
         }
     }
 }
