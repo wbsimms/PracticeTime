@@ -24,7 +24,11 @@ namespace PracticeTime.Web.Helpers
 
         public List<ApplicationUser> GetInstructors()
         {
-            UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                return context.AspNetUsers.ToList();
+            }
+
         }
     }
 }

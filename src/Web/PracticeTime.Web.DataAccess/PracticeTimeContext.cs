@@ -19,6 +19,8 @@ namespace PracticeTime.Web.DataAccess
         public DbSet<C_AccountType> AccountTypes { get; set; }
         public DbSet<InstructorStudent> InstructorStudents { get; set; }
 
+        public DbSet<ApplicationUser> AspNetUsers { get; set; }
+
         public PracticeTimeContext() : base("DefaultConnection")
         {
         }
