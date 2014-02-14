@@ -44,5 +44,40 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 Assert.IsTrue(retval.InstructorStudentId > 0);
             }
         }
+
+        [TestMethod]
+        public void GetAllForInstructorTest()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                InstructorStudentRepository repo = new InstructorStudentRepository();
+                InstructorStudent retval =
+                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
+                Assert.IsNotNull(retval);
+                Assert.IsTrue(retval.InstructorStudentId > 0);
+                List<InstructorStudent> list = repo.GetAllForInstructor(teacher.Id);
+                Assert.IsNotNull(list);
+                Assert.IsTrue(list.Count == 1);
+                Assert.IsNotNull(list.First().Student);
+                Assert.AreEqual("student",list.First().Student.UserName);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateDeleteTest()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                InstructorStudentRepository repo = new InstructorStudentRepository();
+                InstructorStudent retval =
+                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
+                Assert.IsNotNull(retval);
+                Assert.IsTrue(retval.InstructorStudentId > 0);
+                repo.Update(retval);
+                repo.Delete(retval);
+                Assert.AreEqual(0, repo.GetAll().Count);
+            }
+
+        }
     }
 }
