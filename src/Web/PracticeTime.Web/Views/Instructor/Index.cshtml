@@ -4,5 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Student Progress Report</h2>
+
+<div class="row">
+    <div class="col-lg-5">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(s => s.StudentsListItems, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.StudentsListItems, Model.StudentsListItems, new Dictionary<string, object>()
+            {
+                {"class","form-control"}
+            })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" class="btn btn-default" value="Submit" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts  {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
 

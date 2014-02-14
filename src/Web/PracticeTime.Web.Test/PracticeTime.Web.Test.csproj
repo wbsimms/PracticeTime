@@ -117,6 +117,7 @@
     <Compile Include="Helpers\UserHelperTest.cs" />
     <Compile Include="Models\AccountViewModelTest.cs" />
     <Compile Include="Helpers\GGraphTest.cs" />
+    <Compile Include="Models\InstructorViewModelTest.cs" />
     <Compile Include="Models\SessionEntryViewModelTest.cs" />
     <Compile Include="Models\SessionsViewModelTest.cs" />
     <Compile Include="MvcApplicationTest.cs" />

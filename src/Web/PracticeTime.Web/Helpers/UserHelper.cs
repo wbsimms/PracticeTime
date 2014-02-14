@@ -21,5 +21,10 @@ namespace PracticeTime.Web.Helpers
             return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
                 FindByNameAsync(name).Result.Id;
         }
+
+        public List<ApplicationUser> GetInstructors()
+        {
+            UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+        }
     }
 }
