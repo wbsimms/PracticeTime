@@ -25,20 +25,26 @@ namespace PracticeTime.Web.Controllers
             this.instructorStudentRepository = instructorStudent;
         }
 
-        //
-        // GET: /Admin/
-        public ActionResult Index()
+        public ActionResult Index(AdminViewModel model)
         {
-            AdminViewModel model = new AdminViewModel();
-            model.Init(applicationUserRepository.GetAllStudents(),applicationUserRepository.GetAllInstructors());
+            model.Init(applicationUserRepository.GetAllStudents(), applicationUserRepository.GetAllInstructors());
             return View(model);
         }
+
 
         public ActionResult Associate(AdminViewModel model)
         {
             InstructorStudent toAdd = new InstructorStudent(){InstructorId = model.SelectedInstructor,StudentId = model.SelectedStudent};
-            instructorStudentRepository.Add(toAdd);
-            return View();
-        }
+            InstructorStudent saved = instructorStudentRepository.Add(toAdd);
+            model.Init(applicationUserRepository.GetAllStudents(), applicationUserRepository.GetAllInstructors());
+            model.Messages = "Saved";
+            model.HasErrors = false;
+            if (saved == null)
+            {
+                model.Messages = "Already exists";
+                model.HasErrors = false;
+            }
+            return View("Index",model);
+          }
     }
 }

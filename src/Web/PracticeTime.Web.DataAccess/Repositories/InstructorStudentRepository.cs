@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,19 @@ namespace PracticeTime.Web.DataAccess.Repositories
         public InstructorStudent Add(InstructorStudent instructorStudent)
         {
             if (instructorStudent.InstructorStudentId != 0) throw new ApplicationException("InstructorStudent.InstructorStudentId must be zero");
+            
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
+                // check if exists
+                if (
+                    context.InstructorStudents.Any(
+                        x =>
+                            x.InstructorId == instructorStudent.InstructorId &&
+                            x.StudentId == instructorStudent.StudentId))
+                {
+                    return null;
+                }
+
                 InstructorStudent toSave = new InstructorStudentCopier().Copy(instructorStudent);
                 context.InstructorStudents.Add(toSave);
                 context.SaveChanges();

@@ -1,3 +1,4 @@
+using System.Data.Entity.Migrations.Model;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -76,7 +77,6 @@ namespace PracticeTime.Web.DataAccess.Migrations
 
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 2, UserName = "teacher" }, "teacher").Result.Succeeded)
                 throw new Exception("Unable to Add user");
-
         }
     }
 }

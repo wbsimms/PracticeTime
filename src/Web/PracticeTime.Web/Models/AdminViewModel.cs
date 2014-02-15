@@ -19,6 +19,9 @@ namespace PracticeTime.Web.Models
         [DisplayName("Select Instructor")]
         public string SelectedInstructor { get; set; }
 
+        public bool HasErrors { get; set; }
+        public string Messages { get; set; }
+
         public AdminViewModel()
         {
             this.Students = new List<SelectListItem>();
