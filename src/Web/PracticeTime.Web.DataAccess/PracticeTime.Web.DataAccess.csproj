@@ -80,6 +80,7 @@
     <Compile Include="PracticeTimeDataAccessResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountTypeRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserRepository.cs" />
     <Compile Include="Repositories\InstructorStudentRepository.cs" />
     <Compile Include="Repositories\InstrumentRepository.cs" />
     <Compile Include="Repositories\BadgeRepository.cs" />

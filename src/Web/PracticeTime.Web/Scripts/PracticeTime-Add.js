@@ -17,13 +17,6 @@ $(document).ready(function () {
     {
     }
 
-    //try {
-    //    var data = $("#SelectedInstrument").data("instruments");
-    //    var titlesData = data.split(',');
-    //    $("#SelectedInstrument").autocomplete({ source: titlesData });
-    //} catch (err) {
-    //}
-
     var datePickerFormat = 'mm/dd/yy';
     $(".datepicker").datepicker({ dateFormat: datePickerFormat });
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,10 @@ namespace PracticeTime.Web.Models
     {
         public List<SelectListItem> Students { get; set; }
         public List<SelectListItem> Instructors { get; set; }
+        [DisplayName("Select Student")]
+        public string SelectedStudent { get; set; }
+        [DisplayName("Select Instructor")]
+        public string SelectedInstructor { get; set; }
 
         public AdminViewModel()
         {

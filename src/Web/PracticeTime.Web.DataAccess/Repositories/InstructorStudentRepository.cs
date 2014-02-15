@@ -13,7 +13,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
 {
     public interface IInstructorStudentRepository
     {
-        InstructorStudent Add(InstructorStudent award);
+        InstructorStudent Add(InstructorStudent instructorStudent);
         void Update(InstructorStudent instructorStudent);
         void Delete(InstructorStudent instructorStudent);
         InstructorStudent GetById(int instructorStudentId);
@@ -23,12 +23,12 @@ namespace PracticeTime.Web.DataAccess.Repositories
 
     public class InstructorStudentRepository : IInstructorStudentRepository
     {
-        public InstructorStudent Add(InstructorStudent award)
+        public InstructorStudent Add(InstructorStudent instructorStudent)
         {
-            if (award.InstructorStudentId != 0) throw new ApplicationException("InstructorStudent.InstructorStudentId must be zero");
+            if (instructorStudent.InstructorStudentId != 0) throw new ApplicationException("InstructorStudent.InstructorStudentId must be zero");
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
-                InstructorStudent toSave = new InstructorStudentCopier().Copy(award);
+                InstructorStudent toSave = new InstructorStudentCopier().Copy(instructorStudent);
                 context.InstructorStudents.Add(toSave);
                 context.SaveChanges();
                 return GetById(toSave.InstructorStudentId);
