@@ -62,7 +62,7 @@ namespace PracticeTime.Web.Test.Controllers
             AdminController controller = new AdminController(mockUserHelper.Object,
                 mockApplicationUserRepository.Object,
                 mockInstructorStudentRepository.Object);
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.Index(new AdminViewModel()) as ViewResult;
             Assert.IsTrue(result.Model is AdminViewModel);
             Assert.IsTrue(((AdminViewModel)result.Model).Instructors.Count == 2);
             Assert.IsTrue(((AdminViewModel)result.Model).Students.Count == 2);

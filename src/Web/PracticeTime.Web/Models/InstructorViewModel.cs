@@ -14,7 +14,9 @@ namespace PracticeTime.Web.Models
     {
         public List<ApplicationUser> Students { get; set; }
 
-        [DisplayName("Studends")]
+        [DisplayName("Students")]
+        public string SelectedStudent { get; set; }     
+
         public List<SelectListItem> StudentsListItems {
             get
             {

@@ -300,6 +300,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsapi.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
+    <Content Include="Scripts\PracticeTime-Instructor.js" />
     <Content Include="Scripts\PracticeTime-Admin-Associate.js" />
     <Content Include="Scripts\PracticeTime-Add.js" />
     <Content Include="Scripts\PracticeTime-Index.js" />

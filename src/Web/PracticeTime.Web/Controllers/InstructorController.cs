@@ -34,7 +34,6 @@ namespace PracticeTime.Web.Controllers
             this.instructorStudentRepository = instructorStudent;
         }
 
-        [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
             string userId = userHelper.GetUserId(User.Identity.Name);
@@ -46,7 +45,6 @@ namespace PracticeTime.Web.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public JsonResult GetSessionsForStudent(string studentId)
         {
             List<Session> session = sessionRepository.GetAllForUser(studentId);
