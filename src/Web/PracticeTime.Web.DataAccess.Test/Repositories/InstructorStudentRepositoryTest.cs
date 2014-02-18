@@ -42,6 +42,9 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                     repo.Add(new InstructorStudent() {InstructorId = teacher.Id, StudentId = student.Id});
                 Assert.IsNotNull(retval);
                 Assert.IsTrue(retval.InstructorStudentId > 0);
+                InstructorStudent retval2 =
+                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
+                Assert.IsNull(retval2);
             }
         }
 
