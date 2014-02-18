@@ -19,20 +19,9 @@ namespace PracticeTime.Web.DataAccess.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
+
         protected override void Seed(PracticeTime.Web.DataAccess.PracticeTimeContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
             context.Badges.AddOrUpdate(b => b.Name,
                 new Models.C_Badge { Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/FirstSession.png" },
                 new Models.C_Badge { Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "" },
@@ -81,6 +70,14 @@ namespace PracticeTime.Web.DataAccess.Migrations
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student2" }, "student2").Result.Succeeded)
                 throw new Exception("Unable to Add user");
 
+            string studentId = userManager.FindByNameAsync("student").Result.Id;
+            string student2Id = userManager.FindByNameAsync("student2").Result.Id;
+            string teacherId = userManager.FindByNameAsync("teacher").Result.Id;
+
+
+            context.InstructorStudents.AddOrUpdate(new InstructorStudent {InstructorId = teacherId,StudentId = studentId},
+                new InstructorStudent { InstructorId = teacherId, StudentId = student2Id }
+                );
         }
     }
 }

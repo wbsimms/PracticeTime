@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeTime.Web.DataAccess.Models;
@@ -15,14 +16,17 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
     public class InstructorStudentRepositoryTest
     {
         private ApplicationUser student, teacher;
-
+        private UserStore<ApplicationUser> store;
 
         [TestInitialize]
         public void Setup()
         {
-            UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
-            student = store.FindByNameAsync("student").Result;
-            teacher = store.FindByNameAsync("teacher").Result;
+            if (store == null)
+            {
+                store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+                student = store.FindByNameAsync("student").Result;
+                teacher = store.FindByNameAsync("teacher").Result;
+            }
         }
 
         [TestMethod]
@@ -37,13 +41,18 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
         {
             using (TransactionScope scope = new TransactionScope())
             {
+                UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {C_AccountTypeId = 1, UserName = "blahstudent"}, "blahstudent").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+                string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
+                string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
                 InstructorStudentRepository repo = new InstructorStudentRepository();
                 InstructorStudent retval =
-                    repo.Add(new InstructorStudent() {InstructorId = teacher.Id, StudentId = student.Id});
+                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
                 Assert.IsNotNull(retval);
                 Assert.IsTrue(retval.InstructorStudentId > 0);
                 InstructorStudent retval2 =
-                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
+                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
                 Assert.IsNull(retval2);
             }
         }
@@ -54,13 +63,9 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 InstructorStudentRepository repo = new InstructorStudentRepository();
-                InstructorStudent retval =
-                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
-                Assert.IsNotNull(retval);
-                Assert.IsTrue(retval.InstructorStudentId > 0);
                 List<InstructorStudent> list = repo.GetAllForInstructor(teacher.Id);
                 Assert.IsNotNull(list);
-                Assert.IsTrue(list.Count == 1);
+                Assert.IsTrue(list.Count > 1);
                 Assert.IsNotNull(list.First().Student);
                 Assert.AreEqual("student",list.First().Student.UserName);
             }
@@ -72,12 +77,11 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 InstructorStudentRepository repo = new InstructorStudentRepository();
-                InstructorStudent retval =
-                    repo.Add(new InstructorStudent() { InstructorId = teacher.Id, StudentId = student.Id });
+                InstructorStudent retval = repo.GetById(1);
                 Assert.IsNotNull(retval);
                 Assert.IsTrue(retval.InstructorStudentId > 0);
                 repo.Delete(retval);
-                Assert.AreEqual(0, repo.GetAll().Count);
+                Assert.AreEqual(1, repo.GetAll().Count);
             }
 
         }
