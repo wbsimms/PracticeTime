@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,13 @@ namespace PracticeTime.Web.Test.Controllers
 
             mockInstructorStudentRepository = new Mock<IInstructorStudentRepository>();
             mockInstructorStudentRepository.Setup(x => x.Add(It.IsAny<InstructorStudent>())).Returns(() => { return new InstructorStudent(){InstructorStudentId = 4}; }).Verifiable();
+            mockInstructorStudentRepository.Setup(x => x.GetAllForInstructor(It.IsAny<string>()))
+                .Returns(() => { return new List<InstructorStudent>()
+                {
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student1"}},
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student2"}}
+                };
+                }).Verifiable();
         }
 
         [TestMethod]
@@ -100,6 +108,26 @@ namespace PracticeTime.Web.Test.Controllers
             AdminViewModel model = result.Model as AdminViewModel;
             Assert.AreEqual("Already exists", model.Messages);
             Assert.IsFalse(model.HasErrors);
+        }
+
+        [TestMethod]
+        public void GetInstructorStudentsTest()
+        {
+            AdminController controller = new AdminController(mockUserHelper.Object,
+                mockApplicationUserRepository.Object,
+                mockInstructorStudentRepository.Object);
+            JsonResult result = controller.GetInstructorStudents("blah");
+            Assert.IsNotNull(result);
+            var retval = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Students>>(result.Data.ToString());
+            Assert.IsNotNull(retval);
+            Assert.AreEqual(2,retval.Count);
+            Assert.IsTrue(retval.Any(x => x.StudentName == "student1"));
+            Assert.IsTrue(retval.Any(x => x.StudentName == "student2"));
+        }
+
+        class Students
+        {
+            public string StudentName { get; set; }
         }
     }
 }

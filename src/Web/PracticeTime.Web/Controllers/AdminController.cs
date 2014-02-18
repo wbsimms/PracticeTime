@@ -46,5 +46,13 @@ namespace PracticeTime.Web.Controllers
             }
             return View("Index",model);
           }
+
+        [HttpPost]
+        public JsonResult GetInstructorStudents(string instructorId)
+        {
+            List<InstructorStudent> students = instructorStudentRepository.GetAllForInstructor(instructorId);
+            var retval = students.Select(x => new {StudentName = x.Student.UserName});
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(retval));
+        }
     }
 }

@@ -18,12 +18,26 @@
                 })
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" class="btn btn-default" value="Submit" />
-            </div>
-        </div>
     </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <th>Instrument</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        </thead>
+        <tbody id="sessionData">
+            @*<tr>
+                <td>@session.C_Instrument.Name</td>
+                <td>@session.Title</td>
+                <td>@session.SessionDateTimeUtc.ToShortDateString()</td>
+                <td>@session.Time</td>
+            </tr>*@
+        </tbody>
+    </table>
 </div>
 
 @section scripts  {
