@@ -145,7 +145,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 Assert.IsNotNull(alltitles);
 
                 Assert.IsNotNull(titles);
-                Assert.IsTrue(titles.Count == 1);
+                Assert.IsTrue(titles.Count > 0);
             }
         }
 

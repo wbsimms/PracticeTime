@@ -80,8 +80,9 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 InstructorStudent retval = repo.GetById(1);
                 Assert.IsNotNull(retval);
                 Assert.IsTrue(retval.InstructorStudentId > 0);
+                int count = repo.GetAll().Count;
                 repo.Delete(retval);
-                Assert.AreEqual(1, repo.GetAll().Count);
+                Assert.AreEqual(count-1, repo.GetAll().Count);
             }
 
         }
