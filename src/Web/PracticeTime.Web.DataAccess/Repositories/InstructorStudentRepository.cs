@@ -15,7 +15,6 @@ namespace PracticeTime.Web.DataAccess.Repositories
     public interface IInstructorStudentRepository
     {
         InstructorStudent Add(InstructorStudent instructorStudent);
-        void Update(InstructorStudent instructorStudent);
         void Delete(InstructorStudent instructorStudent);
         InstructorStudent GetById(int instructorStudentId);
         List<InstructorStudent> GetAll();
@@ -44,18 +43,6 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.InstructorStudents.Add(toSave);
                 context.SaveChanges();
                 return GetById(toSave.InstructorStudentId);
-            }
-        }
-
-        public void Update(InstructorStudent instructorStudent)
-        {
-            if (instructorStudent.InstructorStudentId == 0) throw new ApplicationException("Id must be greather than 0");
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                InstructorStudent toUpdate = context.InstructorStudents.FirstOrDefault(x => x.InstructorStudentId == instructorStudent.InstructorStudentId);
-                if (toUpdate == null) throw new ApplicationException(string.Format("InstructorStudent not found: {0}", instructorStudent.InstructorStudentId));
-                new InstructorStudentCopier().Merge(instructorStudent, toUpdate);
-                context.SaveChanges();
             }
         }
 

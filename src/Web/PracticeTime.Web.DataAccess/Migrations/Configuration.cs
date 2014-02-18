@@ -77,6 +77,10 @@ namespace PracticeTime.Web.DataAccess.Migrations
 
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 2, UserName = "teacher" }, "teacher").Result.Succeeded)
                 throw new Exception("Unable to Add user");
+
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student2" }, "student2").Result.Succeeded)
+                throw new Exception("Unable to Add user");
+
         }
     }
 }
