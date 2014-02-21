@@ -20,13 +20,16 @@ namespace PracticeTime.Web.Test.Models
                 AccountTypes = new SelectList(new SelectListItem[2]),
                 SelectedAccountType = "",
                 UserName = "blah",
-                StudentToken = "blah"
+                StudentToken = "blah",
+                FirstName = "blah",LastName = "blah",EmailAddress = "blah"
             };
             Assert.IsNotNull(model.UserName);
             Assert.IsNotNull(model.AccountTypes);
             Assert.IsNotNull(model.SelectedAccountType);
             Assert.IsNotNull(model.StudentToken);
-
+            Assert.IsNotNull(model.FirstName);
+            Assert.IsNotNull(model.LastName);
+            Assert.IsNotNull(model.EmailAddress);
         }
 
         [TestMethod]
@@ -59,7 +62,11 @@ namespace PracticeTime.Web.Test.Models
                 ConfirmPassword = "blah",Password = "blah",UserName = "sfdgh",
                 AccountTypes = new SelectList(new SelectListItem[2]),
                 SelectedAccountType = "",
-                StudentToken = "blah"
+                StudentToken = "blah",
+                FirstName = "blah",
+                LastName = "blah",
+                EmailAddress = "blah"
+
             };
             Assert.IsNotNull(model.ConfirmPassword);
             Assert.IsNotNull(model.Password);
@@ -67,6 +74,9 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.AccountTypes);
             Assert.IsNotNull(model.SelectedAccountType);
             Assert.IsNotNull(model.StudentToken);
+            Assert.IsNotNull(model.FirstName);
+            Assert.IsNotNull(model.LastName);
+            Assert.IsNotNull(model.EmailAddress);
         }
     }
 }

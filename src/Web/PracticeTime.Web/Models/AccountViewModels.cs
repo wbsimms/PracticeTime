@@ -19,7 +19,15 @@ namespace PracticeTime.Web.Models
         [ReadOnly(true)]
         public string StudentToken { get; set; }
 
-
+        [Required]
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [DisplayName("Email Address")]
+        public string EmailAddress { get; set; }
     }
 
     public class ManageUserViewModel
@@ -83,6 +91,17 @@ namespace PracticeTime.Web.Models
 
         [ReadOnly(true)]
         public string StudentToken { get; set; }
+
+        [Required]
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [DisplayName("Email Address")]
+        public string EmailAddress { get; set; }
+
     }
  }
  

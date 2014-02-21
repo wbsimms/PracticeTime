@@ -60,15 +60,39 @@ namespace PracticeTime.Web.DataAccess.Migrations
 
             context.SaveChanges();
 
+            RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new PracticeTimeContext()));
+            if (!roleManager.CreateAsync(new IdentityRole("Admin")).Result.Succeeded)
+                throw new ApplicationException("Unable to create role");
+            if (!roleManager.CreateAsync(new IdentityRole("Student")).Result.Succeeded)
+                throw new ApplicationException("Unable to create role");
+
+            if (!roleManager.CreateAsync(new IdentityRole("Instructor")).Result.Succeeded)
+                throw new ApplicationException("Unable to create role");
+
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student" }, "student").Result.Succeeded)
                 throw new Exception("Unable to Add user");
+            if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student").Result.Id, "Student").Result.Succeeded)
+                throw new ApplicationException("Unable to add role");
 
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 2, UserName = "teacher" }, "teacher").Result.Succeeded)
                 throw new Exception("Unable to Add user");
+            if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("teacher").Result.Id, "Instructor").Result.Succeeded)
+                throw new ApplicationException("Unable to add role");
 
             if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student2" }, "student2").Result.Succeeded)
                 throw new Exception("Unable to Add user");
+            if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student2").Result.Id, "Student").Result.Succeeded)
+                throw new ApplicationException("Unable to add role");
+
+            IdentityResult result =
+                userManager.CreateAsync(new ApplicationUser() {C_AccountTypeId = 2, UserName = "admin"}, "Comp533!").Result;
+
+            if (!result.Succeeded)
+                throw new Exception("Unable to Add user"+string.Join("\r\n",result.Errors));
+            if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("Admin").Result.Id, "Admin").Result.Succeeded)
+                throw new ApplicationException("Unable to add role");
+
 
             string studentId = userManager.FindByNameAsync("student").Result.Id;
             string student2Id = userManager.FindByNameAsync("student2").Result.Id;

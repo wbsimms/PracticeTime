@@ -89,7 +89,13 @@ namespace PracticeTime.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType)};
+                var user = new ApplicationUser() { 
+                    UserName = model.UserName, 
+                    C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType),
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    EmailAddress = model.EmailAddress
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -280,7 +286,14 @@ namespace PracticeTime.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName, C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType)};
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName, 
+                    C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType),
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    EmailAddress = model.EmailAddress
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
