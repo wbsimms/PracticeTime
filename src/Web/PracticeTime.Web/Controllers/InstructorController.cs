@@ -15,21 +15,15 @@ namespace PracticeTime.Web.Controllers
     public class InstructorController : Controller
     {
         private ISessionRepository sessionRepository;
-        private IBadgeRulesEngine rulesEngine;
-        private IInstrumentRepository instrumentRepository;
         private IUserHelper userHelper;
         private IInstructorStudentRepository instructorStudentRepository;
 
 
         public InstructorController(ISessionRepository sessions,
-            IBadgeRulesEngine badgeRulesEngine,
-            IInstrumentRepository instuments,
             IUserHelper userHelper,
             IInstructorStudentRepository instructorStudent)
         {
-            this.instrumentRepository = instuments;
             this.sessionRepository = sessions;
-            this.rulesEngine = badgeRulesEngine;
             this.userHelper = userHelper;
             this.instructorStudentRepository = instructorStudent;
         }

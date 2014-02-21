@@ -50,9 +50,28 @@ namespace PracticeTime.Web.DataAccess.Repositories
         {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
-                InstructorStudent toDelete = context.InstructorStudents.FirstOrDefault(x => x.InstructorStudentId == instructorStudent.InstructorStudentId);
+                int toLookup = instructorStudent.InstructorStudentId;
+                InstructorStudent toDelete;
+                if (toLookup == 0)
+                {
+                    toLookup = GetByStudentIdInstructorId(instructorStudent.StudentId, instructorStudent.InstructorId).InstructorStudentId;
+                }
+                toDelete = context.InstructorStudents.FirstOrDefault(x => x.InstructorStudentId == toLookup);
+                if (toDelete == null)
+                    throw new ApplicationException("Unable to find entity to delete");
                 context.InstructorStudents.Remove(toDelete);
                 context.SaveChanges();
+            }
+        }
+
+        public InstructorStudent GetByStudentIdInstructorId(string studentId, string instructorId)
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                return context.InstructorStudents.AsNoTracking().FirstOrDefault(x => x.InstructorId == instructorId && x.StudentId == studentId);
             }
         }
 

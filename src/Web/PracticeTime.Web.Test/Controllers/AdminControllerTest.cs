@@ -49,10 +49,11 @@ namespace PracticeTime.Web.Test.Controllers
             mockInstructorStudentRepository.Setup(x => x.GetAllForInstructor(It.IsAny<string>()))
                 .Returns(() => { return new List<InstructorStudent>()
                 {
-                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student1"}},
-                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student2"}}
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student1",Id = "student1Id"},Instructor = new ApplicationUser()},
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student2",Id = "student2Id"},Instructor = new ApplicationUser()}
                 };
                 }).Verifiable();
+            mockInstructorStudentRepository.Setup(x => x.Delete(It.IsAny<InstructorStudent>())).Callback(() => { }).Verifiable();
         }
 
         [TestMethod]
@@ -123,11 +124,29 @@ namespace PracticeTime.Web.Test.Controllers
             Assert.AreEqual(2,retval.Count);
             Assert.IsTrue(retval.Any(x => x.StudentName == "student1"));
             Assert.IsTrue(retval.Any(x => x.StudentName == "student2"));
+            Assert.IsTrue(retval.Any(x => x.StudentId == "student2Id"));
+            Assert.IsTrue(retval.Any(x => x.StudentId == "student1Id"));
+        }
+
+        [TestMethod]
+        public void DeleteAssociationTest()
+        {
+            AdminController controller = new AdminController(mockUserHelper.Object,
+                mockApplicationUserRepository.Object,
+                mockInstructorStudentRepository.Object);
+            JsonResult result = controller.DeleteAssociation("student1Id","blah");
+            Assert.IsNotNull(result);
+            var retval = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Students>>(result.Data.ToString());
+            Assert.IsNotNull(retval);
+            mockInstructorStudentRepository.Verify(x => x.Delete(It.IsAny<InstructorStudent>()),Times.Once);
+            mockInstructorStudentRepository.Verify(x => x.GetAllForInstructor(It.IsAny<string>()), Times.Once);
+
         }
 
         class Students
         {
             public string StudentName { get; set; }
+            public string StudentId { get; set; }
         }
     }
 }

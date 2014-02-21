@@ -45,13 +45,22 @@ namespace PracticeTime.Web.Controllers
                 model.HasErrors = false;
             }
             return View("Index",model);
-          }
+        }
+
+        [HttpPost]
+        public JsonResult DeleteAssociation(string studentId, string instructorId)
+        {
+            InstructorStudent toDelete = new InstructorStudent(){InstructorId = instructorId, StudentId = studentId};
+            instructorStudentRepository.Delete(toDelete);
+            return GetInstructorStudents(instructorId);
+
+        }
 
         [HttpPost]
         public JsonResult GetInstructorStudents(string instructorId)
         {
             List<InstructorStudent> students = instructorStudentRepository.GetAllForInstructor(instructorId);
-            var retval = students.Select(x => new {StudentName = x.Student.UserName});
+            var retval = students.Select(x => new {StudentName = x.Student.UserName,StudentId = x.Student.Id});
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(retval));
         }
     }

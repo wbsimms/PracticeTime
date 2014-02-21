@@ -19,9 +19,7 @@ namespace PracticeTime.Web.Test.Controllers
     public class InstructorControllerTest
     {
         private Mock<IUserHelper> mockUserHelper = new Mock<IUserHelper>();
-        private Mock<IInstrumentRepository> mockInstrumentRepository = new Mock<IInstrumentRepository>();
         private Mock<ISessionRepository> mockSessionRepository = new Mock<ISessionRepository>();
-        private Mock<IBadgeRulesEngine> mockBadgeRulesEngine = new Mock<IBadgeRulesEngine>();
         private Mock<IInstructorStudentRepository> mockInstructorStudentRepository = new Mock<IInstructorStudentRepository>();
 
 
@@ -72,8 +70,6 @@ namespace PracticeTime.Web.Test.Controllers
         {
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
-                mockBadgeRulesEngine.Object,
-                mockInstrumentRepository.Object,
                 mockUserHelper.Object,
                 mockInstructorStudentRepository.Object);
             Assert.IsNotNull(controller);
@@ -84,8 +80,6 @@ namespace PracticeTime.Web.Test.Controllers
         {
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
-                mockBadgeRulesEngine.Object,
-                mockInstrumentRepository.Object,
                 mockUserHelper.Object,
                 mockInstructorStudentRepository.Object);
             controller.ControllerContext = new TestControllerContext(){UserName = "teacher"};
@@ -101,8 +95,6 @@ namespace PracticeTime.Web.Test.Controllers
         {
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
-                mockBadgeRulesEngine.Object,
-                mockInstrumentRepository.Object,
                 mockUserHelper.Object,
                 mockInstructorStudentRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };

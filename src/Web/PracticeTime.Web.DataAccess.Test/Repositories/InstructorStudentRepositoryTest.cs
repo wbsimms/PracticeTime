@@ -54,6 +54,9 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 InstructorStudent retval2 =
                     repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
                 Assert.IsNull(retval2);
+
+                InstructorStudent instructorStudent = repo.GetByStudentIdInstructorId(blahstudentId, blahteacherId);
+                Assert.IsNotNull(instructorStudent);
             }
         }
 
@@ -84,7 +87,27 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
                 repo.Delete(retval);
                 Assert.AreEqual(count-1, repo.GetAll().Count);
             }
-
         }
+
+        [TestMethod]
+        public void DeleteWithoutPrimaryIdTest()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahstudent" }, "blahstudent").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+                string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
+                string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
+                InstructorStudentRepository repo = new InstructorStudentRepository();
+                InstructorStudent retval =
+                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
+
+                int count = repo.GetAll().Count;
+                repo.Delete(new InstructorStudent(){StudentId = blahstudentId,InstructorId = blahteacherId});
+                Assert.AreEqual(count - 1, repo.GetAll().Count);
+            }
+        }
+
     }
 }
