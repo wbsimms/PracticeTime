@@ -25,7 +25,23 @@ namespace PracticeTime.Web.Test.Helpers
             string userId = helper.GetUserId("student");
             Assert.IsNotNull(userId);
             Assert.IsTrue(!string.IsNullOrEmpty(userId));
+        }
 
+        [TestMethod]
+        public void GetRoleFromIdTest()
+        {
+            Assert.AreEqual(Roles.Student,UserHelper.GetRoleFromId("1"));
+            Assert.AreEqual(Roles.Instructor, UserHelper.GetRoleFromId("2"));
+            try
+            {
+                Assert.AreEqual(Roles.Student, UserHelper.GetRoleFromId("99999"));
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Unable to determine role", ex.Message); 
+            }
+
+            Assert.AreEqual("Student",Roles.Student.ToString());
         }
     }
 }

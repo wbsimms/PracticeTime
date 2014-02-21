@@ -9,6 +9,13 @@ using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Helpers
 {
+    public enum Roles
+    {
+        Student,
+        Instructor,
+        Admin
+    }
+    
     public interface IUserHelper
     {
         string GetUserId(string name);
@@ -21,5 +28,19 @@ namespace PracticeTime.Web.Helpers
             return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
                 FindByNameAsync(name).Result.Id;
         }
+
+        public static Roles GetRoleFromId(string id)
+        {
+            switch (id)
+            {
+                case "1":
+                    return Roles.Student;
+                case "2":
+                    return Roles.Instructor;
+                default:
+                    throw new ApplicationException("Unable to determine role");
+            }
+        }
+
     }
 }

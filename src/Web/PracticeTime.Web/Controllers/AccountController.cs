@@ -13,6 +13,7 @@ using Microsoft.Practices.Unity;
 using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
+using PracticeTime.Web.Helpers;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
@@ -32,9 +33,11 @@ namespace PracticeTime.Web.Controllers
         {
             this.accountTypeRepository = accountType;
             UserManager = userManager;
+            RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new PracticeTimeContext()));
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
+        public RoleManager<IdentityRole> RoleManager { get; private set; }
 
         //
         // GET: /Account/Login
@@ -97,10 +100,18 @@ namespace PracticeTime.Web.Controllers
                     EmailAddress = model.EmailAddress
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                Roles role = UserHelper.GetRoleFromId(model.SelectedAccountType);
+
                 if (result.Succeeded)
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, role.ToString());
+                    if (roleResult.Succeeded)
+                    {
+                        await SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
                 }
                 else
                 {
@@ -295,13 +306,21 @@ namespace PracticeTime.Web.Controllers
                     EmailAddress = model.EmailAddress
                 };
                 var result = await UserManager.CreateAsync(user);
+                Roles role = UserHelper.GetRoleFromId(model.SelectedAccountType);
+
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
-                        await SignInAsync(user, isPersistent: false);
-                        return RedirectToLocal(returnUrl);
+                        var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, role.ToString());
+                        if (roleResult.Succeeded)
+                        {
+
+                            await SignInAsync(user, isPersistent: false);
+                            return RedirectToLocal(returnUrl);
+                        }
+                        AddErrors(roleResult);
                     }
                 }
                 AddErrors(result);
