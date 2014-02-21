@@ -49,8 +49,8 @@ namespace PracticeTime.Web.Test.Controllers
             mockInstructorStudentRepository.Setup(x => x.GetAllForInstructor(It.IsAny<string>()))
                 .Returns(() => { return new List<InstructorStudent>()
                 {
-                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student1",Id = "student1Id"},Instructor = new ApplicationUser()},
-                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student2",Id = "student2Id"},Instructor = new ApplicationUser()}
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student1",Id = "student1Id",FirstName = "stu",LastName = "dent1"},Instructor = new ApplicationUser()},
+                    new InstructorStudent() {Student = new ApplicationUser(){UserName = "student2",Id = "student2Id",FirstName = "stu",LastName = "dent2"},Instructor = new ApplicationUser()}
                 };
                 }).Verifiable();
             mockInstructorStudentRepository.Setup(x => x.Delete(It.IsAny<InstructorStudent>())).Callback(() => { }).Verifiable();
@@ -126,6 +126,8 @@ namespace PracticeTime.Web.Test.Controllers
             Assert.IsTrue(retval.Any(x => x.StudentName == "student2"));
             Assert.IsTrue(retval.Any(x => x.StudentId == "student2Id"));
             Assert.IsTrue(retval.Any(x => x.StudentId == "student1Id"));
+            Assert.IsTrue(retval.Any(x => x.FirstName == "stu"));
+            Assert.IsTrue(retval.Any(x => x.LastName == "dent1"));
         }
 
         [TestMethod]
@@ -147,6 +149,8 @@ namespace PracticeTime.Web.Test.Controllers
         {
             public string StudentName { get; set; }
             public string StudentId { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
         }
     }
 }

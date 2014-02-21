@@ -51,7 +51,7 @@ $(document).ready(function() {
             $("#associations").append('<li>' + 'No Students' + '</li>');
         } else {
             for (var row in jdata) {
-                $("#associations").append('<li>' + jdata[row]["StudentName"] + ' <button data-studentid="' + jdata[row]["StudentId"] + '" type="submit" class="btn btn-default delete-student"><i class="glyphicon glyphicon-remove-sign"></i> Delete</button></li>');
+                $("#associations").append('<li>' + jdata[row]["FirstName"] + ' ' + jdata[row]["LastName"] + ' <button data-studentid="' + jdata[row]["StudentId"] + '" type="submit" class="btn btn-default delete-student"><i class="glyphicon glyphicon-remove-sign"></i> Delete</button></li>');
 
             }
             $(".delete-student").click(function () {

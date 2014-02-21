@@ -62,7 +62,7 @@ namespace PracticeTime.Web.Controllers
         public JsonResult GetInstructorStudents(string instructorId)
         {
             List<InstructorStudent> students = instructorStudentRepository.GetAllForInstructor(instructorId);
-            var retval = students.Select(x => new {StudentName = x.Student.UserName,StudentId = x.Student.Id});
+            var retval = students.Select(x => new {StudentName = x.Student.UserName,StudentId = x.Student.Id,FirstName = x.Student.FirstName,LastName = x.Student.LastName});
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(retval));
         }
     }

@@ -70,7 +70,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 throw new ApplicationException("Unable to create role");
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
-            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student" }, "student").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student",LastName = "dent1",FirstName = "stu1"}, "student").Result.Succeeded)
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student").Result.Id, "Student").Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
@@ -80,7 +80,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("teacher").Result.Id, "Instructor").Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
 
-            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student2" }, "student2").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "student2", LastName = "dent2", FirstName = "stu2" }, "student2").Result.Succeeded)
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student2").Result.Id, "Student").Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
