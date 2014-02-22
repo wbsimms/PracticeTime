@@ -30,18 +30,28 @@ namespace PracticeTime.Web.Test.Helpers
         [TestMethod]
         public void GetRoleFromIdTest()
         {
-            Assert.AreEqual(Roles.Student,UserHelper.GetRoleFromId("1"));
-            Assert.AreEqual(Roles.Instructor, UserHelper.GetRoleFromId("2"));
+            Assert.AreEqual(PracticeTimeRoles.Student,UserHelper.GetRoleFromId("1"));
+            Assert.AreEqual(PracticeTimeRoles.Instructor, UserHelper.GetRoleFromId("2"));
             try
             {
-                Assert.AreEqual(Roles.Student, UserHelper.GetRoleFromId("99999"));
+                Assert.AreEqual(PracticeTimeRoles.Student, UserHelper.GetRoleFromId("99999"));
             }
             catch (Exception ex)
             {
                 Assert.AreEqual("Unable to determine role", ex.Message); 
             }
 
-            Assert.AreEqual("Student",Roles.Student.ToString());
+            Assert.AreEqual("Student",PracticeTimeRoles.Student.ToString());
+        }
+
+        [TestMethod]
+        public void RandomStringTest()
+        {
+            string randomString = UserHelper.RandomString(10);
+            string randomString1 = UserHelper.RandomString(10);
+            Assert.IsTrue(randomString.Length == 10);
+            Assert.IsTrue(randomString1.Length == 10);
+            Assert.AreNotEqual(randomString,randomString1);
         }
     }
 }

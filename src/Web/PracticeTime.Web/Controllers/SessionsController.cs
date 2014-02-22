@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -17,7 +18,7 @@ using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Student,Admin")]
     public class SessionsController : Controller
     {
         private ISessionRepository sessionRepository;

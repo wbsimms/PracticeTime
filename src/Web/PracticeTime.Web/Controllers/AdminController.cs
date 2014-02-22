@@ -12,6 +12,7 @@ using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private IUserHelper userHelper;

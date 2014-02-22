@@ -11,7 +11,7 @@ using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Instructor,Admin")]
     public class InstructorController : Controller
     {
         private ISessionRepository sessionRepository;

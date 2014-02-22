@@ -101,11 +101,16 @@ namespace PracticeTime.Web.Controllers
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                Roles role = UserHelper.GetRoleFromId(model.SelectedAccountType);
+                PracticeTimeRoles practiceTimeRole = UserHelper.GetRoleFromId(model.SelectedAccountType);
+
+                if (practiceTimeRole == PracticeTimeRoles.Student)
+                {
+                    user.StudentToken = UserHelper.RandomString(10);
+                }
 
                 if (result.Succeeded)
                 {
-                    var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, role.ToString());
+                    var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, practiceTimeRole.ToString());
                     if (roleResult.Succeeded)
                     {
                         await SignInAsync(user, isPersistent: false);
@@ -306,14 +311,14 @@ namespace PracticeTime.Web.Controllers
                     EmailAddress = model.EmailAddress
                 };
                 var result = await UserManager.CreateAsync(user);
-                Roles role = UserHelper.GetRoleFromId(model.SelectedAccountType);
+                PracticeTimeRoles practiceTimeRole = UserHelper.GetRoleFromId(model.SelectedAccountType);
 
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
-                        var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, role.ToString());
+                        var roleResult = await UserManager.AddToRoleAsync(UserManager.FindByNameAsync(model.UserName).Result.Id, practiceTimeRole.ToString());
                         if (roleResult.Succeeded)
                         {
 
