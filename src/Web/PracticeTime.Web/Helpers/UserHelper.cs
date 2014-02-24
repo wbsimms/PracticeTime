@@ -20,11 +20,6 @@ namespace PracticeTime.Web.Helpers
         static Random random = new Random();
         private static string _passwordArray = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-
-        public void GetAllUsers()
-        {
-        }
-
         public string GetUserId(string name)
         {
             return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
