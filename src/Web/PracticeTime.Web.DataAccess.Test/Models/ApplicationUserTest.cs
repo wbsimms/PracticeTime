@@ -23,4 +23,17 @@ namespace PracticeTime.Web.DataAccess.Test.Models
             Assert.IsNotNull(user.EmailAddress);
         }
     }
+
+    [TestClass]
+    public class ApplicationRoleTest
+    {
+        [TestMethod]
+        public void ConstructorTest()
+        {
+            ApplicationRole role = new ApplicationRole("Admin"){Active = true,Id="blah"};
+            Assert.IsNotNull(role.Name);
+            Assert.IsNotNull(role.Id);
+            Assert.IsTrue(role.Active);
+        }
+    }
 }

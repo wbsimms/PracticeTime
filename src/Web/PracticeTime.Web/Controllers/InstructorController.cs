@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
@@ -19,15 +20,18 @@ namespace PracticeTime.Web.Controllers
         private ISessionRepository sessionRepository;
         private IUserHelper userHelper;
         private IInstructorStudentRepository instructorStudentRepository;
+        private IApplicationUserRepository applicationUserRepository;
 
 
         public InstructorController(ISessionRepository sessions,
             IUserHelper userHelper,
-            IInstructorStudentRepository instructorStudent)
+            IInstructorStudentRepository instructorStudent,
+            IApplicationUserRepository applicationUser)
         {
             this.sessionRepository = sessions;
             this.userHelper = userHelper;
             this.instructorStudentRepository = instructorStudent;
+            this.applicationUserRepository = applicationUser;
         }
 
         public ActionResult Index()
@@ -47,17 +51,30 @@ namespace PracticeTime.Web.Controllers
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(session));
         }
 
-        public ActionResult RegisterStudents()
+        public ActionResult RegisterStudents(RegisterStudentViewModel model)
         {
-            RegisterStudentViewModel model = new RegisterStudentViewModel();
-
-            return View();
+            List<InstructorStudent> instructorStudents = instructorStudentRepository.GetAllForInstructor(User.Identity.GetUserId());
+            model.Init(new List<ApplicationUser>(instructorStudents.Select(x => x.Student)));
+            return View(model);
         }
 
         [HttpPost]
-        public JsonResult RegisterStudent(string studentKey)
+        [ValidateAntiForgeryToken]
+        public JsonResult RegisterStudent(RegisterStudentViewModel model)
         {
-            ResponseMessage message = new ResponseMessage();
+            ResponseMessage message = new ResponseMessage() {Message = "Student Registered"};
+            string id = User.Identity.GetUserId();
+            ApplicationUser student = applicationUserRepository.GetUserByToken(model.StudentTokenForRegistration);
+            if (student == null)
+            {
+                message.Errors.Add("Token not found");
+                message.Message = "Registration Failed";
+            }
+            else
+            {
+                InstructorStudent retval =
+                    instructorStudentRepository.Add(new InstructorStudent() {InstructorId = id, StudentId = student.Id});
+            }
 
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(message));
         }

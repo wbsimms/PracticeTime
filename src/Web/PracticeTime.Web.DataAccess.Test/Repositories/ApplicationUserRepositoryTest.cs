@@ -37,5 +37,17 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             Assert.IsTrue(users.All(x => x.Roles.Any(r => r.Role.Name == "Instructor")));
         }
 
+        [TestMethod]
+        public void GetUserByTokenTest()
+        {
+            ApplicationUserRepository repo = new ApplicationUserRepository();
+            List<ApplicationUser> users = repo.GetAllStudents();
+            Assert.IsNotNull(users);
+            ApplicationUser firstUser = users.First();
+            ApplicationUser user = repo.GetUserByToken(firstUser.StudentToken);
+            Assert.AreEqual(firstUser.Id,user.Id);
+        }
+
+
     }
 }

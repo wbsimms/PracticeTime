@@ -4,6 +4,11 @@ namespace PracticeTime.Web.Controllers
 {
     public class ResponseMessage
     {
+        public ResponseMessage()
+        {
+            this.Errors = new List<string>();
+        }
+
         public string Message { get; set; }
         public List<string> Errors { get; set; }
         public bool HasMessage

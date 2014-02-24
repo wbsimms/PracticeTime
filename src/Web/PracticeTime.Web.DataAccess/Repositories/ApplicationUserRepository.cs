@@ -14,6 +14,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
     {
         List<ApplicationUser> GetAllStudents();
         List<ApplicationUser> GetAllInstructors();
+        ApplicationUser GetUserByToken(string token);
     }
 
     public class ApplicationUserRepository : IApplicationUserRepository
@@ -50,5 +51,16 @@ namespace PracticeTime.Web.DataAccess.Repositories
             }
         }
 
+        public ApplicationUser GetUserByToken(string token)
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                return context.Users.AsNoTracking()
+                    .FirstOrDefault(x => x.StudentToken == token);
+            }
+        }
     }
 }

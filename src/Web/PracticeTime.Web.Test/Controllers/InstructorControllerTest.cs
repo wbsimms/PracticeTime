@@ -21,6 +21,7 @@ namespace PracticeTime.Web.Test.Controllers
         private Mock<IUserHelper> mockUserHelper = new Mock<IUserHelper>();
         private Mock<ISessionRepository> mockSessionRepository = new Mock<ISessionRepository>();
         private Mock<IInstructorStudentRepository> mockInstructorStudentRepository = new Mock<IInstructorStudentRepository>();
+        private Mock<IApplicationUserRepository> mockApplicationUserRepository = new Mock<IApplicationUserRepository>();
 
 
         [TestInitialize]
@@ -30,8 +31,8 @@ namespace PracticeTime.Web.Test.Controllers
             {
                 return new List<InstructorStudent>()
                 {
-                    new InstructorStudent(){InstructorId = "teacherid",StudentId = "studentid",Student = new ApplicationUser(){UserName = "student"}},
-                    new InstructorStudent(){InstructorId = "teacherid",StudentId = "student2id",Student = new ApplicationUser(){UserName = "student2"}}
+                    new InstructorStudent(){InstructorId = "teacherid",StudentId = "studentid",Student = new ApplicationUser(){UserName = "student",FirstName = "stu1",LastName = "dent1"}},
+                    new InstructorStudent(){InstructorId = "teacherid",StudentId = "student2id",Student = new ApplicationUser(){UserName = "student2",FirstName = "stu2",LastName = "dent2"}}
                 };
             }).Verifiable();
 
@@ -63,6 +64,11 @@ namespace PracticeTime.Web.Test.Controllers
                     }
                 };
             }).Verifiable();
+
+            mockApplicationUserRepository.Setup(x => x.GetUserByToken(It.IsAny<string>()))
+                .Returns(new ApplicationUser() {UserName = "student", FirstName = "stu1", LastName = "dent1"}).Verifiable();
+
+            mockInstructorStudentRepository.Setup(x=> x.Add(It.IsAny<InstructorStudent>())).Returns(new InstructorStudent(){InstructorId = "99"}).Verifiable();
         }
 
         [TestMethod]
@@ -71,7 +77,8 @@ namespace PracticeTime.Web.Test.Controllers
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
                 mockUserHelper.Object,
-                mockInstructorStudentRepository.Object);
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
             Assert.IsNotNull(controller);
         }
 
@@ -81,7 +88,8 @@ namespace PracticeTime.Web.Test.Controllers
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
                 mockUserHelper.Object,
-                mockInstructorStudentRepository.Object);
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext(){UserName = "teacher"};
             ViewResult result = (ViewResult)controller.Index();
             Assert.IsNotNull(result);
@@ -96,7 +104,8 @@ namespace PracticeTime.Web.Test.Controllers
             InstructorController controller = new InstructorController(
                 mockSessionRepository.Object,
                 mockUserHelper.Object,
-                mockInstructorStudentRepository.Object);
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
             JsonResult jsonResult = controller.GetSessionsForStudent("student");
             mockSessionRepository.Verify(x => x.GetAllForUser(It.IsAny<string>()),Times.Once);
@@ -106,6 +115,70 @@ namespace PracticeTime.Web.Test.Controllers
             Assert.AreEqual(2,sessions.Count);
         }
 
+        [TestMethod]
+        public void RegisterStudentsTest()
+        {
+            InstructorController controller = new InstructorController(
+                mockSessionRepository.Object,
+                mockUserHelper.Object,
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
+            controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
+            ViewResult result = controller.RegisterStudents(new RegisterStudentViewModel()) as ViewResult;
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Model is RegisterStudentViewModel);
+            RegisterStudentViewModel model = result.Model as RegisterStudentViewModel;
+            Assert.IsNotNull(model.RegisteredStudents);
+            Assert.AreEqual(2,model.RegisteredStudents.Count);
+            Assert.IsTrue(model.RegisteredStudents.Any(x => x.Text == "dent1, stu1"));
+            Assert.IsTrue(model.RegisteredStudents.Any(x => x.Text == "dent2, stu2"));
+            mockInstructorStudentRepository.Verify(x => x.GetAllForInstructor(It.IsAny<string>()), Times.Once);
+        }
+
+        [TestMethod]
+        public void RegisterStudentTest()
+        {
+            InstructorController controller = new InstructorController(
+                mockSessionRepository.Object,
+                mockUserHelper.Object,
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
+            controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
+            JsonResult result = controller.RegisterStudent(new RegisterStudentViewModel(){StudentTokenForRegistration = "studentToken"}) as JsonResult;
+            Assert.IsNotNull(result);
+            ResponseMessage message =
+                Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseMessage>(result.Data as string);
+            Assert.IsNotNull(message);
+            Assert.IsFalse(message.HasErrors);
+            mockApplicationUserRepository.Verify(x => x.GetUserByToken(It.IsAny<string>()),Times.Once);
+            mockInstructorStudentRepository.Verify(x => x.Add(It.IsAny<InstructorStudent>()),Times.Once);
+        }
+
+        [TestMethod]
+        public void RegisterStudentFailedTest()
+        {
+            mockInstructorStudentRepository.Setup(x => x.Add(It.IsAny<InstructorStudent>())).Returns(() =>
+            {
+                return null;
+            }).Verifiable();
+            mockApplicationUserRepository.Setup(x => x.GetUserByToken(It.IsAny<string>()))
+                .Returns(() => { return null; }).Verifiable();
+
+
+            InstructorController controller = new InstructorController(
+                mockSessionRepository.Object,
+                mockUserHelper.Object,
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
+            controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
+            JsonResult result = controller.RegisterStudent(new RegisterStudentViewModel() { StudentTokenForRegistration = "studentToken" }) as JsonResult;
+            Assert.IsNotNull(result);
+            ResponseMessage message =
+                Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseMessage>(result.Data as string);
+            Assert.IsNotNull(message);
+            Assert.IsTrue(message.HasErrors);
+            mockApplicationUserRepository.Verify(x => x.GetUserByToken(It.IsAny<string>()), Times.Once);
+        }
 
     }
 }
