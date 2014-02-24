@@ -116,12 +116,14 @@
     <Compile Include="Controllers\InstructorControllerTest.cs" />
     <Compile Include="Controllers\SessionsControllerTest.cs" />
     <Compile Include="Controllers\TestControllerContext.cs" />
+    <Compile Include="Controllers\ResponseMessageTest.cs" />
     <Compile Include="Helpers\UserHelperTest.cs" />
     <Compile Include="Models\AccountViewModelTest.cs" />
     <Compile Include="Helpers\GGraphTest.cs" />
     <Compile Include="Models\InstructorViewModelTest.cs" />
     <Compile Include="Models\SessionEntryViewModelTest.cs" />
     <Compile Include="Models\SessionsViewModelTest.cs" />
+    <Compile Include="Models\RegisterStudentViewModelTest.cs" />
     <Compile Include="MvcApplicationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

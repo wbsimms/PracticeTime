@@ -10,13 +10,6 @@ using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Helpers
 {
-    public enum PracticeTimeRoles
-    {
-        Student,
-        Instructor,
-        Admin
-    }
-    
     public interface IUserHelper
     {
         string GetUserId(string name);
@@ -25,8 +18,12 @@ namespace PracticeTime.Web.Helpers
     public class UserHelper : IUserHelper
     {
         static Random random = new Random();
-        private static string _passwordArray = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; 
+        private static string _passwordArray = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+
+        public void GetAllUsers()
+        {
+        }
 
         public string GetUserId(string name)
         {
@@ -38,9 +35,9 @@ namespace PracticeTime.Web.Helpers
         {
             switch (id)
             {
-                case "1":
+                case "Student":
                     return PracticeTimeRoles.Student;
-                case "2":
+                case "Instructor":
                     return PracticeTimeRoles.Instructor;
                 default:
                     throw new ApplicationException("Unable to determine role");

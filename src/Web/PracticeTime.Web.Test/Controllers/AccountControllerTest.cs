@@ -15,27 +15,15 @@ namespace PracticeTime.Web.Test.Controllers
     [TestClass]
     public class AccountControllerTest
     {
-        private Mock<IAccountTypeRepository> accountTypesMock;
-
         [TestInitialize]
         public void Setup()
         {
-            accountTypesMock = new Mock<IAccountTypeRepository>();
-            accountTypesMock.Setup(x => x.GetAll()).Returns(() =>
-            {
-                return new List<C_AccountType>
-                {
-                    new C_AccountType() {Name = "blah", Active = true},
-                    new C_AccountType() {Name = "blah2", Active = true}
-                };
-            });
-
         }
 
         [TestMethod]
         public void ConstructorTest()
         {
-            AccountController controller = new AccountController(accountTypesMock.Object);
+            AccountController controller = new AccountController();
             controller.ControllerContext = new TestControllerContext();
             Assert.IsNotNull(controller);
         }
@@ -43,7 +31,7 @@ namespace PracticeTime.Web.Test.Controllers
         [TestMethod]
         public void LoginTest()
         {
-            AccountController controller = new AccountController(accountTypesMock.Object);
+            AccountController controller = new AccountController();
             controller.ControllerContext = new TestControllerContext();
             ViewResult view = (ViewResult)controller.Login("http://cnn.com");
             Assert.AreEqual("http://cnn.com",view.ViewBag.ReturnUrl);

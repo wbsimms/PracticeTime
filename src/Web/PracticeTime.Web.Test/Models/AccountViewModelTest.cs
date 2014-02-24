@@ -17,7 +17,6 @@ namespace PracticeTime.Web.Test.Models
         {
             ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel()
             {
-                AccountTypes = new SelectList(new SelectListItem[2]),
                 SelectedAccountType = "",
                 UserName = "blah",
                 StudentToken = "blah",
@@ -60,7 +59,6 @@ namespace PracticeTime.Web.Test.Models
             RegisterViewModel model = new RegisterViewModel()
             {
                 ConfirmPassword = "blah",Password = "blah",UserName = "sfdgh",
-                AccountTypes = new SelectList(new SelectListItem[2]),
                 SelectedAccountType = "",
                 StudentToken = "blah",
                 FirstName = "blah",

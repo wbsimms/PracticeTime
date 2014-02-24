@@ -25,7 +25,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             ApplicationUserRepository repo = new ApplicationUserRepository();
             List<ApplicationUser> users = repo.GetAllStudents();
             Assert.IsNotNull(users);
-            Assert.IsTrue(users.All(x => x.C_AccountType.Name == "Student"));
+            Assert.IsTrue(users.All(x => x.Roles.Any(r => r.Role.Name == "Student")));
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             ApplicationUserRepository repo = new ApplicationUserRepository();
             List<ApplicationUser> users = repo.GetAllInstructors();
             Assert.IsNotNull(users);
-            Assert.IsTrue(users.All(x => x.C_AccountType.Name == "Instructor"));
+            Assert.IsTrue(users.All(x => x.Roles.Any(r => r.Role.Name == "Instructor")));
         }
 
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.EntityFramework;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Helpers;
@@ -43,6 +45,21 @@ namespace PracticeTime.Web.Controllers
         {
             List<Session> session = sessionRepository.GetAllForUser(studentId);
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(session));
+        }
+
+        public ActionResult RegisterStudents()
+        {
+            RegisterStudentViewModel model = new RegisterStudentViewModel();
+
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult RegisterStudent(string studentKey)
+        {
+            ResponseMessage message = new ResponseMessage();
+
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(message));
         }
     }
 }

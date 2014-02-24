@@ -22,16 +22,14 @@ namespace PracticeTime.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private IAccountTypeRepository accountTypeRepository;
 
-        public AccountController(IAccountTypeRepository accountType)
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())),accountType)
+        public AccountController()
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())))
         {
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager, IAccountTypeRepository accountType)
+        public AccountController(UserManager<ApplicationUser> userManager)
         {
-            this.accountTypeRepository = accountType;
             UserManager = userManager;
             RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new PracticeTimeContext()));
         }
@@ -79,7 +77,6 @@ namespace PracticeTime.Web.Controllers
         public ActionResult Register()
         {
             RegisterViewModel viewModel = new RegisterViewModel();
-            viewModel.AccountTypes = new SelectList(accountTypeRepository.GetAll(), "C_AccountTypeId", "Name");
             return View(viewModel);
         }
 
@@ -94,7 +91,6 @@ namespace PracticeTime.Web.Controllers
             {
                 var user = new ApplicationUser() { 
                     UserName = model.UserName, 
-                    C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType),
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     EmailAddress = model.EmailAddress
@@ -250,7 +246,6 @@ namespace PracticeTime.Web.Controllers
                 return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel
                 {
                     UserName = loginInfo.DefaultUserName, 
-                    AccountTypes = new SelectList(accountTypeRepository.GetAll(), "C_AccountTypeId", "Name")
                 });
             }
         }
@@ -305,7 +300,6 @@ namespace PracticeTime.Web.Controllers
                 var user = new ApplicationUser()
                 {
                     UserName = model.UserName, 
-                    C_AccountTypeId = Convert.ToInt32(model.SelectedAccountType),
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     EmailAddress = model.EmailAddress

@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using PracticeTime.Web.DataAccess;
 
 namespace PracticeTime.Web.Models
 {
@@ -15,7 +16,16 @@ namespace PracticeTime.Web.Models
         [Display(Name = "Account Type")]
         public string SelectedAccountType { get; set; }
 
-        public SelectList AccountTypes { get; set; }
+        public SelectList AccountTypes
+        {
+            get
+            {
+                List<NameValue> nv = new List<NameValue>();
+                nv.Add(new NameValue() { Name = PracticeTimeRoles.Student.ToString(), Value = "Student" });
+                nv.Add(new NameValue() { Name = PracticeTimeRoles.Instructor.ToString(), Value = "Student" });
+                return new SelectList(nv, "Value", "Name");
+            }
+        }
         [ReadOnly(true)]
         public string StudentToken { get; set; }
 
@@ -87,7 +97,15 @@ namespace PracticeTime.Web.Models
         [Display(Name="Account Type")]
         public string SelectedAccountType { get; set; }
 
-        public SelectList AccountTypes { get; set; }
+        public SelectList AccountTypes {
+            get
+            {
+                List<NameValue> nv = new List<NameValue>();
+                nv.Add(new NameValue(){Name = PracticeTimeRoles.Student.ToString(),Value = "Student"});
+                nv.Add(new NameValue() { Name = PracticeTimeRoles.Instructor.ToString(), Value = "Student" });
+                return new SelectList(nv,"Value","Name");
+            }
+        }
 
         [ReadOnly(true)]
         public string StudentToken { get; set; }
@@ -101,7 +119,12 @@ namespace PracticeTime.Web.Models
         [Required]
         [DisplayName("Email Address")]
         public string EmailAddress { get; set; }
-
     }
- }
+
+    public class NameValue
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+}
  

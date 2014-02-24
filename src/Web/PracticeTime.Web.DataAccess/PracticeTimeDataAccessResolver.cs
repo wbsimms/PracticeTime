@@ -30,7 +30,6 @@ namespace PracticeTime.Web.DataAccess
             container.RegisterType<IBadgeAwardRepository, BadgeAwardRepository>();
             container.RegisterType<IBadgeRepository, BadgeRepository>();
             container.RegisterType<IInstrumentRepository, InstrumentRepository>();
-            container.RegisterType<IAccountTypeRepository, AccountTypeRepository>();
             container.RegisterType<IInstructorStudentRepository, InstructorStudentRepository>();
             container.RegisterType<IApplicationUserRepository, ApplicationUserRepository>();
         }

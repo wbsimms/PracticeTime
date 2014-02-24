@@ -184,8 +184,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\ResponseMessage.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\InstructorViewModel.cs" />
+    <Compile Include="Models\RegisterStudentViewModel.cs" />
     <Compile Include="PracticeTimeWebResolver.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -339,6 +341,7 @@
     <Content Include="Views\Sessions\_NewBadge.cshtml" />
     <Content Include="Views\Instructor\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Instructor\RegisterStudents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

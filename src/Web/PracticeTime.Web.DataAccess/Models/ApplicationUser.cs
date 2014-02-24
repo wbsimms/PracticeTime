@@ -13,8 +13,27 @@ namespace PracticeTime.Web.DataAccess.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
-        public C_AccountType C_AccountType { get; set; }
-        public int C_AccountTypeId { get; set; }
         public string StudentToken { get; set; }
+    }
+
+    public class ApplicationRole : IdentityRole
+    {
+        protected bool active = true;
+
+        public ApplicationRole()
+        {
+            // don't use this.
+        }
+
+        public ApplicationRole(string roleName) : base(roleName)
+        {
+
+        }
+
+        public bool Active
+        {
+            get { return this.active; }
+            set { this.active = value; }
+        }
     }
 }

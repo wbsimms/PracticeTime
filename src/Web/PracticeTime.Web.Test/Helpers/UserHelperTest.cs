@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.Helpers;
 
 namespace PracticeTime.Web.Test.Helpers
@@ -30,8 +31,8 @@ namespace PracticeTime.Web.Test.Helpers
         [TestMethod]
         public void GetRoleFromIdTest()
         {
-            Assert.AreEqual(PracticeTimeRoles.Student,UserHelper.GetRoleFromId("1"));
-            Assert.AreEqual(PracticeTimeRoles.Instructor, UserHelper.GetRoleFromId("2"));
+            Assert.AreEqual(PracticeTimeRoles.Student,UserHelper.GetRoleFromId("Student"));
+            Assert.AreEqual(PracticeTimeRoles.Instructor, UserHelper.GetRoleFromId("Instructor"));
             try
             {
                 Assert.AreEqual(PracticeTimeRoles.Student, UserHelper.GetRoleFromId("99999"));

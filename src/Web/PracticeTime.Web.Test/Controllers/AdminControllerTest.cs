@@ -31,16 +31,16 @@ namespace PracticeTime.Web.Test.Controllers
             {
                 return new List<ApplicationUser>()
                 {
-                    new ApplicationUser(){C_AccountTypeId = 2, UserName = "teacher1"},
-                    new ApplicationUser(){C_AccountTypeId = 2, UserName = "teacher2"}
+                    new ApplicationUser(){UserName = "teacher1"},
+                    new ApplicationUser(){UserName = "teacher2"}
                 };
             }).Verifiable();
             mockApplicationUserRepository.Setup(x => x.GetAllStudents()).Returns(() =>
             {
                 return new List<ApplicationUser>()
                 {
-                    new ApplicationUser(){C_AccountTypeId = 1, UserName = "student1"},
-                    new ApplicationUser(){C_AccountTypeId = 1, UserName = "student2"}
+                    new ApplicationUser(){UserName = "student1"},
+                    new ApplicationUser(){UserName = "student2"}
                 };
             }).Verifiable();
 

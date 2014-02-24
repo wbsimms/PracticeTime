@@ -42,8 +42,8 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {C_AccountTypeId = 1, UserName = "blahstudent"}, "blahstudent").Result.Succeeded);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent"}, "blahstudent").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
                 string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
                 string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
                 InstructorStudentRepository repo = new InstructorStudentRepository();
@@ -95,8 +95,8 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             using (TransactionScope scope = new TransactionScope())
             {
                 UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahstudent" }, "blahstudent").Result.Succeeded);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() { C_AccountTypeId = 1, UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent" }, "blahstudent").Result.Succeeded);
+                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
                 string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
                 string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
                 InstructorStudentRepository repo = new InstructorStudentRepository();
