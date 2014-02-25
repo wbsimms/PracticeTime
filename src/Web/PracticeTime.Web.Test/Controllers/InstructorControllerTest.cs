@@ -139,10 +139,9 @@ namespace PracticeTime.Web.Test.Controllers
                 mockInstructorStudentRepository.Object,
                 mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
-            JsonResult result = controller.RegisterStudent(new RegisterStudentViewModel(){StudentTokenForRegistration = "studentToken"}) as JsonResult;
+            ViewResult result = controller.RegisterStudent(new RegisterStudentViewModel(){StudentTokenForRegistration = "studentToken"});
             Assert.IsNotNull(result);
-            ResponseMessage message =
-                Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseMessage>(result.Data as string);
+            ResponseMessage message = ((RegisterStudentViewModel) result.Model).ResponseMessage;
             Assert.IsNotNull(message);
             Assert.IsFalse(message.HasErrors);
             mockApplicationUserRepository.Verify(x => x.GetUserByToken(It.IsAny<string>()),Times.Once);
@@ -166,10 +165,9 @@ namespace PracticeTime.Web.Test.Controllers
                 mockInstructorStudentRepository.Object,
                 mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
-            JsonResult result = controller.RegisterStudent(new RegisterStudentViewModel() { StudentTokenForRegistration = "studentToken" }) as JsonResult;
+            ViewResult result = controller.RegisterStudent(new RegisterStudentViewModel() { StudentTokenForRegistration = "studentToken" });
             Assert.IsNotNull(result);
-            ResponseMessage message =
-                Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseMessage>(result.Data as string);
+            ResponseMessage message = ((RegisterStudentViewModel)result.Model).ResponseMessage;
             Assert.IsNotNull(message);
             Assert.IsTrue(message.HasErrors);
             mockApplicationUserRepository.Verify(x => x.GetUserByToken(It.IsAny<string>()), Times.Once);
