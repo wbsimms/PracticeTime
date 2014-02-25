@@ -23,18 +23,18 @@
 
 	<Target Name="TestAll">
 		<Message Text="========= Testing All ========" />
-		<Exec Command='mstest.exe /nologo  $(TestContainers)' />
+		<Exec Command='mstest.exe /nologo  $(TestContainers) /detail:description' />
 	</Target>
 
 	<Target Name="TestAllCI">
 		<Message Text="========= Testing All ========" />
-		<Exec Command='mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx' />
+		<Exec Command='mstest.exe /nologo  $(TestContainers) /detail:description /resultsfile:TestResults.trx' />
 	</Target>
 
 	<Target Name="Coverage">
 		<Message Text="========= Testing All ========" />
 		<Exec Command='del TestResults.trx' />
-		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //ea System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /nologo  $(TestContainers) /resultsfile:TestResults.trx //at PracticeTime.CoverageTrend' />
+		<Exec Command='"C:\Program Files (x86)\ncover\ncover.console.exe" //onlywithsource //ea System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute //eas .*tests*;.*Tests* //ef ".*.Designer.cs;.*Web References.*;.*.Context.cs;.*.xaml;.*.g.cs" //x coverage.xml mstest.exe /detail:description /nologo  $(TestContainers) /resultsfile:TestResults.trx //at PracticeTime.CoverageTrend' />
 	</Target>
 
 	<Target Name="CoverageReport">

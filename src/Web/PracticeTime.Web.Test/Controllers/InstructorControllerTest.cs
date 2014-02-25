@@ -15,6 +15,7 @@ using PracticeTime.Web.Models;
 namespace PracticeTime.Web.Test.Controllers
 {
     [TestClass]
+
     public class InstructorControllerTest
     {
         private Mock<IUserHelper> mockUserHelper = new Mock<IUserHelper>();
@@ -67,6 +68,7 @@ namespace PracticeTime.Web.Test.Controllers
         }
 
         [TestMethod]
+        [Description("Constructor test ======================")]
         public void ConstructorTest()
         {
             InstructorController controller = new InstructorController(
@@ -78,6 +80,7 @@ namespace PracticeTime.Web.Test.Controllers
         }
 
         [TestMethod]
+        [Description("Ensure the Index controller has the instructor's students")]
         public void IndexTest()
         {
             InstructorController controller = new InstructorController(
