@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PracticeTime.Web.Controllers;
 using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Models
@@ -15,6 +17,7 @@ namespace PracticeTime.Web.Models
 
         public RegisterStudentViewModel()
         {
+            ResponseMessage = new ResponseMessage();
         }
 
         public void Init(List<ApplicationUser> students)
@@ -26,6 +29,7 @@ namespace PracticeTime.Web.Models
         }
 
         [DisplayName("Student Token")]
+        [Required]
         public string StudentTokenForRegistration { get; set; }
 
         [DisplayName("Registered Student")]
@@ -44,5 +48,7 @@ namespace PracticeTime.Web.Models
                 this.registeredStudents = value;
             }
         }
+
+        public ResponseMessage ResponseMessage { get; set; }
     }
 }

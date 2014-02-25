@@ -78,6 +78,7 @@
     <Compile Include="Repositories\InstructorStudentRepositoryTest.cs" />
     <Compile Include="Repositories\InstrumentRepositoryTest.cs" />
     <Compile Include="Repositories\SessionRepositoryTest.cs" />
+    <Compile Include="UserHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PracticeTime.Web.DataAccess\PracticeTime.Web.DataAccess.csproj">

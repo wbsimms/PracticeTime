@@ -9,6 +9,7 @@ using System.Web.WebSockets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PracticeTime.Web.Controllers;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
 using PracticeTime.Web.Helpers;
@@ -29,10 +30,6 @@ namespace PracticeTime.Web.Test.Controllers
         [TestInitialize]
         public void Setup()
         {
-            mockUserHelper.Setup(x => x.GetUserId(It.IsAny<string>())).Returns(() =>
-            {
-                return "userid";
-            });
             stub.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
             {
                 return new List<Session>() {new Session()

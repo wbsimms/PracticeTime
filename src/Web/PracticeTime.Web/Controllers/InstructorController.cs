@@ -36,7 +36,7 @@ namespace PracticeTime.Web.Controllers
 
         public ActionResult Index()
         {
-            string userId = userHelper.GetUserId(User.Identity.Name);
+            string userId = User.Identity.GetUserId();
 
             InstructorViewModel model = new InstructorViewModel();
             model.Students = instructorStudentRepository.GetAllForInstructor(userId).Select(x => x.Student).ToList();
@@ -60,7 +60,7 @@ namespace PracticeTime.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult RegisterStudent(RegisterStudentViewModel model)
+        public ViewResult RegisterStudent(RegisterStudentViewModel model)
         {
             ResponseMessage message = new ResponseMessage() {Message = "Student Registered"};
             string id = User.Identity.GetUserId();
@@ -74,9 +74,14 @@ namespace PracticeTime.Web.Controllers
             {
                 InstructorStudent retval =
                     instructorStudentRepository.Add(new InstructorStudent() {InstructorId = id, StudentId = student.Id});
+                if (retval == null)
+                {
+                    message.Message = "Already registered";
+                }
             }
 
-            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(message));
+            model.ResponseMessage = message;
+            return View("RegisterStudents",model);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace PracticeTime.Web.Models
             get
             {
                 List<SelectListItem> List = new List<SelectListItem>();
-                List.AddRange(Students.Select(x => new SelectListItem(){Text = x.UserName,Value = x.Id}));
+                List.AddRange(Students.Select(x => new SelectListItem(){Text = x.LastName+ ", "+x.FirstName,Value = x.Id}));
                 return List;
             }
         }

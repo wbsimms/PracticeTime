@@ -41,8 +41,9 @@ namespace PracticeTime.Web.Controllers
         // GET: /Sessions/
         public ActionResult Index()
         {
-            string userId = userHelper.GetUserId(User.Identity.Name);
-            SessionsViewModel vm = new SessionsViewModel();
+            string userId = User.Identity.GetUserId();
+            string studentToken = userHelper.GetStudentToken(User.Identity.Name);
+            SessionsViewModel vm = new SessionsViewModel(){StudentToken = studentToken};
             vm.AllSessions = sessionRepository.GetAllForUser(userId);
             return View(vm);
         }
@@ -50,7 +51,7 @@ namespace PracticeTime.Web.Controllers
         public ActionResult Add(SessionEntryViewModel sessionEntry)
         {
             List<C_Instrument> instruments = instrumentRepository.GetAll();
-            string userId = userHelper.GetUserId(User.Identity.Name);
+            string userId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 Session session = new Session()
@@ -83,7 +84,7 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUserGraph()
         {
-            string userId = userHelper.GetUserId(User.Identity.Name);
+            string userId = User.Identity.GetUserId();
             List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
@@ -125,7 +126,7 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUserGraphTitle()
         {
-            string userId = userHelper.GetUserId(User.Identity.Name);
+            string userId = User.Identity.GetUserId();
             List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {
@@ -165,7 +166,7 @@ namespace PracticeTime.Web.Controllers
         [HttpPost]
         public ActionResult GetSessionsForUserGraphInstruments()
         {
-            string userId = userHelper.GetUserId(User.Identity.Name);
+            string userId = User.Identity.GetUserId();
             List<Session> sessionList = sessionRepository.GetAllForUser(userId);
             GGraph graph = new GGraph()
             {

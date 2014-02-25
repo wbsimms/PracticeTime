@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PracticeTime.Web.DataAccess;
-using PracticeTime.Web.Helpers;
 
-namespace PracticeTime.Web.Test.Helpers
+namespace PracticeTime.Web.DataAccess.Test
 {
     [TestClass]
     public class UserHelperTest
@@ -20,12 +14,11 @@ namespace PracticeTime.Web.Test.Helpers
         }
 
         [TestMethod]
-        public void GetUserIdTest()
+        public void GetStudentTokenTest()
         {
             UserHelper helper = new UserHelper();
-            string userId = helper.GetUserId("student");
-            Assert.IsNotNull(userId);
-            Assert.IsTrue(!string.IsNullOrEmpty(userId));
+            string token = helper.GetStudentToken("student");
+            Assert.IsTrue(!string.IsNullOrEmpty(token));
         }
 
         [TestMethod]

@@ -85,6 +85,7 @@
     <Compile Include="Repositories\BadgeRepository.cs" />
     <Compile Include="Repositories\BadgeAwardRepository.cs" />
     <Compile Include="Repositories\SessionRepository.cs" />
+    <Compile Include="UserHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

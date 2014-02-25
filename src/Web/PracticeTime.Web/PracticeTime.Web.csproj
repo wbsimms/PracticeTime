@@ -199,7 +199,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\GGraph.cs" />
-    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\SessionEntryViewModel.cs" />
     <Compile Include="Models\SessionsViewModel.cs" />

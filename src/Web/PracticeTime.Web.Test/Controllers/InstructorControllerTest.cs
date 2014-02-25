@@ -7,10 +7,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PracticeTime.Web.Controllers;
+using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
-using PracticeTime.Web.Helpers;
-using PracticeTime.Web.Lib;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Test.Controllers
@@ -36,10 +35,6 @@ namespace PracticeTime.Web.Test.Controllers
                 };
             }).Verifiable();
 
-            mockUserHelper.Setup(x => x.GetUserId(It.IsAny<string>())).Returns(() =>
-            {
-                return "userid";
-            }).Verifiable();
             mockSessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
             {
                 return new List<Session>()

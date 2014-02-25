@@ -27,7 +27,7 @@ $(document).ready(function () {
         var sessionData = $("#sessionData");
         if (jdata.length == 0) {
             sessionData.empty();
-            sessionData.append('<tr><td>No Data</td><td/><td/><td/></tr>')
+            sessionData.append('<tr><td>No Data</td><td/><td/><td/></tr>');
         } else {
             for (var row in jdata) {
                 var date = new Date(Date.parse(jdata[0]['SessionDateTimeUtc']));

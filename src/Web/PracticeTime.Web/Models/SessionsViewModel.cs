@@ -9,6 +9,8 @@ namespace PracticeTime.Web.Models
 {
     public class SessionsViewModel
     {
+        public string StudentToken { get; set; }
+
         public List<Session> AllSessions { get; set; }
 
         public SessionsViewModel()

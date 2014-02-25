@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using PracticeTime.Web.DataAccess;
 using PracticeTime.Web.DataAccess.Models;
 
-namespace PracticeTime.Web.Helpers
+namespace PracticeTime.Web.DataAccess
 {
     public interface IUserHelper
     {
-        string GetUserId(string name);
+//        string GetUserId(string name);
+        string GetStudentToken(string name);
     }
 
     public class UserHelper : IUserHelper
@@ -20,10 +17,11 @@ namespace PracticeTime.Web.Helpers
         static Random random = new Random();
         private static string _passwordArray = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-        public string GetUserId(string name)
+        public string GetStudentToken(string name)
         {
-            return new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
-                FindByNameAsync(name).Result.Id;
+            ApplicationUser user = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext())).
+                FindByName(name);
+            return user.StudentToken;
         }
 
         public static PracticeTimeRoles GetRoleFromId(string id)

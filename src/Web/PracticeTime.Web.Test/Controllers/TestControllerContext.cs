@@ -26,7 +26,17 @@ namespace PracticeTime.Web.Test.Controllers
             set { this.userName = value; }
         }
 
-        public override IPrincipal User { get { return new TestPrincipal(UserName); } set { base.User = value; } }
+        public override IPrincipal User
+        {
+            get
+            {
+                return new TestPrincipal(UserName);
+            }
+            set
+            {
+                base.User = value;
+            }
+        }
     }
 
     public class TestPrincipal : IPrincipal

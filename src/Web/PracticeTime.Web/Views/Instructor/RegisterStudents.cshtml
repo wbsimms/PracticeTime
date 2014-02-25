@@ -4,28 +4,42 @@
     ViewBag.Title = "Manage Students";
 }
 
-<h2>Manage Students</h2>
+<h2>Register Student</h2>
 
 <div class="row">
     <div class="col-lg-6">
-    @using (Html.BeginForm("RegisterStudent", "Instructor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-group">
-            @Html.LabelFor(s => s.StudentTokenForRegistration, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.StudentTokenForRegistration, new Dictionary<string, object>()
-                {
-                    {"class","form-control"}
-                })
+        @using (Html.BeginForm("RegisterStudent", "Instructor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(s => s.StudentTokenForRegistration, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.StudentTokenForRegistration, new Dictionary<string, object>()
+                    {
+                        {"class","form-control"}
+                    })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" class="btn btn-default" value="Submit" id="submit" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" class="btn btn-default" value="Submit" id="submit" />
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
+    <div class="col-lg-4">
+        @if (Model.ResponseMessage.HasErrors)
+        {
+            foreach (string error in Model.ResponseMessage.Errors)
+            {
+                <div class="alert alert-dismissable alert-danger">@error</div>
+            }
+        }
+        @if (Model.ResponseMessage.HasMessage)
+        {
+            <div class="alert alert-dismissable alert-success">@Model.ResponseMessage.Message</div>
+        }
+
     </div>
 </div>
 <div class="row">

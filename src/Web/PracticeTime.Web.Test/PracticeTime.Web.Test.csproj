@@ -117,7 +117,6 @@
     <Compile Include="Controllers\SessionsControllerTest.cs" />
     <Compile Include="Controllers\TestControllerContext.cs" />
     <Compile Include="Controllers\ResponseMessageTest.cs" />
-    <Compile Include="Helpers\UserHelperTest.cs" />
     <Compile Include="Models\AccountViewModelTest.cs" />
     <Compile Include="Helpers\GGraphTest.cs" />
     <Compile Include="Models\InstructorViewModelTest.cs" />
