@@ -15,8 +15,9 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void ConstructorTest()
         {
-            SessionsViewModel model = new SessionsViewModel();
+            SessionsViewModel model = new SessionsViewModel(){StudentToken = "blah"};
             Assert.IsNotNull(model);
+            Assert.AreEqual("blah",model.StudentToken);
         }
 
         [TestMethod]

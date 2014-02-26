@@ -16,8 +16,10 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void ConstructorTest()
         {
-            InstructorViewModel model = new InstructorViewModel();
+            InstructorViewModel model = new InstructorViewModel() {SelectedStudent = "blah"};
             Assert.IsNotNull(model);
+            Assert.AreEqual("blah",model.SelectedStudent);
+
         }
 
         [TestMethod]

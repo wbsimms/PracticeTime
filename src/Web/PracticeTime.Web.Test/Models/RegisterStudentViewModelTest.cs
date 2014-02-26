@@ -21,8 +21,9 @@ namespace PracticeTime.Web.Test.Models
         [TestMethod]
         public void ConstructorTest()
         {
-            RegisterStudentViewModel model = new RegisterStudentViewModel();
+            RegisterStudentViewModel model = new RegisterStudentViewModel(){SelectedRegisteredStudent = "blah"};
             Assert.IsNotNull(model);
+            Assert.AreEqual("blah",model.SelectedRegisteredStudent);
         }
 
         [TestMethod]
