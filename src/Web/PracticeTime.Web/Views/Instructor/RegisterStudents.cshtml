@@ -4,55 +4,76 @@
     ViewBag.Title = "Manage Students";
 }
 
-<h2>Register Student</h2>
+<h2>Manage Student</h2>
 
 <div class="row">
-    <div class="col-lg-6">
-        @using (Html.BeginForm("RegisterStudent", "Instructor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                @Html.LabelFor(s => s.StudentTokenForRegistration, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.StudentTokenForRegistration, new Dictionary<string, object>()
-                    {
-                        {"class","form-control"}
-                    })
+    @using (Html.BeginForm("RegisterStudents", "Instructor", FormMethod.Post, new { @class = "", role = "form" }))
+    {
+        <div class="col-md-6 well">
+            <div class="control-label"><h4>Add a Student</h4></div>
+            <hr />
+            <div class="col-md-12">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(s => s.StudentTokenForRegistration, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.StudentTokenForRegistration, new Dictionary<string, object>()
+                        {
+                            {"class","form-control"}
+                        })
+                    </div>
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-default" value="Add" id="submit" />
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-10">
-                    <input type="submit" class="btn btn-default" value="Submit" id="submit" />
-                </div>
-            </div>
-        }
-    </div>
-    <div class="col-lg-4">
+        </div>
+    }
+
+    <div class="col-md-4">
         @if (Model.ResponseMessage.HasErrors)
         {
             foreach (string error in Model.ResponseMessage.Errors)
             {
-                <div class="alert alert-dismissable alert-danger">@error</div>
+                <div class="alert alert-dismissable alert-danger">
+                    <button class="close" type="button" data-dismiss="alert">×</button>
+                    @error
+                </div>
             }
         }
         @if (Model.ResponseMessage.HasMessage)
         {
-            <div class="alert alert-dismissable alert-success">@Model.ResponseMessage.Message</div>
+            <div class="alert alert-dismissable alert-success">
+                <button class="close" type="button" data-dismiss="alert">×</button>
+                @Model.ResponseMessage.Message
+            </div>
         }
 
     </div>
 </div>
+<br />
 <div class="row">
-    <div class="col-lg-5">
-        @*@using (Html.BeginForm("Associate", "Instructor", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-
-        }*@
+    <div class="col-md-6 well">
+        <div class="control-label"><h4>Delete a Student</h4></div>
+        <hr />
+        @Html.LabelFor(s => s.SelectedRegisteredStudent, new { @class = "col-md-3 control-label" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(m => m.SelectedRegisteredStudent,Model.RegisteredStudents, new Dictionary<string, object>()
+            {
+                {"class","form-control"}
+            })
+        </div>
+        <div class="col-md-1">
+            <input type="submit" class="btn btn-default" value="Delete" id="delete-registration" />
+        </div>
     </div>
-
+    <div class="col-md-4">
+        <div id="delete-message" class="alert alert-dismissable alert-info hidden">
+            <button class="close" type="button" data-dismiss="alert">×</button>
+            <span id="delete-text"></span>
+        </div>
+    </div>
 </div>
-
 
 @section scripts  {
     @Scripts.Render("~/Scripts/PracticeTime-Instructor.js")

@@ -1,11 +1,27 @@
 ﻿
 
-$(document).ready(function () {
+$(document).ready(function() {
     getSessionsForStudent();
 
 
-    $("#SelectedStudent").change(function () {
+    $("#SelectedStudent").change(function() {
         getSessionsForStudent();
+    });
+
+    $("#delete-registration").click(function() {
+        var studentToDelete = $("#SelectedRegisteredStudent").val();
+        $.ajax({
+            url: "/Instructor/RemoveRegistration",
+            dataType: 'json',
+            async: true,
+            type: "POST",
+            data: { studentId: studentToDelete }
+        }).success(function (data) {
+            $("#delete-text").text(data.DeleteResponse);
+            $("#delete-message").removeClass("hidden");
+            $("#SelectedRegisteredStudent option:selected").remove();
+        });
+
     });
 
     function getSessionsForStudent() {

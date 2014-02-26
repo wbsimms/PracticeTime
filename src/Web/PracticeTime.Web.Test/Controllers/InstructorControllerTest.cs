@@ -122,7 +122,7 @@ namespace PracticeTime.Web.Test.Controllers
                 mockInstructorStudentRepository.Object,
                 mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
-            ViewResult result = controller.RegisterStudents(new RegisterStudentViewModel()) as ViewResult;
+            ViewResult result = controller.RegisterStudents() as ViewResult;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Model is RegisterStudentViewModel);
             RegisterStudentViewModel model = result.Model as RegisterStudentViewModel;
@@ -142,7 +142,7 @@ namespace PracticeTime.Web.Test.Controllers
                 mockInstructorStudentRepository.Object,
                 mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
-            ViewResult result = controller.RegisterStudent(new RegisterStudentViewModel(){StudentTokenForRegistration = "studentToken"});
+            ViewResult result = controller.RegisterStudents(new RegisterStudentViewModel(){StudentTokenForRegistration = "studentToken"}) as ViewResult;
             Assert.IsNotNull(result);
             ResponseMessage message = ((RegisterStudentViewModel) result.Model).ResponseMessage;
             Assert.IsNotNull(message);
@@ -168,7 +168,7 @@ namespace PracticeTime.Web.Test.Controllers
                 mockInstructorStudentRepository.Object,
                 mockApplicationUserRepository.Object);
             controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
-            ViewResult result = controller.RegisterStudent(new RegisterStudentViewModel() { StudentTokenForRegistration = "studentToken" });
+            ViewResult result = controller.RegisterStudents(new RegisterStudentViewModel() { StudentTokenForRegistration = "studentToken" }) as ViewResult;
             Assert.IsNotNull(result);
             ResponseMessage message = ((RegisterStudentViewModel)result.Model).ResponseMessage;
             Assert.IsNotNull(message);
@@ -176,5 +176,21 @@ namespace PracticeTime.Web.Test.Controllers
             mockApplicationUserRepository.Verify(x => x.GetUserByToken(It.IsAny<string>()), Times.Once);
         }
 
+        [TestMethod]
+        public void RemoveRegistrationTest()
+        {
+            mockInstructorStudentRepository.Setup(x => x.Delete(It.IsAny<InstructorStudent>())).Callback(() =>
+            {}).Verifiable();
+
+            InstructorController controller = new InstructorController(
+                mockSessionRepository.Object,
+                mockUserHelper.Object,
+                mockInstructorStudentRepository.Object,
+                mockApplicationUserRepository.Object);
+            controller.ControllerContext = new TestControllerContext() { UserName = "teacher" };
+            JsonResult result = controller.RemoveRegistration("blah");
+            Assert.IsTrue(result.Data.ToString().Contains("Deleted"));
+            mockInstructorStudentRepository.Verify(x => x.Delete(It.IsAny<InstructorStudent>()),Times.Once);
+        }
     }
 }

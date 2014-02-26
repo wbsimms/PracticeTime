@@ -51,16 +51,24 @@ namespace PracticeTime.Web.Controllers
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(session));
         }
 
-        public ActionResult RegisterStudents(RegisterStudentViewModel model)
+        public ActionResult RegisterStudents()
         {
+            RegisterStudentViewModel model = new RegisterStudentViewModel();
             List<InstructorStudent> instructorStudents = instructorStudentRepository.GetAllForInstructor(User.Identity.GetUserId());
-            model.Init(new List<ApplicationUser>(instructorStudents.Select(x => x.Student)));
+            model.RegisteredStudents = instructorStudents.Select(
+                    x => new SelectListItem() { Text = x.Student.LastName + ", " + x.Student.FirstName, Value = x.Student.Id }).ToList();
             return View(model);
+        }
+
+        public JsonResult RemoveRegistration(string studentId)
+        {
+            instructorStudentRepository.Delete(new InstructorStudent(){InstructorId = User.Identity.GetUserId(),StudentId = studentId});
+            return Json(new {DeleteResponse = "Deleted"});
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ViewResult RegisterStudent(RegisterStudentViewModel model)
+        public ActionResult RegisterStudents(RegisterStudentViewModel model)
         {
             ResponseMessage message = new ResponseMessage() {Message = "Student Registered"};
             string id = User.Identity.GetUserId();
@@ -81,7 +89,11 @@ namespace PracticeTime.Web.Controllers
             }
 
             model.ResponseMessage = message;
-            return View("RegisterStudents",model);
+
+            List<InstructorStudent> instructorStudents = instructorStudentRepository.GetAllForInstructor(User.Identity.GetUserId());
+            model.RegisteredStudents = instructorStudents.Select(
+                    x => new SelectListItem() { Text = x.Student.LastName + ", " + x.Student.FirstName, Value = x.Student.Id }).ToList();
+            return View(model);
         }
     }
 }

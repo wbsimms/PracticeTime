@@ -12,20 +12,11 @@ namespace PracticeTime.Web.Models
 {
     public class RegisterStudentViewModel
     {
-        private bool isInited = false;
         private List<SelectListItem> registeredStudents;
 
         public RegisterStudentViewModel()
         {
             ResponseMessage = new ResponseMessage();
-        }
-
-        public void Init(List<ApplicationUser> students)
-        {
-            this.registeredStudents =
-                students.Select(
-                    x => new SelectListItem() {Text = x.LastName + ", " + x.FirstName, Value = x.Id}).ToList();
-            this.isInited = true;
         }
 
         [DisplayName("Student Token")]
@@ -38,13 +29,10 @@ namespace PracticeTime.Web.Models
         public List<SelectListItem> RegisteredStudents {
             get
             {
-                if (isInited)
-                    return this.registeredStudents;
-                throw new ApplicationException("Class not initalized. Developer must call Init()");
+                return this.registeredStudents;
             }
             set
             {
-                isInited = true;
                 this.registeredStudents = value;
             }
         }
