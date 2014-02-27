@@ -93,8 +93,6 @@ namespace PracticeTime.Web.Test.Controllers
             mockInstructorStudentRepository.Verify(x => x.GetAllForInstructor(It.IsAny<string>()), Times.Once);
         }
 
-
-
         [TestMethod]
         public void GetSessionsForStudentTest()
         {
