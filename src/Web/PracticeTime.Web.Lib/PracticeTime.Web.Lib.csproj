@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BadgeRulesEngine.cs" />
     <Compile Include="BadgeRules\BadgeRuleBase.cs" />
+    <Compile Include="BadgeRules\RepertoireRule.cs" />
     <Compile Include="BadgeRules\SongMasterRule.cs" />
     <Compile Include="BadgeRules\FirstSessionRule.cs" />
     <Compile Include="BadgeRules\IBadgeRule.cs" />

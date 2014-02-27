@@ -34,7 +34,8 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 new Models.C_Badge { Name = "Song Master: Level 7", Description = "You're practiced seven songs over 5 hours.", ImageUrl = "" },
                 new Models.C_Badge { Name = "Song Master: Level 8", Description = "You're practiced eight songs over 5 hours.", ImageUrl = "" },
                 new Models.C_Badge { Name = "Song Master: Level 9", Description = "You're practiced nine songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Stage Ready", Description = "You've mastered 10 songs.", ImageUrl = "" }
+                new Models.C_Badge { Name = "Stage Ready", Description = "You've mastered 10 songs.", ImageUrl = "" },
+                new Models.C_Badge { Name = "Repetoire", Description = "You have a good repertioire.", ImageUrl = "" }
                 );
 
             context.Instruments.AddOrUpdate(b => b.Name,

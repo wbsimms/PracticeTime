@@ -23,12 +23,14 @@ namespace PracticeTime.Web.Lib
             IFirstSessionRule firstSessionRule,
             IOneManBandRule oneManBandRule,
             IBadgeAwardRepository badgeAwardRepository,
-            ISongMasterRule songMasterRule)
+            ISongMasterRule songMasterRule,
+            IRepertoireRule repertoireRule)
         {
             this.badgeAwardRepository = badgeAwardRepository;
             rulesToCheck.Add(firstSessionRule);
             rulesToCheck.Add(oneManBandRule);
             rulesToCheck.Add(songMasterRule);
+            rulesToCheck.Add(repertoireRule);
         }
 
         public ResponseModel RunRules(Session session)
