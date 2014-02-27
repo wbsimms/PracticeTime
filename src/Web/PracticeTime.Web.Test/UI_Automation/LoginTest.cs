@@ -15,13 +15,14 @@ namespace PracticeTime.Web.Test.UI_Automation
                 if (browser.ContainsText("Hello"))
                 {
                     // logout
-                    Link logoff = browser.Link(Find.ByLabelText("Log off"));
+                    Link logoff = browser.Link(Find.ByText("Log off"));
                     if (logoff.Exists)
                     {
                         logoff.Click();
                         browser.WaitUntilContainsText("Log in");
                     }
                 }
+                browser.WaitUntilContainsText("Log in");
 
                 var links = browser.Links;
                 Assert.IsTrue(links.Count > 0);
@@ -37,7 +38,8 @@ namespace PracticeTime.Web.Test.UI_Automation
                 Assert.IsTrue(loginButton.Exists);
                 loginButton.Click();
                 browser.WaitUntilContainsText("Hello student!");
-                Assert.IsTrue(true);
+
+                Assert.IsTrue(browser.ContainsText("Sessions"));
             }
         }
     }
