@@ -29,6 +29,7 @@ namespace PracticeTime.Web
             PracticeTimeDataAccessResolver.Instance.Register(container);
             container.RegisterType<IUserHelper, UserHelper>();
             container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<InstructorController>();
         }
 
         public static PracticeTimeWebResolver Instance {
