@@ -15,7 +15,6 @@ using PracticeTime.Web.Models;
 namespace PracticeTime.Web.Test.Controllers
 {
     [TestClass]
-
     public class InstructorControllerTest
     {
         private Mock<IUserHelper> mockUserHelper = new Mock<IUserHelper>();
