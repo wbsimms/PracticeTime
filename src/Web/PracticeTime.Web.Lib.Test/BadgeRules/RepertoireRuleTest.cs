@@ -31,17 +31,17 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(IBadgeAwardRepository), badgeAwardRepository.Object);
         }
 
-        [TestMethod, Ignore]
+        [TestMethod]
         public void ConstrutorTest()
         {
             RepertoireRule rule = new RepertoireRule(sessionRepository.Object,badgeAwardRepository.Object);
             Assert.IsNotNull(rule);
 
-            //IRepertoireRule iRule = PracticeTimeLibResolver.Instance.Container.Resolve<IRepertoireRule>();
-            //Assert.IsNotNull(iRule);
+            IRepertoireRule iRule = PracticeTimeLibResolver.Instance.Container.Resolve<IRepertoireRule>();
+            Assert.IsNotNull(iRule);
         }
 
-        [TestMethod, Ignore]
+        [TestMethod]
         public void RuleDoesntApplyTest()
         {
             sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() => { return new List<Session>()
@@ -65,7 +65,7 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             Assert.IsFalse(model.HasNewBadges);
         }
 
-        [TestMethod, Ignore]
+        [TestMethod]
         public void RuleAppliesTest()
         {
             sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
@@ -91,7 +91,8 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             rule.Rule(new Session(), model);
             Assert.IsTrue(model.HasNewBadges);
             Assert.IsTrue(model.NewBadges.Count == 1);
-            Assert.AreEqual(RepertoireRule.KeyId,model.Badges.First().C_BadgeId);
+            Assert.AreEqual(RepertoireRule.KeyId, model.NewBadges.First().C_BadgeId);
+            Assert.AreEqual(0, model.Badges.Count);
         }
  
     }

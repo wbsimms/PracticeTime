@@ -82,7 +82,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 throw new ApplicationException("Unable to add role");
 
             IdentityResult result =
-                userManager.CreateAsync(new ApplicationUser() {UserName = "admin"}, "Comp533!").Result;
+                userManager.CreateAsync(new ApplicationUser() {UserName = "admin"}, "admin1234").Result;
 
             if (!result.Succeeded)
                 throw new Exception("Unable to Add user"+string.Join("\r\n",result.Errors));
