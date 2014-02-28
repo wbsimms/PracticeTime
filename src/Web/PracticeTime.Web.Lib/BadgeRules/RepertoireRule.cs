@@ -24,10 +24,8 @@ namespace PracticeTime.Web.Lib.BadgeRules
 
         public void Rule(Session session, ResponseModel response)
         {
-            List<Session> sessions = sessionRepository.GetAllForUser(session.UserId);
-
             if (response.Badges.Any(x => x.C_BadgeId == KeyId)) return;
-
+            List<Session> sessions = sessionRepository.GetAllForUser(session.UserId);
             if (sessions.Select(x => x.Title).Distinct().Count() >= 10)
             {
                 BadgeAward award = new BadgeAward()

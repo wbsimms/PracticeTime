@@ -94,6 +94,46 @@ namespace PracticeTime.Web.Lib.Test.BadgeRules
             Assert.AreEqual(RepertoireRule.KeyId, model.NewBadges.First().C_BadgeId);
             Assert.AreEqual(0, model.Badges.Count);
         }
+
+        [TestMethod]
+        public void RuleHasBadgeTest()
+        {
+            sessionRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
+            {
+                return new List<Session>()
+                {
+                    new Session(){Title = "1"},
+                    new Session(){Title = "2"},
+                    new Session(){Title = "3"},
+                    new Session(){Title = "4"},
+                    new Session(){Title = "5"},
+                    new Session(){Title = "6"},
+                    new Session(){Title = "7"},
+                    new Session(){Title = "8"},
+                    new Session(){Title = "9"},
+                    new Session(){Title = "10"},
+                };
+            });
+
+            badgeAwardRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
+            {
+                return new List<BadgeAward>()
+                {
+                    new BadgeAward() {C_BadgeId = RepertoireRule.KeyId }
+                };
+            }).Verifiable();
+
+            PracticeTimeLibResolver.Instance.Container.RegisterInstance(typeof(ISessionRepository),
+                sessionRepository.Object);
+            IRepertoireRule rule = PracticeTimeLibResolver.Instance.Container.Resolve<IRepertoireRule>();
+            ResponseModel model = new ResponseModel(){Badges = badgeAwardRepository.Object.GetAllForUser("")};
+            rule.Rule(new Session(), model);
+            Assert.IsFalse(model.HasNewBadges);
+            Assert.IsTrue(model.NewBadges.Count == 0);
+            Assert.AreEqual(1, model.Badges.Count);
+            sessionRepository.Verify(x => x.GetAllForUser(It.IsAny<string>()),Times.Never);
+        }
+
  
     }
 }
