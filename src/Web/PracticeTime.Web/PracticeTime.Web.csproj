@@ -313,6 +313,7 @@
     <Content Include="Scripts\PracticeTime-Admin-Associate.js" />
     <Content Include="Scripts\PracticeTime-Add.js" />
     <Content Include="Scripts\PracticeTime-Index.js" />
+    <Content Include="Scripts\PracticeTime-Register.js" />
     <Content Include="Scripts\PracticeTime.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

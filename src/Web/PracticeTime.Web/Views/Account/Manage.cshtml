@@ -1,5 +1,6 @@
 ﻿@using PracticeTime.Web.Models;
 @using Microsoft.AspNet.Identity;
+@model PracticeTime.Web.Models.ManageUserViewModel
 @{
     ViewBag.Title = "Manage Account";
 }
@@ -17,7 +18,7 @@
         {
             @Html.Partial("_SetPasswordPartial")
         }
-
+        
         <section id="externalLogins">
             @Html.Action("RemoveAccountList")
             @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })

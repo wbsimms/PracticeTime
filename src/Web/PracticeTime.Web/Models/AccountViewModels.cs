@@ -38,6 +38,9 @@ namespace PracticeTime.Web.Models
         [Required]
         [DisplayName("Email Address")]
         public string EmailAddress { get; set; }
+
+        [DisplayName("Public Profile?")]
+        public bool StudentPublicProfile { get; set; }
     }
 
     public class ManageUserViewModel
@@ -60,6 +63,9 @@ namespace PracticeTime.Web.Models
 
         [ReadOnly(true)]
         public string StudentToken { get; set; }
+
+        [DisplayName("Public Profile?")]
+        public bool StudentPublicProfile { get; set; }
     }
 
     public class LoginViewModel
@@ -101,8 +107,8 @@ namespace PracticeTime.Web.Models
             get
             {
                 List<NameValue> nv = new List<NameValue>();
-                nv.Add(new NameValue(){Name = PracticeTimeRoles.Student.ToString(),Value = "Student"});
-                nv.Add(new NameValue() { Name = PracticeTimeRoles.Instructor.ToString(), Value = "Student" });
+                nv.Add(new NameValue() { Name = PracticeTimeRoles.Student.ToString(), Value = PracticeTimeRoles.Student.ToString() });
+                nv.Add(new NameValue() { Name = PracticeTimeRoles.Instructor.ToString(), Value = PracticeTimeRoles.Instructor.ToString() });
                 return new SelectList(nv,"Value","Name");
             }
         }
@@ -119,6 +125,9 @@ namespace PracticeTime.Web.Models
         [Required]
         [DisplayName("Email Address")]
         public string EmailAddress { get; set; }
+
+        [DisplayName("Public Profile?")]
+        public bool StudentPublicProfile { get; set; }
     }
 
     public class NameValue

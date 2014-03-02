@@ -51,13 +51,19 @@
         <div class="col-md-10">
             @foreach (SelectListItem option in Model.AccountTypes)
             {
-                object options = new {};
-                if (option.Value == "1")
+                object options = new { @class = "selectedAccountType" };
+                if (option.Value == "Student")
                 {
-                    options = new {@checked = "checked"};
+                    options = new { @checked = "checked", @class = "selectedAccountType" };
                 }
                 @Html.RadioButtonFor(m=>m.SelectedAccountType,option.Value, options) @option.Text<br />
             }
+        </div>
+    </div>
+    <div id="student-visibility-div" class="form-group">
+        @Html.LabelFor(m => m.StudentPublicProfile, new { @class = "col-md-2 control-label text-center" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(m => m.StudentPublicProfile, new { @class = "checkbox" })
         </div>
     </div>
 
@@ -70,4 +76,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/PracticeTime-Register.js")
 }

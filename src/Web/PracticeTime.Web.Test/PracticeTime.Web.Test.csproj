@@ -130,7 +130,6 @@
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Controllers\AdminControllerTest.cs" />
     <Compile Include="Controllers\InstructorControllerTest.cs" />
-    <Compile Include="Controllers\InstructorController_DI_Test.cs" />
     <Compile Include="Controllers\SessionsControllerTest.cs" />
     <Compile Include="Controllers\TestControllerContext.cs" />
     <Compile Include="Controllers\ResponseMessageTest.cs" />

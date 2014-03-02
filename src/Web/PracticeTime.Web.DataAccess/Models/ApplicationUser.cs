@@ -14,6 +14,7 @@ namespace PracticeTime.Web.DataAccess.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string StudentToken { get; set; }
+        public bool StudentPublicProfile { get; set; }
     }
 
     public class ApplicationRole : IdentityRole

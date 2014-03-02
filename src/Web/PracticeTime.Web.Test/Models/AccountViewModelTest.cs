@@ -20,7 +20,7 @@ namespace PracticeTime.Web.Test.Models
                 SelectedAccountType = "",
                 UserName = "blah",
                 StudentToken = "blah",
-                FirstName = "blah",LastName = "blah",EmailAddress = "blah"
+                FirstName = "blah",LastName = "blah",EmailAddress = "blah", StudentPublicProfile = true
             };
             Assert.IsNotNull(model.UserName);
             Assert.IsNotNull(model.AccountTypes);
@@ -29,12 +29,13 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.FirstName);
             Assert.IsNotNull(model.LastName);
             Assert.IsNotNull(model.EmailAddress);
+            Assert.IsTrue(model.StudentPublicProfile);
         }
 
         [TestMethod]
         public void ManageUserViewModelTest()
         {
-            ManageUserViewModel model = new ManageUserViewModel(){StudentToken = "blah"};
+            ManageUserViewModel model = new ManageUserViewModel(){StudentToken = "blah", StudentPublicProfile = true};
             model.ConfirmPassword = "blah";
             model.NewPassword = "blah1";
             model.OldPassword = "blah1";
@@ -42,6 +43,7 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.NewPassword);
             Assert.IsNotNull(model.OldPassword);
             Assert.IsNotNull(model.StudentToken);
+            Assert.IsTrue(model.StudentPublicProfile);
         }
 
         [TestMethod]
@@ -63,7 +65,8 @@ namespace PracticeTime.Web.Test.Models
                 StudentToken = "blah",
                 FirstName = "blah",
                 LastName = "blah",
-                EmailAddress = "blah"
+                EmailAddress = "blah",
+                StudentPublicProfile = true
 
             };
             Assert.IsNotNull(model.ConfirmPassword);
@@ -75,6 +78,7 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.FirstName);
             Assert.IsNotNull(model.LastName);
             Assert.IsNotNull(model.EmailAddress);
+            Assert.IsTrue(model.StudentPublicProfile);
         }
     }
 }
