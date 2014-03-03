@@ -23,19 +23,19 @@ namespace PracticeTime.Web.DataAccess.Migrations
         protected override void Seed(PracticeTime.Web.DataAccess.PracticeTimeContext context)
         {
             context.Badges.AddOrUpdate(b => b.Name,
-                new Models.C_Badge { Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/FirstSession.png" },
-                new Models.C_Badge { Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 1", Description = "You're practiced a song over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 2", Description = "You're practiced two songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 3", Description = "You're practiced three songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 4", Description = "You're practiced four songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 5", Description = "You're practiced five songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 6", Description = "You're practiced six songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 7", Description = "You're practiced seven songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 8", Description = "You're practiced eight songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Song Master: Level 9", Description = "You're practiced nine songs over 5 hours.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Stage Ready", Description = "You've mastered 10 songs.", ImageUrl = "" },
-                new Models.C_Badge { Name = "Repetoire", Description = "You have a good repertioire.", ImageUrl = "" }
+                new Models.C_Badge { Name = "First Session", Description = "Good job! You entered your first session", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "One Man Band", Description = "You're a one man band!", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 1", Description = "You're practiced a song over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 2", Description = "You're practiced two songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 3", Description = "You're practiced three songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 4", Description = "You're practiced four songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 5", Description = "You're practiced five songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 6", Description = "You're practiced six songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 7", Description = "You're practiced seven songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 8", Description = "You're practiced eight songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Song Master: Level 9", Description = "You're practiced nine songs over 5 hours.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Stage Ready", Description = "You've mastered 10 songs.", ImageUrl = "Images/Badges/Music-Note-54.jpg" },
+                new Models.C_Badge { Name = "Repetoire", Description = "You have a good repertioire.", ImageUrl = "Images/Badges/Music-Note-54.jpg" }
                 );
 
             context.Instruments.AddOrUpdate(b => b.Name,
@@ -95,8 +95,9 @@ namespace PracticeTime.Web.DataAccess.Migrations
             string teacherId = userManager.FindByNameAsync("teacher").Result.Id;
 
 
-            context.InstructorStudents.AddOrUpdate(new InstructorStudent {InstructorId = teacherId,StudentId = studentId},
-                new InstructorStudent { InstructorId = teacherId, StudentId = student2Id }
+            context.InstructorStudents.AddOrUpdate(
+                new InstructorStudent {InstructorId = teacherId,StudentId = studentId},
+                new InstructorStudent {InstructorId = teacherId, StudentId = student2Id }
                 );
         }
     }
