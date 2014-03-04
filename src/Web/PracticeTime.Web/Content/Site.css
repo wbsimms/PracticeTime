@@ -68,3 +68,7 @@ table.table thead .sorting_desc_disabled { background: url('images/sort_desc_dis
     -moz-border-radius: 5px;
     padding: 5px;
 }*/
+
+.top-z-index {
+    z-index: 2000;
+}
