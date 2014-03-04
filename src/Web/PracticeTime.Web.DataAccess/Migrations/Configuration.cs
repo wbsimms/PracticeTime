@@ -1,5 +1,7 @@
 using System.Data.Entity.Migrations.Model;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using PracticeTime.Web.DataAccess.Models;
@@ -99,6 +101,18 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 new InstructorStudent {InstructorId = teacherId,StudentId = studentId},
                 new InstructorStudent {InstructorId = teacherId, StudentId = student2Id }
                 );
+
+            AddLoggingTables(context);
+        }
+
+        private void AddLoggingTables(PracticeTimeContext context)
+        {
+            string databaseSql =
+                new StreamReader(
+                    this.GetType()
+                        .Assembly.GetManifestResourceStream(
+                            "PracticeTime.Web.DataAccess.Migrations.Scripts.CreateLoggingDatabaseObjects.sql")).ReadToEnd();
+            context.Database.ExecuteSqlCommand(databaseSql);
         }
     }
 }
