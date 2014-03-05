@@ -39,6 +39,14 @@
         </tbody>
     </table>
 </div>
+@if (Model.Badges != null && Model.Badges.Count > 0)
+{
+    <div class="row">
+        <div class="">
+            @Html.Partial("_ShowBadges", Model)
+        </div>
+    </div>
+}
 
 @section scripts
 {

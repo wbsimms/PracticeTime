@@ -17,5 +17,7 @@ namespace PracticeTime.Web.Models
         {
             this.AllSessions = new List<Session>();
         }
+
+        public List<BadgeAward> Badges { get; set; } 
     }
 }

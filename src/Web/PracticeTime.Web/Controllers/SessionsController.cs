@@ -25,16 +25,19 @@ namespace PracticeTime.Web.Controllers
         private IBadgeRulesEngine rulesEngine;
         private IInstrumentRepository instrumentRepository;
         private IUserHelper userHelper;
+        private IBadgeAwardRepository badgeAwardRepository;
 
         public SessionsController(ISessionRepository sessions,
             IBadgeRulesEngine badgeRulesEngine,
             IInstrumentRepository instuments,
-            IUserHelper userHelper)
+            IUserHelper userHelper,
+            IBadgeAwardRepository badgeAward)
         {
             this.instrumentRepository = instuments;
             this.sessionRepository = sessions;
             this.rulesEngine = badgeRulesEngine;
             this.userHelper = userHelper;
+            this.badgeAwardRepository = badgeAward;
         }
 
         //
@@ -45,6 +48,7 @@ namespace PracticeTime.Web.Controllers
             string studentToken = userHelper.GetStudentToken(User.Identity.Name);
             SessionsViewModel vm = new SessionsViewModel(){StudentToken = studentToken};
             vm.AllSessions = sessionRepository.GetAllForUser(userId);
+            vm.Badges = badgeAwardRepository.GetAllForUser(userId);
             return View(vm);
         }
 

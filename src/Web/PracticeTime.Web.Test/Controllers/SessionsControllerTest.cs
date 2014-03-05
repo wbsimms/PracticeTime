@@ -25,6 +25,7 @@ namespace PracticeTime.Web.Test.Controllers
         Mock<IInstrumentRepository> stubIInstrumentRepository = new Mock<IInstrumentRepository>();
         Mock<ISessionRepository> stub = new Mock<ISessionRepository>();
         Mock<IBadgeRulesEngine> mockBadgeRulesEngine = new Mock<IBadgeRulesEngine>();
+        Mock<IBadgeAwardRepository> mockBadgeAwardRepository = new Mock<IBadgeAwardRepository>();
 
 
         [TestInitialize]
@@ -40,13 +41,21 @@ namespace PracticeTime.Web.Test.Controllers
                     SessionId = 1,Time = 20,Title= "blah2", SessionDateTimeUtc = DateTime.UtcNow, C_InstrumentId = 1,C_Instrument = new C_Instrument(){Name="Guitar"}
                 }};
             });
+
+            mockBadgeAwardRepository.Setup(x => x.GetAllForUser(It.IsAny<string>())).Returns(() =>
+            {
+                return new List<BadgeAward>();
+            });
         }
 
         [TestMethod]
         public void ConstructorTest()
         {
 
-            SessionsController controller = new SessionsController(stub.Object,mockBadgeRulesEngine.Object,stubIInstrumentRepository.Object,mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             Assert.IsNotNull(controller);
         }
 
@@ -54,7 +63,10 @@ namespace PracticeTime.Web.Test.Controllers
         public void GetSessionsForUserGraphTest()
         {
 
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object,mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             JsonResult retval = (JsonResult)controller.GetSessionsForUserGraph();
             string json = retval.Data as string;
@@ -64,7 +76,10 @@ namespace PracticeTime.Web.Test.Controllers
         [TestMethod]
         public void GetSessionsForUserGraphTitlesTest()
         {
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             JsonResult retval = (JsonResult)controller.GetSessionsForUserGraphTitle();
             string json = retval.Data as string;
@@ -74,7 +89,10 @@ namespace PracticeTime.Web.Test.Controllers
         [TestMethod]
         public void IndexTest()
         {
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             ViewResult retval = (ViewResult)controller.Index();
             Assert.IsNotNull(retval.Model);
@@ -89,7 +107,10 @@ namespace PracticeTime.Web.Test.Controllers
             mockBadgeRulesEngine.Setup(x => x.RunRules(It.IsAny<Session>()))
                 .Returns(() => { return new ResponseModel(); });
 
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             ViewResult result = (ViewResult)controller.Add(new SessionEntryViewModel() { SelectedInstrumentId = 1, Title = "blah", TimeZoneOffset = 300, Time = 25 });
             SessionEntryViewModel model = (SessionEntryViewModel)result.Model;
@@ -113,7 +134,10 @@ namespace PracticeTime.Web.Test.Controllers
                     new BadgeAward(){C_BadgeId = 1}
                 }}; });
 
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             ViewResult result = (ViewResult)controller.Add(new SessionEntryViewModel() { SelectedInstrumentId = 1, Title = "blah", TimeZoneOffset = 300, Time = 25 });
             SessionEntryViewModel model = (SessionEntryViewModel)result.Model;
@@ -124,7 +148,10 @@ namespace PracticeTime.Web.Test.Controllers
         [TestMethod]
         public void IndexViewBagTest()
         {
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             ViewResult view = (ViewResult)controller.Index();
             Assert.IsNotNull(view);
@@ -134,7 +161,10 @@ namespace PracticeTime.Web.Test.Controllers
         [TestMethod]
         public void GetSessionsForUserGraphInstrumentTest()
         {
-            SessionsController controller = new SessionsController(stub.Object, mockBadgeRulesEngine.Object, stubIInstrumentRepository.Object, mockUserHelper.Object);
+            SessionsController controller = new SessionsController(stub.Object,
+                mockBadgeRulesEngine.Object,
+                stubIInstrumentRepository.Object,
+                mockUserHelper.Object, mockBadgeAwardRepository.Object);
             controller.ControllerContext = new TestControllerContext();
             JsonResult retval = (JsonResult)controller.GetSessionsForUserGraphInstruments();
             string json = retval.Data as string;
