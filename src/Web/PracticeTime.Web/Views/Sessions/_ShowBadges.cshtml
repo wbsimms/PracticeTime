@@ -1,19 +1,21 @@
 ﻿@using PracticeTime.Web.DataAccess.Models
-@model PracticeTime.Web.Models.SessionEntryViewModel
+@model PracticeTime.Web.Models.SessionsViewModel
 
 <div class="row">
-    <div class="panel-heading">
-        <h3 class="panel-title">Earned Badges</h3>
-    </div>
-    <div class="panel-body">
-        @foreach (BadgeAward award in Model.BadgeAwards)
-        {
-            <div class="col-md-3">
-                <h4>@award.C_Badge.Name</h4>
-            </div>
-            <div class="col-md-3">
-                <img src="~/Content/@award.C_Badge.ImageUrl" />
-            </div>
-        }
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Earned Badges</h3>
+        </div>
+        <div class="panel-body">
+            @foreach (BadgeAward award in Model.Badges)
+            {
+                <div class="col-md-2 col-sm-3">
+                    <table class="table table-responsive table-striped">
+                        <tr><td><h4>@award.C_Badge.Name</h4></td></tr>
+                        <tr><td class="text-center"><img src="~/Content/@award.C_Badge.ImageUrl" /></td></tr>
+                    </table>
+                </div>
+            }
+        </div>
     </div>
 </div>
