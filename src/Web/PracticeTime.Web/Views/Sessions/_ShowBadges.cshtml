@@ -1,16 +1,20 @@
-﻿@model PracticeTime.Web.Models.SessionEntryViewModel
+﻿@using PracticeTime.Web.DataAccess.Models
+@model PracticeTime.Web.Models.SessionEntryViewModel
 
 <div class="row">
     <div class="panel-heading">
         <h3 class="panel-title">Earned Badges</h3>
     </div>
     <div class="panel-body">
-        <div class="col-md-3">
-            <h4>@Model.BadgeAward.C_Badge.Name</h4>
+        @foreach (BadgeAward award in new List<BadgeAward>())
+        {
+            <div class="col-md-3">
+                <h4>@award.C_Badge.Name</h4>
             
-        </div>
-        <div class="col-md-3">
-            <img src="~/Content/@Model.BadgeAward.C_Badge.ImageUrl" />
-        </div>
+            </div>
+            <div class="col-md-3">
+                <img src="~/Content/@award.C_Badge.ImageUrl" />
+            </div>
+        }
     </div>
 </div>
