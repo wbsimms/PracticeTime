@@ -7,4 +7,6 @@ This is a sample project I use for technology demos. Currently, it includes:
 
 - ASP.NET MVC5
 - Entity Framework 6
+- ASP.NET Identity
+- ASP.NET Roles
 
