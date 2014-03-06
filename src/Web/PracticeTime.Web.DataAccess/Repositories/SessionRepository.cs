@@ -136,22 +136,30 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
-                var allFromLastWeek = context.Sessions.AsNoTracking()
-                    .Include(x => x.User)
-                    .Where(x => x.SessionDateTimeUtc > lastWeek)
-                    .GroupBy(x => x.User.UserName)
-                    .Select(group => new UserData()
-                    {
-                        UserName = group.Key,
-                        TimeThisWeek = group.Sum(x => x.Time)
-                    }).OrderByDescending(x => x.TimeThisWeek).Take(10).ToList();
+                try
+                {
+                    DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
+                    var allFromLastWeek = context.Sessions.AsNoTracking()
+                        .Include(x => x.User)
+                        .Where(x => x.SessionDateTimeUtc > lastWeek)
+                        .GroupBy(x => x.User.UserName)
+                        .Select(group => new UserData()
+                        {
+                            UserName = group.Key,
+                            TimeThisWeek = group.Sum(x => x.Time)
+                        }).OrderByDescending(x => x.TimeThisWeek).Take(10).ToList();
 
-                int rank = 0;
-                allFromLastWeek.ForEach(x => x.RankThisWeek = ++rank);
-
-                return allFromLastWeek;
+                    int rank = 0;
+                    allFromLastWeek.ForEach(x => x.RankThisWeek = ++rank);
+                    return allFromLastWeek;
+                }
+                catch (Exception ex)
+                {
+                    string s = ex.ToString();
+                    s.Any();
+                }
             }
+            return null;
         }
     }
 
