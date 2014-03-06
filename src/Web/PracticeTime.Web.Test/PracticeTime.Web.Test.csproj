@@ -140,6 +140,7 @@
     <Compile Include="Models\SessionsViewModelTest.cs" />
     <Compile Include="Models\RegisterStudentViewModelTest.cs" />
     <Compile Include="Models\NameValueTest.cs" />
+    <Compile Include="Models\HomePageViewModelTest.cs" />
     <Compile Include="MvcApplicationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
