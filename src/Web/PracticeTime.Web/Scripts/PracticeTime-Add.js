@@ -18,7 +18,10 @@ $(document).ready(function () {
     }
 
     var datePickerFormat = 'mm/dd/yy';
-    $(".datepicker").datepicker({ dateFormat: datePickerFormat });
+    $(".datepicker").datepicker({
+        dateFormat: datePickerFormat,
+        maxDate: '+0D'
+    });
 
     var currentDate = $.datepicker.formatDate(datePickerFormat, new Date());
 

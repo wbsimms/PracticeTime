@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using PracticeTime.Web.DataAccess.Copiers;
 using PracticeTime.Web.DataAccess.Models;
 using System.Data.Entity;
@@ -17,6 +19,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
         List<Session> GetAllForUser(string userId);
         List<string> GetAllTitles();
         List<string> GetAllTitlesForUser(string userId);
+        List<UserData> GetTopUsersThisWeek();
     }
 
     public class SessionRepository : ISessionRepository
@@ -125,6 +128,37 @@ namespace PracticeTime.Web.DataAccess.Repositories
             }
         }
 
+        public List<UserData> GetTopUsersThisWeek()
+        {
+            
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                DateTime lastWeek = DateTime.UtcNow.AddDays(-7);
+                var allFromLastWeek = context.Sessions.AsNoTracking()
+                    .Include(x => x.User)
+                    .Where(x => x.SessionDateTimeUtc > lastWeek)
+                    .GroupBy(x => x.User.UserName)
+                    .Select(group => new UserData()
+                    {
+                        UserName = group.Key,
+                        TimeThisWeek = group.Sum(x => x.Time)
+                    }).OrderByDescending(x => x.TimeThisWeek).Take(10).ToList();
 
+                int rank = 0;
+                allFromLastWeek.ForEach(x => x.RankThisWeek = ++rank);
+
+                return allFromLastWeek;
+            }
+        }
+    }
+
+    public class UserData
+    {
+        public string UserName { get; set; }
+        public int TimeThisWeek { get; set; }
+        public int RankThisWeek { get; set; }
     }
 }

@@ -4,19 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using PracticeTime.Web;
 using PracticeTime.Web.Controllers;
+using PracticeTime.Web.DataAccess.Repositories;
 
 namespace PracticeTime.Web.Test.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
+        private Mock<ISessionRepository> mockSessionRepository;
+        [TestInitialize]
+        public void Setup()
+        {
+            mockSessionRepository = new Mock<ISessionRepository>();
+        }
+
         [TestMethod]
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(mockSessionRepository.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -29,7 +38,7 @@ namespace PracticeTime.Web.Test.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(mockSessionRepository.Object);
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +51,7 @@ namespace PracticeTime.Web.Test.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(mockSessionRepository.Object);
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

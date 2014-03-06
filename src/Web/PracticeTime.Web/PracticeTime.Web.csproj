@@ -186,6 +186,7 @@
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\ResponseMessage.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\HomePageViewModel.cs" />
     <Compile Include="Models\InstructorViewModel.cs" />
     <Compile Include="Models\RegisterStudentViewModel.cs" />
     <Compile Include="PracticeTimeWebResolver.cs" />
@@ -355,6 +356,7 @@
     <Content Include="Views\Instructor\RegisterStudents.cshtml" />
     <Content Include="Views\Shared\_GitHubForkMe.cshtml" />
     <Content Include="Views\Sessions\_ShowBadges.cshtml" />
+    <Content Include="Views\Home\_TopUsersThisWeek.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32;
 using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.DataAccess.Repositories;
 
@@ -146,6 +147,55 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
 
                 Assert.IsNotNull(titles);
                 Assert.IsTrue(titles.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void GetTopUsersThisWeekTest()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(new PracticeTimeContext());
+                ApplicationUser user = store.FindByNameAsync("student").Result;
+                ApplicationUser user2 = store.FindByNameAsync("student2").Result;
+
+                SessionRepository repo = new SessionRepository();
+                Session retval1 = repo.Add(new Session()
+                {
+                    C_InstrumentId = 1,
+                    SessionDateTimeUtc = DateTime.UtcNow,
+                    Time = 300,
+                    TimeZoneOffset = 300,
+                    Title = "blah",
+                    UserId = user.Id
+                });
+                Session retval2 = repo.Add(new Session()
+                {
+                    C_InstrumentId = 1,
+                    SessionDateTimeUtc = DateTime.UtcNow,
+                    Time = 100,
+                    TimeZoneOffset = 300,
+                    Title = "blah",
+                    UserId = user.Id
+                });
+                Session retval3 = repo.Add(new Session()
+                {
+                    C_InstrumentId = 1,
+                    SessionDateTimeUtc = DateTime.UtcNow,
+                    Time = 100,
+                    TimeZoneOffset = 300,
+                    Title = "blah",
+                    UserId = user2.Id
+                });
+
+                var retval = repo.GetTopUsersThisWeek();
+                Assert.AreEqual(2,retval.Count);
+                Assert.AreEqual(1,retval[0].RankThisWeek);
+                Assert.AreEqual(2, retval[1].RankThisWeek);
+                Assert.AreEqual(400, retval[0].TimeThisWeek);
+                Assert.AreEqual(100, retval[1].TimeThisWeek);
+                Assert.AreEqual("student",retval[0].UserName);
+
             }
         }
 

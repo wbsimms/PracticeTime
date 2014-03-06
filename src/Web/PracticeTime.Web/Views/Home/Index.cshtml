@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PracticeTime.Web.Models.HomePageViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -22,8 +23,9 @@
         <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>For parents</h2>
-        <p>You can easily track your students practice time and assignments.</p>
-        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+        @if (Model.TopUsersThisWeek != null && Model.TopUsersThisWeek.Count > 0)
+        {
+            @Html.Partial("_TopUsersThisWeek")
+        }
     </div>
 </div>

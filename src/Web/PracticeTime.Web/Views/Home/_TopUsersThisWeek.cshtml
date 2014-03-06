@@ -1,0 +1,25 @@
+﻿@using PracticeTime.Web.DataAccess.Repositories
+@model PracticeTime.Web.Models.HomePageViewModel
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Top musicians this week</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive table-striped">
+            <thead>
+                <th>Rank</th>
+                <th>UserName</th>
+                <th>Time</th>
+            </thead>
+            @foreach (UserData user in Model.TopUsersThisWeek.OrderBy(x => x.RankThisWeek))
+            {
+                <tr>
+                    <td>@user.RankThisWeek</td>
+                    <td>@user.UserName</td>
+                    <td>@user.TimeThisWeek</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
