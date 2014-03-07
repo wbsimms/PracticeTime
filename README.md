@@ -9,4 +9,4 @@ This is a sample project I use for technology demos. Currently, it includes:
 - Entity Framework 6
 - ASP.NET Identity
 - ASP.NET Roles
-
+- LINQ Examples
