@@ -15,4 +15,4 @@ This is a sample project I use for technology demos. Currently, it includes:
 - Added build server
 - Add rally publisher
 - Build server integration complete
-- Enable githubweb for browsing (minor testing on url creation)
+- Enable githubweb for browsing
