@@ -1,6 +1,8 @@
 PracticeTime
 ============
 
+[![Build Status](http://wbsimms-ci.cloudapp.net:8080/buildStatus/icon?job=PracticeTime)](http://wbsimms-ci.cloudapp.net:8080/job/PracticeTime/)
+
 Record your music practice time for yourself or your instructor.
 
 This is a sample project I use for technology demos. Currently, it includes:
