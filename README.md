@@ -12,6 +12,5 @@ This is a sample project I use for technology demos. Currently, it includes:
 - ASP.NET Identity
 - ASP.NET Roles
 - LINQ Examples
-
 - Added build server
 - Add rally publisher
