@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<Target Name="BuildCI">
-		<CallTarget Targets="BuildCommon" />
+		<CallTarget Targets="BuildCommon;CreateDatabase" />
 	</Target>
 
 	<Target Name="TestFast">
@@ -61,9 +61,16 @@
 		<Exec Command='git clean -fx -d' WorkingDirectory="..\" />
 	</Target>
 
+	<Target Name="DropDatabase">
+		<Message Text="====== Drop Database =====" />
+		<Exec Command='sqlcmd.exe -S (local) -E -Q "drop database [PracticeTime.Web]"' IgnoreExitCode="True" />
+	</Target>
+	
 	<Target Name="CreateDatabase">
 		<Message Text="================= Creating Database"></Message>
-		<Exec Command="createdatabase.exe -dbname=Greenway" WorkingDirectory=".\Database" />
+		<CallTarget Targets="DropDatabase" />
+		<Copy SourceFiles="..\packages\EntityFramework.6.0.2\tools\migrate.exe" DestinationFolder="..\src\Web\PracticeTime.Web.DataAccess\bin\" ></Copy>
+		<Exec WorkingDirectory="..\src\Web\PracticeTime.Web.DataAccess\bin\" Command='migrate PracticeTime.Web.DataAccess.dll /connectionString="Data Source=.;Initial Catalog=PracticeTime.Web;Integrated Security=True;MultipleActiveResultSets=True" /connectionProviderName="System.Data.SqlClient"' />
 	</Target>
 	
 	<Target Name="BuildMain">
