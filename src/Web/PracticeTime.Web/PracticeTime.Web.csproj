@@ -188,8 +188,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\MusiciansController.cs" />
     <Compile Include="Controllers\ResponseMessage.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\MusiciansViewModel.cs" />
     <Compile Include="Models\HomePageViewModel.cs" />
     <Compile Include="Models\InstructorViewModel.cs" />
     <Compile Include="Models\RegisterStudentViewModel.cs" />
@@ -361,9 +363,11 @@
     <Content Include="Views\Shared\_GitHubForkMe.cshtml" />
     <Content Include="Views\Sessions\_ShowBadges.cshtml" />
     <Content Include="Views\Home\_TopUsersThisWeek.cshtml" />
+    <Content Include="Views\Musicians.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Musicians\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
