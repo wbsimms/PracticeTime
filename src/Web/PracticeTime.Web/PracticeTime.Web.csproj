@@ -316,7 +316,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsapi.js" />
-    <Content Include="Scripts\modernizr-2.7.1.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\PracticeTime-Musicians.js" />
     <Content Include="Scripts\PracticeTime-Instructor.js" />
     <Content Include="Scripts\PracticeTime-Admin-Associate.js" />
     <Content Include="Scripts\PracticeTime-Add.js" />
@@ -363,11 +364,10 @@
     <Content Include="Views\Shared\_GitHubForkMe.cshtml" />
     <Content Include="Views\Sessions\_ShowBadges.cshtml" />
     <Content Include="Views\Home\_TopUsersThisWeek.cshtml" />
-    <Content Include="Views\Musicians.cshtml" />
+    <Content Include="Views\Musicians\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Musicians\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

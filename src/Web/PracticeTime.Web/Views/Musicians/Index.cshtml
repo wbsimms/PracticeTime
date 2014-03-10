@@ -1,0 +1,30 @@
+﻿@using PracticeTime.Web.DataAccess.Models
+@model PracticeTime.Web.Models.MusiciansViewModel
+
+@{
+    ViewBag.Title = "Find Musicians";
+}
+
+<h2>Find Musicians</h2>
+<div class="row">
+    <div class="table-responsive">
+        <table id="musicians-data-table" class="table table-hover table-bordered table-striped">
+            <thead>
+            <th>Name</th>
+            <th>Instructor?</th>
+            </thead>
+            @foreach (ApplicationUser user in Model.PublicUsers)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@string.IsNullOrEmpty(user.StudentToken)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery-datatables")
+    @Scripts.Render("~/Scripts/PracticeTime-Musicians.js")
+}

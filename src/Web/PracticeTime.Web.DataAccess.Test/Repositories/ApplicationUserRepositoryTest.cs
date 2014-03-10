@@ -48,6 +48,16 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             Assert.AreEqual(firstUser.Id,user.Id);
         }
 
+        [TestMethod]
+        public void GetAppPublicProfilesTest()
+        {
+            ApplicationUserRepository repo = new ApplicationUserRepository();
+            List<ApplicationUser> users = repo.GetAppPublicProfiles();
+            Assert.IsNotNull(users);
+            Assert.IsTrue(users.Any(x => x.Roles.Any(r => r.Role.Name == PracticeTimeRoles.Instructor.ToString())));
+            Assert.IsTrue(users.Any(x => x.Roles.Any(r => r.Role.Name == PracticeTimeRoles.Student.ToString())));
+        }
+
 
     }
 }

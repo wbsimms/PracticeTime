@@ -15,6 +15,7 @@ namespace PracticeTime.Web.DataAccess.Repositories
         List<ApplicationUser> GetAllStudents();
         List<ApplicationUser> GetAllInstructors();
         ApplicationUser GetUserByToken(string token);
+        List<ApplicationUser> GetAppPublicProfiles();
     }
 
     public class ApplicationUserRepository : IApplicationUserRepository
@@ -61,6 +62,23 @@ namespace PracticeTime.Web.DataAccess.Repositories
                 return context.Users.AsNoTracking()
                     .FirstOrDefault(x => x.StudentToken == token);
             }
+        }
+
+        public List<ApplicationUser> GetAppPublicProfiles()
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                string roleName = PracticeTimeRoles.Instructor.ToString();
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+                List<ApplicationUser> users = context.Users
+                    .Include(x => x.Roles).Include(x => x.Roles.Select(y => y.Role))
+                    .Where(x => x.Roles.Any(y => y.Role.Name == roleName) || x.StudentPublicProfile)
+                    .AsNoTracking().ToList();
+                return users;
+            }
+
         }
     }
 }
