@@ -10,16 +10,22 @@
     <div class="table-responsive">
         <table id="musicians-data-table" class="table table-hover table-bordered table-striped">
             <thead>
-            <th>Name</th>
-            <th>Instructor?</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Instructor?</th>
             </thead>
-            @foreach (ApplicationUser user in Model.PublicUsers)
-            {
-                <tr>
-                    <td>@user.UserName</td>
-                    <td>@string.IsNullOrEmpty(user.StudentToken)</td>
-                </tr>
-            }
+            <tbody>
+                @foreach (ApplicationUser user in Model.PublicUsers)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.City</td>
+                        <td>@user.State</td>
+                        <td>@string.IsNullOrEmpty(user.StudentToken)</td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 </div>
