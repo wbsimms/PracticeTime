@@ -94,7 +94,9 @@ namespace PracticeTime.Web.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     EmailAddress = model.EmailAddress,
-                    StudentPublicProfile = model.StudentPublicProfile
+                    StudentPublicProfile = model.StudentPublicProfile,
+                    City = model.City,
+                    State = model.State
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
@@ -304,7 +306,9 @@ namespace PracticeTime.Web.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     EmailAddress = model.EmailAddress,
-                    StudentPublicProfile = model.StudentPublicProfile
+                    StudentPublicProfile = model.StudentPublicProfile,
+                    City = model.City,
+                    State = model.State
                 };
                 var result = await UserManager.CreateAsync(user);
                 PracticeTimeRoles practiceTimeRole = UserHelper.GetRoleFromId(model.SelectedAccountType);

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PracticeTime.Web.DataAccess.Models;
 using PracticeTime.Web.Models;
 
 namespace PracticeTime.Web.Test.Models
@@ -20,7 +22,12 @@ namespace PracticeTime.Web.Test.Models
                 SelectedAccountType = "",
                 UserName = "blah",
                 StudentToken = "blah",
-                FirstName = "blah",LastName = "blah",EmailAddress = "blah", StudentPublicProfile = true
+                FirstName = "blah",
+                LastName = "blah",
+                EmailAddress = "blah", 
+                StudentPublicProfile = true,
+                City = "Plymouth",
+                State = States.MA
             };
             Assert.IsNotNull(model.UserName);
             Assert.IsNotNull(model.AccountTypes);
@@ -30,6 +37,9 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.LastName);
             Assert.IsNotNull(model.EmailAddress);
             Assert.IsTrue(model.StudentPublicProfile);
+            Assert.IsNotNull(model.City);
+            Assert.AreEqual("MA",model.State.ToString());
+            Assert.IsTrue(model.StateTypes.Any());
         }
 
         [TestMethod]
@@ -66,8 +76,9 @@ namespace PracticeTime.Web.Test.Models
                 FirstName = "blah",
                 LastName = "blah",
                 EmailAddress = "blah",
-                StudentPublicProfile = true
-
+                StudentPublicProfile = true,
+                City = "Plymouth",
+                State = States.MA
             };
             Assert.IsNotNull(model.ConfirmPassword);
             Assert.IsNotNull(model.Password);
@@ -79,6 +90,9 @@ namespace PracticeTime.Web.Test.Models
             Assert.IsNotNull(model.LastName);
             Assert.IsNotNull(model.EmailAddress);
             Assert.IsTrue(model.StudentPublicProfile);
+            Assert.IsNotNull(model.City);
+            Assert.AreEqual("MA", model.State.ToString());
+            Assert.IsTrue(model.StateTypes.Any());
         }
     }
 }

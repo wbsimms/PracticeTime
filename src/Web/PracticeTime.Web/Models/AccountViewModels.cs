@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using PracticeTime.Web.DataAccess;
+using PracticeTime.Web.DataAccess.Models;
 
 namespace PracticeTime.Web.Models
 {
@@ -41,6 +43,25 @@ namespace PracticeTime.Web.Models
 
         [DisplayName("Public Profile?")]
         public bool StudentPublicProfile { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        public SelectList StateTypes
+        {
+            get
+            {
+                List<NameValue> nv = new List<NameValue>();
+                foreach (string stateName in Enum.GetNames(typeof(States)))
+                {
+                    nv.Add(new NameValue() { Name = stateName, Value = stateName });
+                }
+                return new SelectList(nv, "Value", "Name");
+            }
+        }
+
+        [Required]
+        public States State { get; set; }
     }
 
     public class ManageUserViewModel
@@ -128,6 +149,25 @@ namespace PracticeTime.Web.Models
 
         [DisplayName("Public Profile?")]
         public bool StudentPublicProfile { get; set; }
+        public SelectList StateTypes
+        {
+            get
+            {
+                List<NameValue> nv = new List<NameValue>();
+                foreach (string stateName in Enum.GetNames(typeof(States)))
+                {
+                    nv.Add(new NameValue() { Name = stateName, Value = stateName });
+                }
+                return new SelectList(nv, "Value", "Name");
+            }
+        }
+
+        [Required]
+        public States State { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
     }
 
     public class NameValue

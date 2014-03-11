@@ -68,17 +68,41 @@ namespace PracticeTime.Web.DataAccess.Migrations
 
 
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
-            if (!userManager.CreateAsync(new ApplicationUser() { UserName = "student", LastName = "dent1", FirstName = "stu1", StudentToken = UserHelper.RandomString(10), StudentPublicProfile = true }, "student").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser() { 
+                UserName = "student", 
+                LastName = "dent1", 
+                FirstName = "stu1", 
+                StudentToken = UserHelper.RandomString(10), 
+                StudentPublicProfile = true,
+                State = States.MA,
+                City = "Plymouth"
+            }, "student").Result.Succeeded)
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student").Result.Id, PracticeTimeRoles.Student.ToString()).Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
 
-            if (!userManager.CreateAsync(new ApplicationUser() { UserName = "teacher" }, "teacher").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser()
+            {
+                UserName = "teacher", 
+                FirstName = "tea",
+                LastName = "cher",
+                State = States.MA,
+                City = "Plymouth"
+            }, "teacher").Result.Succeeded)
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("teacher").Result.Id, PracticeTimeRoles.Instructor.ToString()).Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
 
-            if (!userManager.CreateAsync(new ApplicationUser() { UserName = "student2", LastName = "dent2", FirstName = "stu2", StudentToken = UserHelper.RandomString(10), StudentPublicProfile = true}, "student2").Result.Succeeded)
+            if (!userManager.CreateAsync(new ApplicationUser()
+            {
+                UserName = "student2", 
+                LastName = "dent2", 
+                FirstName = "stu2", 
+                StudentToken = UserHelper.RandomString(10), 
+                StudentPublicProfile = true,
+                State = States.NH,
+                City = "North Conway"
+            }, "student2").Result.Succeeded)
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student2").Result.Id, PracticeTimeRoles.Student.ToString()).Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
