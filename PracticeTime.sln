@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{71D088E1-6A37-4D4F-8954-11FD67980993}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,6 +27,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Lib", "src\Web\Logging\Logging.Lib\Logging.Lib.csproj", "{3DBD6181-84D8-4FE2-93D4-F87340B8E4D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Lib.Test", "src\Web\Logging\Logging.Lib.Test\Logging.Lib.Test.csproj", "{EA6C764B-2A85-416A-8334-225FCA04B77C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{4B200164-F8B2-4C35-A290-BCCBF8801637}"
+	ProjectSection(SolutionItems) = preProject
+		Build\PracticeTime.xml = Build\PracticeTime.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -220,8 +225,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5F175F0A-BE60-4DC3-9382-F1D070F4D77A} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}
 		{45E19BB2-686A-44FF-9F7E-AD7170DCD521} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}
+		{5F175F0A-BE60-4DC3-9382-F1D070F4D77A} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}
 		{AB1F6758-3A65-4215-AFC3-2EE22EA98831} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}
 		{18313ECA-5A98-4A3A-BE4E-4DB3E8F87BE2} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}
 		{870B1B06-EA94-4C33-8C3C-423E48756006} = {235D6D66-5DAC-48F5-A5FD-42EABCECA565}

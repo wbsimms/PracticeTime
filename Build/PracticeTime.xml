@@ -69,7 +69,7 @@
 	<Target Name="CreateDatabase">
 		<Message Text="================= Creating Database"></Message>
 		<CallTarget Targets="DropDatabase" />
-		<Copy SourceFiles="..\packages\EntityFramework.6.0.2\tools\migrate.exe" DestinationFolder="..\src\Web\PracticeTime.Web.DataAccess\bin\" ></Copy>
+		<Copy SourceFiles="..\packages\EntityFramework.6.1.1\tools\migrate.exe" DestinationFolder="..\src\Web\PracticeTime.Web.DataAccess\bin\" ></Copy>
 		<Exec WorkingDirectory="..\src\Web\PracticeTime.Web.DataAccess\bin\" Command='migrate PracticeTime.Web.DataAccess.dll /startUpConfigurationFile=PracticeTime.Web.DataAccess.dll.config' />
 	</Target>
 	

@@ -25,7 +25,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             ApplicationUserRepository repo = new ApplicationUserRepository();
             List<ApplicationUser> users = repo.GetAllStudents();
             Assert.IsNotNull(users);
-            Assert.IsTrue(users.All(x => x.Roles.Any(r => r.Role.Name == "Student")));
+            Assert.IsTrue(users.Count == 2);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             ApplicationUserRepository repo = new ApplicationUserRepository();
             List<ApplicationUser> users = repo.GetAllInstructors();
             Assert.IsNotNull(users);
-            Assert.IsTrue(users.All(x => x.Roles.Any(r => r.Role.Name == "Instructor")));
+            Assert.IsTrue(users.Count == 1);
         }
 
         [TestMethod]
@@ -54,10 +54,7 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
             ApplicationUserRepository repo = new ApplicationUserRepository();
             List<ApplicationUser> users = repo.GetAppPublicProfiles();
             Assert.IsNotNull(users);
-            Assert.IsTrue(users.Any(x => x.Roles.Any(r => r.Role.Name == PracticeTimeRoles.Instructor.ToString())));
-            Assert.IsTrue(users.Any(x => x.Roles.Any(r => r.Role.Name == PracticeTimeRoles.Student.ToString())));
+            Assert.IsTrue(users.Count == 3);
         }
-
-
     }
 }

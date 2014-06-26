@@ -75,22 +75,14 @@ namespace PracticeTime.Web.DataAccess.Models
 
     public class ApplicationRole : IdentityRole
     {
-        protected bool active = true;
-
-        public ApplicationRole()
+        public ApplicationRole() : base()
         {
-            // don't use this.
         }
 
-        public ApplicationRole(string roleName) : base(roleName)
+        public ApplicationRole(string name)
+            : base(name)
         {
-
         }
-
-        public bool Active
-        {
-            get { return this.active; }
-            set { this.active = value; }
-        }
+        public bool Active { get; set; }
     }
 }

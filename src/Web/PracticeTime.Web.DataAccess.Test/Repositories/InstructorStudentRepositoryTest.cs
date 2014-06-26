@@ -39,25 +39,23 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
         [TestMethod]
         public void AddTest()
         {
-            using (TransactionScope scope = new TransactionScope())
-            {
-                UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent"}, "blahstudent").Result.Succeeded);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
-                string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
-                string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
-                InstructorStudentRepository repo = new InstructorStudentRepository();
-                InstructorStudent retval =
-                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
-                Assert.IsNotNull(retval);
-                Assert.IsTrue(retval.InstructorStudentId > 0);
-                InstructorStudent retval2 =
-                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
-                Assert.IsNull(retval2);
+            UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
+            Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent"}, "blahstudent").Result.Succeeded);
+            Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+            string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
+            string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
+            InstructorStudentRepository repo = new InstructorStudentRepository();
+            InstructorStudent retval = repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
+            Assert.IsNotNull(retval);
+            Assert.IsTrue(retval.InstructorStudentId > 0);
+            InstructorStudent retval2 = repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
+            Assert.IsNull(retval2);
 
-                InstructorStudent instructorStudent = repo.GetByStudentIdInstructorId(blahstudentId, blahteacherId);
-                Assert.IsNotNull(instructorStudent);
-            }
+            InstructorStudent instructorStudent = repo.GetByStudentIdInstructorId(blahstudentId, blahteacherId);
+            Assert.IsNotNull(instructorStudent);
+            repo.Delete(retval);
+            Assert.IsTrue(manager.DeleteAsync(manager.FindByName("blahstudent")).Result.Succeeded);
+            Assert.IsTrue(manager.DeleteAsync(manager.FindByName("blahteacher")).Result.Succeeded);
         }
 
         [TestMethod]
@@ -92,21 +90,20 @@ namespace PracticeTime.Web.DataAccess.Test.Repositories
         [TestMethod]
         public void DeleteWithoutPrimaryIdTest()
         {
-            using (TransactionScope scope = new TransactionScope())
-            {
-                UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(store);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent" }, "blahstudent").Result.Succeeded);
-                Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
-                string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
-                string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
-                InstructorStudentRepository repo = new InstructorStudentRepository();
-                InstructorStudent retval =
-                    repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
+            UserManager<ApplicationUser> manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
+            Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahstudent" }, "blahstudent").Result.Succeeded);
+            Assert.IsTrue(manager.CreateAsync(new ApplicationUser() {UserName = "blahteacher" }, "blahteacher").Result.Succeeded);
+            string blahstudentId = manager.FindByNameAsync("blahstudent").Result.Id;
+            string blahteacherId = manager.FindByNameAsync("blahteacher").Result.Id;
+            InstructorStudentRepository repo = new InstructorStudentRepository();
+            InstructorStudent retval =
+                repo.Add(new InstructorStudent() { InstructorId = blahteacherId, StudentId = blahstudentId });
 
-                int count = repo.GetAll().Count;
-                repo.Delete(new InstructorStudent(){StudentId = blahstudentId,InstructorId = blahteacherId});
-                Assert.AreEqual(count - 1, repo.GetAll().Count);
-            }
+            int count = repo.GetAll().Count;
+            repo.Delete(new InstructorStudent(){StudentId = blahstudentId,InstructorId = blahteacherId});
+            Assert.AreEqual(count - 1, repo.GetAll().Count);
+            Assert.IsTrue(manager.DeleteAsync(manager.FindByName("blahstudent")).Result.Succeeded);
+            Assert.IsTrue(manager.DeleteAsync(manager.FindByName("blahteacher")).Result.Succeeded);
         }
 
     }

@@ -16,40 +16,50 @@ namespace PracticeTime.Web.DataAccess.Repositories
         List<ApplicationUser> GetAllInstructors();
         ApplicationUser GetUserByToken(string token);
         List<ApplicationUser> GetAppPublicProfiles();
+        List<ApplicationUser> GetAll();
     }
 
     public class ApplicationUserRepository : IApplicationUserRepository
     {
         public List<ApplicationUser> GetAllStudents()
         {
+            return GetByRole(PracticeTimeRoles.Student);
+        }
+
+        public List<ApplicationUser> GetAll()
+        {
             using (PracticeTimeContext context = new PracticeTimeContext())
             {
-                string roleName = PracticeTimeRoles.Student.ToString();
+                RoleManager<ApplicationRole> roleManager = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>(context));
+
                 context.Configuration.AutoDetectChangesEnabled = false;
                 context.Configuration.LazyLoadingEnabled = false;
                 context.Configuration.ProxyCreationEnabled = false;
-                List<ApplicationUser> users = context.Users
-                    .Include(x => x.Roles).Include(x => x.Roles.Select(y => y.Role))
-                    .Where(x => x.Roles.Any(y => y.Role.Name == roleName))
-                    .AsNoTracking().ToList();
+                List<ApplicationUser> users = context.Users.ToList();
+                return users;
+            }
+        }
+
+
+        private List<ApplicationUser> GetByRole(PracticeTimeRoles role)
+        {
+            using (PracticeTimeContext context = new PracticeTimeContext())
+            {
+                RoleManager<ApplicationRole> roleManager = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>(context));
+             
+                var users1 = roleManager.FindByName(role.ToString()).Users.Select(x => x.UserId);
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
+
+                List<ApplicationUser> users = context.Users.Where(x => users1.Contains(x.Id)).ToList();
                 return users;
             }
         }
 
         public List<ApplicationUser> GetAllInstructors()
         {
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                string roleName = PracticeTimeRoles.Instructor.ToString();
-                context.Configuration.AutoDetectChangesEnabled = false;
-                context.Configuration.LazyLoadingEnabled = false;
-                context.Configuration.ProxyCreationEnabled = false;
-                List<ApplicationUser> users = context.Users
-                    .Include(x => x.Roles).Include(x => x.Roles.Select(y => y.Role))
-                    .Where(x => x.Roles.Any(y => y.Role.Name == roleName))
-                    .AsNoTracking().ToList();
-                return users;
-            }
+            return GetByRole(PracticeTimeRoles.Instructor);
         }
 
         public ApplicationUser GetUserByToken(string token)
@@ -66,19 +76,10 @@ namespace PracticeTime.Web.DataAccess.Repositories
 
         public List<ApplicationUser> GetAppPublicProfiles()
         {
-            using (PracticeTimeContext context = new PracticeTimeContext())
-            {
-                string roleName = PracticeTimeRoles.Instructor.ToString();
-                context.Configuration.AutoDetectChangesEnabled = false;
-                context.Configuration.LazyLoadingEnabled = false;
-                context.Configuration.ProxyCreationEnabled = false;
-                List<ApplicationUser> users = context.Users
-                    .Include(x => x.Roles).Include(x => x.Roles.Select(y => y.Role))
-                    .Where(x => x.Roles.Any(y => y.Role.Name == roleName) || x.StudentPublicProfile)
-                    .AsNoTracking().ToList();
-                return users;
-            }
-
+            var instructors = GetByRole(PracticeTimeRoles.Instructor);
+            var students = GetByRole(PracticeTimeRoles.Student).Where(x => x.StudentPublicProfile).ToList();
+            instructors.AddRange(students);
+            return instructors;
         }
     }
 }

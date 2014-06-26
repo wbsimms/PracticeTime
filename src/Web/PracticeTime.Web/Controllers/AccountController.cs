@@ -31,11 +31,11 @@ namespace PracticeTime.Web.Controllers
         public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
-            RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new PracticeTimeContext()));
+            RoleManager = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>(new PracticeTimeContext()));
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-        public RoleManager<IdentityRole> RoleManager { get; private set; }
+        public RoleManager<ApplicationRole> RoleManager { get; private set; }
 
         //
         // GET: /Account/Login

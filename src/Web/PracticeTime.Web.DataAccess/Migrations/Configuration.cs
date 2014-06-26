@@ -66,7 +66,6 @@ namespace PracticeTime.Web.DataAccess.Migrations
             if (!roleManager.CreateAsync(new ApplicationRole(PracticeTimeRoles.Instructor.ToString())).Result.Succeeded)
                 throw new ApplicationException("Unable to create role");
 
-
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new PracticeTimeContext()));
             if (!userManager.CreateAsync(new ApplicationUser() { 
                 UserName = "student", 
@@ -80,6 +79,7 @@ namespace PracticeTime.Web.DataAccess.Migrations
                 throw new Exception("Unable to Add user");
             if (!userManager.AddToRoleAsync(userManager.FindByNameAsync("student").Result.Id, PracticeTimeRoles.Student.ToString()).Result.Succeeded)
                 throw new ApplicationException("Unable to add role");
+            
 
             if (!userManager.CreateAsync(new ApplicationUser()
             {
