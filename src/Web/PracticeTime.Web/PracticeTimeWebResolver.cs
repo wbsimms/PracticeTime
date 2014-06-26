@@ -23,7 +23,7 @@ namespace PracticeTime.Web
             Register(container);
         }
 
-        public void Register(UnityContainer container)
+        public void Register(IUnityContainer container)
         {
             PracticeTimeLibResolver.Instance.Register(container);
             PracticeTimeDataAccessResolver.Instance.Register(container);

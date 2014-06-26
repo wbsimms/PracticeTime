@@ -24,7 +24,7 @@ namespace PracticeTime.Web.DataAccess
             Register(container);
         }
 
-        public void Register(UnityContainer container)
+        public void Register(IUnityContainer container)
         {
             container.RegisterType<ISessionRepository, SessionRepository>();
             container.RegisterType<IBadgeAwardRepository, BadgeAwardRepository>();

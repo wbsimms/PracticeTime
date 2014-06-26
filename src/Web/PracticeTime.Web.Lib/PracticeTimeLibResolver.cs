@@ -26,7 +26,7 @@ namespace PracticeTime.Web.Lib
         }
 
 
-        public void Register(UnityContainer container)
+        public void Register(IUnityContainer container)
         {
             PracticeTimeDataAccessResolver.Instance.Register(container);
             container.RegisterType<IFirstSessionRule, FirstSessionRule>();

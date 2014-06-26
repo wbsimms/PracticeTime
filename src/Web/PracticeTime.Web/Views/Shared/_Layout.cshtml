@@ -6,8 +6,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - PracticeTime</title>
-    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+
     <meta name="description" content="PracticeTime music instrument practice time tracking for instructors and students" />
 </head>
 <body>
@@ -82,13 +86,11 @@
     
     @Html.Partial("_GitHubForkMe")
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/bootstrap")
-    
+
     @RenderSection("scripts", required: false)
   
     @RenderSection("PageSpecificJavascript", false)
+
 
 </body>
 </html>
