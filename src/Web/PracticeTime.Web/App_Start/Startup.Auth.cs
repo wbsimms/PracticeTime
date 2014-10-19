@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 
 namespace PracticeTime.Web
@@ -34,7 +35,7 @@ namespace PracticeTime.Web
                appId: "227198527467491",
                appSecret: "3265c528e316ae4f405ecee44e3bae6d");
 
-            app.UseGoogleAuthentication();
+//            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions());
         }
     }
 }
