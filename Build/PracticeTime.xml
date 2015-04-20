@@ -84,3 +84,7 @@
 	</Target>
 	</Project>
 
+<!-- 
+Rebuild Production Database
+Update-Database -ProjectName "PracticeTime.Web.DataAccess" -Force -ConnectionString "Server=tcp:gqat59umf6.database.windows.net,1433;Database=PracticeTime.Web;User ID=wbsimms;Password=Comp533!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" -ConnectionProviderName "System.Data.SqlClient" -Verbose
+-->
