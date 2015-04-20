@@ -75,6 +75,7 @@
 	
 	<Target Name="BuildMain">
 		<Message Text="================= Building $(MainSln)"></Message>
+    <Exec Command="..\.nuget\NuGet.exe restore $(MainSln) " />
 		<CallTarget Targets="RemoveTestResults" />
 		<PropertyGroup>
 			<OutDir>$(SolutionRoot)\Bin\</OutDir>
